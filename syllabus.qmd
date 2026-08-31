@@ -1,5 +1,5 @@
 ---
-title: "MATH 122. Mathematical Analysis"
+title: "MATH 122. Calculus and Analytic Geometry II"
 format: 
   html:
     toc: true
@@ -14,44 +14,31 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 Office: F2409 Unistructure
 
-[Zoom's Link](https://bryant.zoom.us/j/4419675207)
+WF: 12pm-2pm
 
-[Office Hours](office_hours.html) 
+[Zoom's Link](https://bryant.zoom.us/j/4419675207)
 
 ## Course Description
 
-This course both satisfies the Quantitative Reasoning Requirement in the General Education Curriculum and serves as a foundational course for other mathematics courses.
+This course is a continuation of MATH 121, designed for Actuarial Mathematics, Applied Math and Statistics, Applied Economics, Biology and Environmental Science majors, and those concentrating in Applied Statistics. It is recommended for the math minors also. Topics include L'Hopital's Rule, the calculus involving inverse trigonometric functions, integration methods, modeling with differential equations, geometric series, MacLaurin and Taylor Polynomials and Series, introduction to partial derivatives and multiple integrals.
 
-A.  Connection to General Education:
-
--   Skills
-
-    -   Ethical Engagement: Critical Thinking, Creative Thinking, Problem-Solving
-    -   Engagement with Information: Data Analysis
-
--   UN Sustainable Development Goals (SDGs) focused upon:
-
-    -   #3 Good Health and Well-Being
-    -   #4 Quality Education
-    -   #8 Decent Work and Economic Growth
-
-B. Mathematical Focus
-
-MATH 110 is an applied mathematics course that presents a mathematical way of thinking and provides students with experiential opportunities to explore how to quantitatively analyze complex problems. Four general areas are covered: a review of mathematical functions and their applications; the mathematics of finance; creation, use, and interpretation of models involving real-world data; and linear programming and optimization. Applications are relevant for sustainability issues, business and management, economics and finance, and the social and natural sciences.
+These courses will provide part of the material necessary to prepare for the first professional actuarial exam (Exam P - Probability). 
 
 ## Textbook and Learning Materials
 
--   There is no required textbook for this course. All necessary learning materials and lecture notes will be provided directly on Canvas.
+Calculus: Late Transcendental, by Howard Anton, Irl C. Bivens, Stephen Davis. 
 
 ## Course Objectives
 
-After successfully completing this course, each student will
+The primary goals of this course are to provide the student with the capabilities to understand problems in differential and integral calculus and apply the appropriate methods to solve them. After taking this course, the student should be able to do such things as:
 
--   define basic mathematics functions including polynomial, logarithmic and exponential functions
--   model real-world dataset using appropriate mathematics functions
--   explain the applications of exponential functions in finance use these functions in solving problems in finance
--   implement linear programming technique in solving optimization problems
--   compute the derivatives of basic mathematics functions and apply the derivatives to solve optimization problems
+  - find lengths of plane curves
+	- use L’Hopital’s rule 
+	- use different methods of integration (by parts, trigonometric substitution, etc.)
+	- understand elementary first-order separable differential equations
+	- understand sequences
+	- determine whether series diverge or converge
+  - determine sums of infinite series
 
 ## Grades Distribution
 
@@ -76,11 +63,11 @@ ggplot(df, aes(x = "", y = Percentage, fill = Grades)) +
   theme_void()
 ```
 
--   *Exams*: The course includes five exams: four midterms and a final. During midterm weeks, the 2.5-hour session will be split: the first half will be dedicated to a review, followed by the exam in the second half
+* **Exams:** The course consists of four exams: three midterms and a final. A dedicated review session will be held prior to each exam.
 
--   *Assignments*: In-class assignments are tentatively scheduled to be completed during our sessions, providing an opportunity for real-time guidance and Q&A. These may be supplemented by occasional take-home assignments to reinforce independent learning.
+* **Homework Assignments:** Assignments are due every Monday and must be submitted on Canvas by uploading clear photos of your work. Consistent practice through these assignments is the most effective way to master the material and prepare for exams.
 
--   *Attendance*: Regular attendance is essential for success in this course, as it ensures you keep up with the material and receive credit for in-class assignments. Attendance will be recorded at every session. Students with no more than one absence will receive the full 5% attendance credit. If you have a university-excused absence, please notify me in advance so it does not impact your attendance grade.
+* **Attendance:** Regular attendance is essential for success in this course and will be recorded at every class session. Students with no more than two absences will receive full attendance credit (5% of the final grade). If you have a university-excused absence, notify me in advance to ensure it does not impact your grade.
 
 ## Grades Scale
 
@@ -117,31 +104,59 @@ p
 
 ## Tentative Topics
 
--   Linear Functions and Applications
+| Unit / Chapter | Section | Topic |
+| :--- | :--- | :--- |
+| **I. Applications of the Definite Integral**<br>*(Chapter 5)* | 5.4 | Length of a Plane Curve |
+| **II. Exponential, Logarithmic, Inverse Trigonometric Functions**<br>*(Chapter 6)* | 6.5 | L’Hopital’s Rule; Indeterminate Forms |
+| | 6.7 | Inverse Trigonometric Functions |
+| **III. Principles of Integral Evaluation**<br>*(Chapter 7)* | 7.1 | An Overview of Integration Methods |
+| | 7.2 | Integration by Parts |
+| | 7.3 | Integrating Trigonometric Functions |
+| | 7.4 | Trigonometric Substitutions |
+| | 7.5 | Rational Functions – Partial Fractions |
+| | 7.8 | Improper Integrals |
+| **IV. Mathematical Modeling with Differential Equations**<br>*(Chapter 8 — depending on time)* | 8.1 | Modeling With Differential Equations |
+| | 8.2 | Separation of Variables |
+| **V. Infinite Series**<br>*(Chapter 9)* | 9.1 | Sequences |
+| | 9.2 | Monotone Sequences |
+| | 9.3 | Infinite Series |
+| | 9.4 | Convergence Tests |
+| | 9.5 | The Comparison, Ratio, and Root Tests |
+| | 9.6 | Alternating Series; Abs. and Cond. Convergence |
+| | 9.7 | Maclaurin and Taylor Polynomial |
+| | 9.8 | Maclaurin and Taylor Series; Power Series |
+| | 9.9 | Convergence of Taylor Series |
+| | 9.10 | Differentiating and Integrating Power Series |
 
--   Quadratic Functions and Applications
+> **Prerequisite Note:** Derivatives and Integrals of Exponential and Logarithmic Functions (Sections 6.2 and 6.3) are covered in detail in M121.
 
--   Exponential Function and Applications
-
--   Derivatives and Applications
-
--   Linear Programming and Applications
-
-## Sustainable Development Goals
-
-We will occasionally discuss and work with data related to the [United Nation Sustainable Development Goals](https://sdgs.un.org/goals). These goals are called by the UN for action in a global partnership to provide peace and prosperity for people and the planet, now and into the future. Specifically, we will focus one of the following three SDGs:
-
--   [SDG 3](https://www.globalgoals.org/goals/3-good-health-and-well-being/): Good Health & wellbeing\
--   [SDG 4](https://www.globalgoals.org/goals/4-quality-education/): Quality Education\
--   [SDG 8](https://www.globalgoals.org/goals/8-decent-work-and-economic-growth/): Decent Work and Economic Growth
-
-## Artificial Intelligence (AI) Learning Assistant
-
-This course is part of a Bryant University pilot funded by the Davis Educational Foundation to explore AI tutoring tools that support student learning. You’ll have access to a personalized AI learning assistant that can answer questions, explain concepts, and provide practice problems. The AI assistant is designed to help you learn – not to complete graded work – so please use it responsibly and follow academic integrity guidelines. Your feedback will help us improve this resource for future students. More detailed instructions on how to access and use the personalized AI learning assistant will be forthcoming.
 
 ## Academic Misconduct
 
-Cheating will result in an F as your final grade and may result in your expulsion from the University. All cheating will be reported to the Chair of the Mathematics Department and Academic Advising.
+A student’s education is the result of individual initiative and industry. A student indisposed to such an academic commitment will not gain an education at Bryant University. Each Bryant student, accordingly, understands that to submit work that is not his or her own is not only a transgression of University policy but a violation of personal integrity. A high standard of conduct in academic experiences is expected of each student.
+
+The academic community, therefore, does not tolerate any form of “cheating” – the dishonest use of assistance in the preparation of outside or in-class assignments. Such violations, which include forms of plagiarism, are subject to disciplinary action.
+
+To preserve its commitment to the high standards of intellectual and professional behavior, Bryant University rewards intellectual excellence and expects intellectual honesty.
+
+Academic dishonesty includes but is not limited to:
+
+- plagiarism in any form;
+- using an illegal cheat sheet during a quiz or examination;
+- copying from another student's examination, term paper, or lab report;
+- intentionally missing (or delaying taking) an exam to gain an unfair advantage;
+- submitting the same paper or report in more than one course without permission of the instructors;
+- falsification or invention of data;
+- unauthorized access to or the use of the computerized work of others;
+- obtaining questions for an examination from another student who had already taken it;
+- obtaining answers for an examination from another student who had already taken it;
+- misappropriation of examination materials or information;
+- changing a response after a paper, examination, or quiz is graded, then reporting a misgrade and asking for credit for the altered response;
+- taking an examination for another student;
+- giving illicit aid on exams, papers, or projects.
+
+
+Lack of knowledge of the above is unacceptable as an excuse for dishonest efforts. Any form of cheating could result in failure of a test, failure of the course, or some other disciplinary action.
 
 ## Regarding Diversity
 

@@ -1,5 +1,5 @@
 ---
-title: "MATH 110D. Mathematical Analysis"
+title: "MATH 122: Calculus and Analytic Geometry II"
 format: 
   html:
     toc: true
@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
 [Office Hours Update](office_hours.html)
+
+[Syllabus](syllabus.html)
 
 | Week | Date | Section/Topic | Lecture | Assignments |
 |:---:|:---|:---|:---|:---|
