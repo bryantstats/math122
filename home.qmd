@@ -12,8 +12,9 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 [Syllabus](syllabus.html)
 
-| Week | Date | Section/Topic | Lecture | Assignments |
+| Week | Date | Section/Topic                 | Lecture                           | Assignments |
 |:-------------:|:--------------|:--------------|:--------------|:--------------|
-| 1 | 8/31 | 5.4. Length of a Plance Curve | [Note](notes/note1_annotated.pdf) |  |
-| 1 | 9/3 | 5.4. Length of a Plance Curve | [Note](notes/note2_annotated.pdf) |  |
+|  1   | 8/31 | 5.4. Length of a Plance Curve | [Note](notes/note1_annotated.pdf) |             |
+|  1   | 9/3  | 5.4. Length of a Plance Curve | [Note](notes/note2_annotated.pdf) |             |
+
 : {.striped .hover}
