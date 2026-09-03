@@ -1,0 +1,18 @@
+---
+title: "MATH 122: Calculus and Analytic Geometry II"
+format: 
+  html:
+    toc: true
+editor: visual
+---
+
+
+
+[Syllabus](syllabus.html)
+
+| Week | Date | Section/Topic                 | Lecture                           | Assignments |
+|:-------------:|:--------------|:--------------|:--------------|:--------------|
+|  1   | 8/31 | 5.4. Length of a Plance Curve | [Note](notes/note1_annotated.pdf) |             |
+|  1   | 9/3  | 5.4. Length of a Plance Curve | [Note](notes/note2_annotated.pdf) |             |
+
+: {.striped .hover}
