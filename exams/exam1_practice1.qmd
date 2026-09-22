@@ -34,10 +34,13 @@ format:
 
 **Instructions:**
 
-* Show all your work clearly. Full credit will only be given for complete and correct solutions with proper mathematical notation.
+- Show all work: Full credit requires complete, correct steps and proper math notation.
 
-* Each question is worth 10 points.
+- Points: Each question is worth 10 points.
 
+- Formula Sheet: Permitted (formulas only; no worked examples).
+
+- Calculators: Basic, non-graphing calculators allowed.
 
 \vspace{0.5cm}
 \hrule
