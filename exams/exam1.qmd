@@ -1,0 +1,116 @@
+---
+title: "Math 122: Exam 1 - Practice 1"
+# subtitle: "Semester Fall 2026"
+# date: "December 15, 2026"
+# author: "Department of Mathematics"
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - top=1in
+      - bottom=1in
+      - left=1in
+      - right=1in
+    header-includes: |
+      \usepackage{amsmath,amssymb,amsthm}
+      \usepackage{enumitem}
+      \usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhf{}
+      \lhead{\textbf{Math 101: Final Exam}}
+      \rhead{\textbf{Fall 2026}}
+      \cfoot{\thepage}
+  html:
+    toc: false
+    theme: cosmo
+---
+
+\noindent
+**Student Name:** \underline{\hspace{8cm}} 
+
+\vspace{0.5cm}
+
+\noindent
+
+**Instructions:**
+
+* Show all your work clearly. Full credit will only be given for complete and correct solutions with proper mathematical notation.
+
+* Each question is worth 10 points.
+
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.8cm}
+
+
+### Problem 1 
+Find the exact arc length of the curve 
+$$ y = 3x^{3/2} - 1 $$ 
+over the interval from $x = 0$ to $x = 1$.
+
+\vspace{6cm}
+
+### Problem 2 
+Find the limit:
+$$ \lim_{x \to 0} \frac{e^x - 1}{\sin x} $$
+
+\vspace{5cm}
+
+
+
+### Problem 3 
+Find the limit:
+$$ \lim_{x \to +\infty} x e^{-x} $$
+
+\vspace{5cm}
+
+
+
+### Problem 4 
+Find the limit:
+$$ \lim_{x \to 0} \left(e^x + x\right)^{1/x} $$
+\vspace{5cm}
+
+
+### Problem 5 
+Find $\frac{dy}{dx}$:
+$$ y = \sin^{-1}(1/x) $$
+
+\vspace{5cm}
+
+
+### Problem 6 
+Find $\frac{dy}{dx}$:
+$$ y = e^x \sec^{-1} x $$
+
+\vspace{5cm}
+
+### Problem 7 
+Evaluate the integral:
+$$ \int \frac{dx}{\sqrt{1 - 4x^2}} $$
+
+\vspace{5cm}
+
+### Problem 8 
+Evaluate the integral:
+$$ \int \frac{e^x}{1 + e^{2x}} \, dx $$
+
+\vspace{5cm}
+
+### Problem 9 
+Evaluate the definite integral:
+$$ \int_{1}^{\sqrt{3}} \frac{\sqrt{\tan^{-1}x}}{1 + x^2} \, dx $$
+
+\vspace{5cm}
+
+### Problem 10 
+Evaluate the integral:
+$$ \int \frac{\sin\theta}{\cos^2\theta + 1} \, d\theta $$
+
+\vspace{5cm}
+
+\vspace{5cm}
+
+\vfill
+\centerline{\textbf{--- END OF EXAMINATION ---}}

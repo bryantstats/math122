@@ -1,0 +1,126 @@
+---
+title: "Math 122: Exam 1 - Practice 2"
+# subtitle: "Semester Fall 2026"
+# date: "December 15, 2026"
+# author: "Department of Mathematics"
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - top=1in
+      - bottom=1in
+      - left=1in
+      - right=1in
+    header-includes: |
+      \usepackage{amsmath,amssymb,amsthm}
+      \usepackage{enumitem}
+      \usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhf{}
+      \lhead{\textbf{Math 101: Final Exam}}
+      \rhead{\textbf{Fall 2026}}
+      \cfoot{\thepage}
+  html:
+    toc: false
+    theme: cosmo
+---
+
+\noindent
+**Student Name:** \underline{\hspace{8cm}} 
+
+\vspace{0.5cm}
+
+\noindent
+
+**Instructions:**
+
+* Show all your work clearly. Full credit will only be given for complete and correct solutions with proper mathematical notation.
+
+* Each question is worth 10 points.
+
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.8cm}
+
+
+### Problem 1
+Find the exact arc length of the curve over the interval from $x = 0$ to $x = 1$:
+$$ y = \frac{2}{3}(x^2 + 1)^{3/2} $$
+
+\vspace{5cm}
+
+---
+
+### Problem 2
+Find the limit:
+$$ \lim_{x \to 0} \frac{\tan(2x)}{\ln(1 + x)} $$
+
+\vspace{5cm}
+
+---
+
+### Problem 3
+Find the limit:
+$$ \lim_{x \to +\infty} x^2 e^{-2x} $$
+
+\vspace{5cm}
+
+---
+
+### Problem 4
+Find the limit:
+$$ \lim_{x \to 0^+} (1 + 2x)^{1/x} $$
+
+\vspace{5cm}
+
+---
+
+### Problem 5
+Find $\frac{dy}{dx}$:
+$$ y = \cos^{-1}\left(\frac{1}{x}\right) $$
+
+\vspace{5cm}
+
+---
+
+### Problem 6
+Find $\frac{dy}{dx}$:
+$$ y = e^{2x} \tan^{-1}(x) $$
+
+\vspace{5cm}
+
+---
+
+### Problem 7
+Evaluate the integral:
+$$ \int \frac{dx}{\sqrt{1 - 9x^2}} $$
+
+\vspace{5cm}
+
+---
+
+### Problem 8
+Evaluate the integral:
+$$ \int \frac{\cos x \, dx}{\sqrt{1 - \sin^2 x}} $$
+
+\vspace{5cm}
+
+---
+
+### Problem 9
+Evaluate the definite integral:
+$$ \int_{0}^{1} \frac{\left(\tan^{-1}x\right)^2}{1 + x^2} \, dx $$
+
+\vspace{5cm}
+
+---
+
+### Problem 10
+Evaluate the integral:
+$$ \int \frac{\cos\theta}{\sin^2\theta + 1} \, d\theta $$
+
+\vspace{5cm}
+
+\vfill
+\centerline{\textbf{--- END OF EXAMINATION ---}}
