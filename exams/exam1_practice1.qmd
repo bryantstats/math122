@@ -47,58 +47,58 @@ format:
 \vspace{0.8cm}
 
 
-### Problem 1 
+### Problem 1 (Section 5.4)
 Find the exact arc length of the curve 
 $$ y = 3x^{3/2} - 1 $$ 
 over the interval from $x = 0$ to $x = 1$.
 
 
-### Problem 2 
+### Problem 2 (Section 6.5)
 Find the limit:
 $$ \lim_{x \to 0} \frac{e^x - 1}{\sin x} $$
 
 
 
 
-### Problem 3 
+### Problem 3 (Section 6.5)
 Find the limit:
 $$ \lim_{x \to +\infty} x e^{-x} $$
 
 
 
 
-### Problem 4 
+### Problem 4 (Section 6.5)
 Find the limit:
 $$ \lim_{x \to 0} \left(e^x + x\right)^{1/x} $$
 
 
-### Problem 5 
+### Problem 5 (Section 6.7)
 Find $\frac{dy}{dx}$:
 $$ y = \sin^{-1}(1/x) $$
 
 
 
-### Problem 6 
+### Problem 6 (Section 6.7)
 Find $\frac{dy}{dx}$:
 $$ y = e^x \sec^{-1} x $$
 
 
-### Problem 7 
+### Problem 7 (Section 6.7)
 Evaluate the integral:
 $$ \int \frac{dx}{\sqrt{1 - 4x^2}} $$
 
 
-### Problem 8 
+### Problem 8 (Section 6.7)
 Evaluate the integral:
 $$ \int \frac{\sec^2 x \, dx}{\sqrt{1 - \tan^2 x}} $$
 
 
-### Problem 9 
+### Problem 9 (Section 6.7)
 Evaluate the definite integral:
 $$ \int_{1}^{\sqrt{3}} \frac{\sqrt{\tan^{-1}x}}{1 + x^2} \, dx $$
 
 
-### Problem 10 
+### Problem 10 (Section 6.7)
 Evaluate the integral:
 $$ \int \frac{\sin\theta}{\cos^2\theta + 1} \, d\theta $$
 
