@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MATH 122: Calculus and Analytic Geometry II</title>
+<title>Math 122: Exam 1 - Practice</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,32 +29,59 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="home_files/libs/clipboard/clipboard.min.js"></script>
-<script src="home_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="home_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="home_files/libs/quarto-html/popper.min.js"></script>
-<script src="home_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="home_files/libs/quarto-html/anchor.min.js"></script>
-<link href="home_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="home_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="home_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="home_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="home_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="exam1_practice_print_files/libs/clipboard/clipboard.min.js"></script>
+<script src="exam1_practice_print_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="exam1_practice_print_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="exam1_practice_print_files/libs/quarto-html/popper.min.js"></script>
+<script src="exam1_practice_print_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="exam1_practice_print_files/libs/quarto-html/anchor.min.js"></script>
+<link href="exam1_practice_print_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="exam1_practice_print_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="exam1_practice_print_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="exam1_practice_print_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="exam1_practice_print_files/libs/bootstrap/bootstrap-62e2d20df198e8a01bb734742f2e28cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="quarto-light">
+<body class="fullcontent quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-  
-</div>
+
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MATH 122: Calculus and Analytic Geometry II</h1>
+<h1 class="title">Math 122: Exam 1 - Practice</h1>
 </div>
 
 
@@ -71,69 +98,101 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="syllabus.html">Syllabus</a></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Week</th>
-<th style="text-align: left;">Date</th>
-<th style="text-align: left;">Section/Topic</th>
-<th style="text-align: left;">Lecture</th>
-<th style="text-align: left;">Assignments</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: left;">8/31</td>
-<td style="text-align: left;">5.4. Length of a Plance Curve</td>
-<td style="text-align: left;"><a href="notes/note1_annotated.pdf">Note</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td style="text-align: left;">9/3</td>
-<td style="text-align: left;">5.4. Length of a Plance Curve</td>
-<td style="text-align: left;"><a href="notes/note2_annotated.pdf">Note</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">2</td>
-<td style="text-align: left;">9/10</td>
-<td style="text-align: left;">6.5. L’hôpital’s rule; Indeterminate forms</td>
-<td style="text-align: left;"><a href="notes/note3_annotated.pdf">Note</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">3</td>
-<td style="text-align: left;">9/14</td>
-<td style="text-align: left;">6.7. Derivatives and Intergrals of Trigs</td>
-<td style="text-align: left;"><a href="notes/note4_annotated.pdf">Note</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: left;">9/17</td>
-<td style="text-align: left;">6.7. Derivatives and Intergrals of Trigs</td>
-<td style="text-align: left;"><a href="notes/note5_annotated.pdf">Note</a>, <a href="notes/note6_annotated.pdf">Note</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td style="text-align: left;">9/21</td>
-<td style="text-align: left;">6.7. Derivatives and Intergrals of Trigs</td>
-<td style="text-align: left;"><a href="notes/note7_annotated.pdf">Note</a></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td style="text-align: left;">9/24</td>
-<td style="text-align: left;">Exam 1’s Review</td>
-<td style="text-align: left;"><a href="exams/exam1_practice1.pdf">Practice 1</a>, <a href="exams/exam1_practice2.pdf">Practice 2</a></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<p><strong>Instructions:</strong></p>
+<ul>
+<li><p>Show all work: Full credit requires complete, correct steps and proper math notation.</p></li>
+<li><p>Points: Each question is worth 10 points.</p></li>
+<li><p>Formula Sheet: Permitted (formulas only; no worked examples).</p></li>
+<li><p>Calculators: Basic, non-graphing calculators allowed.</p></li>
+</ul>
+<hr>
+<section id="practice-1" class="level1">
+<h1>Practice 1</h1>
+<section id="problem-1-section-5.4" class="level3">
+<h3 class="anchored" data-anchor-id="problem-1-section-5.4">Problem 1 (Section 5.4)</h3>
+<p>Find the exact arc length of the curve <span class="math display">\[ y = 3x^{3/2} - 1 \]</span> over the interval from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 1\)</span>.</p>
+</section>
+<section id="problem-2-section-6.5" class="level3">
+<h3 class="anchored" data-anchor-id="problem-2-section-6.5">Problem 2 (Section 6.5)</h3>
+<p>Find the limit: <span class="math display">\[ \lim_{x \to 0} \frac{e^x - 1}{\sin x} \]</span></p>
+</section>
+<section id="problem-3-section-6.5" class="level3">
+<h3 class="anchored" data-anchor-id="problem-3-section-6.5">Problem 3 (Section 6.5)</h3>
+<p>Find the limit: <span class="math display">\[ \lim_{x \to +\infty} x e^{-x} \]</span></p>
+</section>
+<section id="problem-4-section-6.5" class="level3">
+<h3 class="anchored" data-anchor-id="problem-4-section-6.5">Problem 4 (Section 6.5)</h3>
+<p>Find the limit: <span class="math display">\[ \lim_{x \to 0} \left(e^x + x\right)^{1/x} \]</span></p>
+</section>
+<section id="problem-5-section-6.7" class="level3">
+<h3 class="anchored" data-anchor-id="problem-5-section-6.7">Problem 5 (Section 6.7)</h3>
+<p>Find <span class="math inline">\(\frac{dy}{dx}\)</span>: <span class="math display">\[ y = \sin^{-1}(1/x) \]</span></p>
+</section>
+<section id="problem-6-section-6.7" class="level3">
+<h3 class="anchored" data-anchor-id="problem-6-section-6.7">Problem 6 (Section 6.7)</h3>
+<p>Find <span class="math inline">\(\frac{dy}{dx}\)</span>: <span class="math display">\[ y = e^x \sec^{-1} x \]</span></p>
+</section>
+<section id="problem-7-section-6.7" class="level3">
+<h3 class="anchored" data-anchor-id="problem-7-section-6.7">Problem 7 (Section 6.7)</h3>
+<p>Evaluate the integral: <span class="math display">\[ \int \frac{dx}{\sqrt{1 - 4x^2}} \]</span></p>
+</section>
+<section id="problem-8-section-6.7" class="level3">
+<h3 class="anchored" data-anchor-id="problem-8-section-6.7">Problem 8 (Section 6.7)</h3>
+<p>Evaluate the integral: <span class="math display">\[ \int \frac{\sec^2 x \, dx}{\sqrt{1 - \tan^2 x}} \]</span></p>
+</section>
+<section id="problem-9-section-6.7" class="level3">
+<h3 class="anchored" data-anchor-id="problem-9-section-6.7">Problem 9 (Section 6.7)</h3>
+<p>Evaluate the definite integral: <span class="math display">\[ \int_{1}^{\sqrt{3}} \frac{\sqrt{\tan^{-1}x}}{1 + x^2} \, dx \]</span></p>
+</section>
+<section id="problem-10-section-6.7" class="level3">
+<h3 class="anchored" data-anchor-id="problem-10-section-6.7">Problem 10 (Section 6.7)</h3>
+<p>Evaluate the integral: <span class="math display">\[ \int \frac{\sin\theta}{\cos^2\theta + 1} \, d\theta \]</span></p>
+<hr>
+</section>
+</section>
+<section id="practice-2" class="level1">
+<h1>Practice 2</h1>
+<section id="problem-1" class="level3">
+<h3 class="anchored" data-anchor-id="problem-1">Problem 1</h3>
+<p>Find the exact arc length of the curve over the interval from <span class="math inline">\(x = 0\)</span> to <span class="math inline">\(x = 1\)</span>: <span class="math display">\[ y = (2x + 1)^{3/2} \]</span></p>
+</section>
+<section id="problem-2" class="level3">
+<h3 class="anchored" data-anchor-id="problem-2">Problem 2</h3>
+<p>Find the limit: <span class="math display">\[ \lim_{x \to 0} \frac{\tan(2x)}{\ln(1 + x)} \]</span></p>
+</section>
+<section id="problem-3" class="level3">
+<h3 class="anchored" data-anchor-id="problem-3">Problem 3</h3>
+<p>Find the limit: <span class="math display">\[ \lim_{x \to +\infty} x^2 e^{-2x} \]</span></p>
+</section>
+<section id="problem-4" class="level3">
+<h3 class="anchored" data-anchor-id="problem-4">Problem 4</h3>
+<p>Find the limit: <span class="math display">\[ \lim_{x \to 0^+} (1 + 2x)^{1/x} \]</span></p>
+</section>
+<section id="problem-5" class="level3">
+<h3 class="anchored" data-anchor-id="problem-5">Problem 5</h3>
+<p>Find <span class="math inline">\(\frac{dy}{dx}\)</span>: <span class="math display">\[ y = \cos^{-1}\left(\frac{1}{x^2}\right) \]</span></p>
+</section>
+<section id="problem-6" class="level3">
+<h3 class="anchored" data-anchor-id="problem-6">Problem 6</h3>
+<p>Find <span class="math inline">\(\frac{dy}{dx}\)</span>: <span class="math display">\[ y = \sin^{-1}x \cdot \cos^{-1}(x) \]</span></p>
+</section>
+<section id="problem-7" class="level3">
+<h3 class="anchored" data-anchor-id="problem-7">Problem 7</h3>
+<p>Evaluate the integral: <span class="math display">\[ \int \frac{dx}{{1 + 9x^2}} \]</span></p>
+</section>
+<section id="problem-8" class="level3">
+<h3 class="anchored" data-anchor-id="problem-8">Problem 8</h3>
+<p>Evaluate the integral: <span class="math display">\[ \int \frac{ x \, dx}{\sqrt{1 - x^4}} \]</span></p>
+</section>
+<section id="problem-9" class="level3">
+<h3 class="anchored" data-anchor-id="problem-9">Problem 9</h3>
+<p>Evaluate the definite integral: <span class="math display">\[ \int_{0}^{1} \frac{\left(\sin^{-1}x\right)^3}{\sqrt{1 - x^2}} \, dx \]</span></p>
+</section>
+<section id="problem-10" class="level3">
+<h3 class="anchored" data-anchor-id="problem-10">Problem 10</h3>
+<p>Evaluate the integral: <span class="math display">\[ \int \frac{e^x}{1+e^{2x}} \, dx \]</span></p>
+</section>
+</section>
 
 </main>
 <!-- /main column -->

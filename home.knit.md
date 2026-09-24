@@ -6,9 +6,7 @@ format:
 editor: visual
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-```
+
 
 [Syllabus](syllabus.html)
 
@@ -21,3 +19,4 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 |  | 9/17 | 6.7. Derivatives and Intergrals of Trigs | [Note](notes/note5_annotated.pdf), [Note](notes/note6_annotated.pdf) |  |
 | 4 | 9/21 | 6.7. Derivatives and Intergrals of Trigs | [Note](notes/note7_annotated.pdf) |  |
 |  | 9/24 | Exam 1's Review | [Practice 1](exams/exam1_practice1.pdf), [Practice 2](exams/exam1_practice2.pdf) |  |
+

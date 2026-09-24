@@ -1,8 +1,5 @@
 ---
-title: "Math 122: Exam 1 - Practice 1"
-# subtitle: "Semester Fall 2026"
-# date: "December 15, 2026"
-# author: "Department of Mathematics"
+title: "Math 122: Exam 1 - Practice"
 format:
   pdf:
     documentclass: article
@@ -24,14 +21,6 @@ format:
     toc: false
     theme: cosmo
 ---
-
-\noindent
-**Student Name:** \underline{\hspace{8cm}} 
-
-\vspace{0.5cm}
-
-\noindent
-
 **Instructions:**
 
 - Show all work: Full credit requires complete, correct steps and proper math notation.
@@ -42,72 +31,153 @@ format:
 
 - Calculators: Basic, non-graphing calculators allowed.
 
-\vspace{0.5cm}
-\hrule
-\vspace{0.8cm}
+---
 
+# Practice 1
 
 ### Problem 1 (Section 5.4)
 Find the exact arc length of the curve 
 $$ y = 3x^{3/2} - 1 $$ 
 over the interval from $x = 0$ to $x = 1$.
 
-\vspace{15cm}
+\vspace{3cm}
 
 ### Problem 2 (Section 6.5)
 Find the limit:
 $$ \lim_{x \to 0} \frac{e^x - 1}{\sin x} $$
 
-\vspace{15cm}
+\vspace{3cm}
 
 
 ### Problem 3 (Section 6.5)
 Find the limit:
 $$ \lim_{x \to +\infty} x e^{-x} $$
 
-\vspace{15cm}
+\vspace{3cm}
 
 
 ### Problem 4 (Section 6.5)
 Find the limit:
 $$ \lim_{x \to 0} \left(e^x + x\right)^{1/x} $$
 
-\vspace{15cm}
+\vspace{3cm}
 
 ### Problem 5 (Section 6.7)
 Find $\frac{dy}{dx}$:
 $$ y = \sin^{-1}(1/x) $$
 
-\vspace{15cm}
+\vspace{3cm}
 
 ### Problem 6 (Section 6.7)
 Find $\frac{dy}{dx}$:
 $$ y = e^x \sec^{-1} x $$
 
-\vspace{15cm}
+\vspace{3cm}
 
 ### Problem 7 (Section 6.7)
 Evaluate the integral:
 $$ \int \frac{dx}{\sqrt{1 - 4x^2}} $$
 
-\vspace{15cm}
+\vspace{3cm}
 
 ### Problem 8 (Section 6.7)
 Evaluate the integral:
 $$ \int \frac{\sec^2 x \, dx}{\sqrt{1 - \tan^2 x}} $$
 
-\vspace{15cm}
+\vspace{3cm}
 
 ### Problem 9 (Section 6.7)
 Evaluate the definite integral:
 $$ \int_{1}^{\sqrt{3}} \frac{\sqrt{\tan^{-1}x}}{1 + x^2} \, dx $$
 
-\vspace{15cm}
+\vspace{3cm}
 
 ### Problem 10 (Section 6.7)
 Evaluate the integral:
 $$ \int \frac{\sin\theta}{\cos^2\theta + 1} \, d\theta $$
 
+\vspace{3cm}
+
+---
+
+# Practice 2
+
+
+### Problem 1
+Find the exact arc length of the curve over the interval from $x = 0$ to $x = 1$:
+$$ y = (2x + 1)^{3/2} $$
+
+\vspace{3cm}
+
+
+
+### Problem 2
+Find the limit:
+$$ \lim_{x \to 0} \frac{\tan(2x)}{\ln(1 + x)} $$
+
+\vspace{3cm}
+
+
+
+### Problem 3
+Find the limit:
+$$ \lim_{x \to +\infty} x^2 e^{-2x} $$
+
+\vspace{3cm}
+
+
+
+### Problem 4
+Find the limit:
+$$ \lim_{x \to 0^+} (1 + 2x)^{1/x} $$
+
+\vspace{3cm}
+
+
+
+### Problem 5
+Find $\frac{dy}{dx}$:
+$$ y = \cos^{-1}\left(\frac{1}{x^2}\right) $$
+
+\vspace{3cm}
+
+
+
+### Problem 6
+Find $\frac{dy}{dx}$:
+$$ y = \sin^{-1}x \cdot \cos^{-1}(x) $$
+
+\vspace{3cm}
+
+
+
+### Problem 7
+Evaluate the integral:
+$$ \int \frac{dx}{{1 + 9x^2}} $$
+
+\vspace{3cm}
+
+
+### Problem 8
+Evaluate the integral:
+$$ \int \frac{ x \, dx}{\sqrt{1 - x^4}} $$
+
+\vspace{3cm}
+
+
+
+### Problem 9
+Evaluate the definite integral:
+$$ \int_{0}^{1} \frac{\left(\sin^{-1}x\right)^3}{\sqrt{1 - x^2}} \, dx $$
+
+\vspace{3cm}
+
+
+
+### Problem 10
+Evaluate the integral:
+$$ \int \frac{e^x}{1+e^{2x}} \, dx $$
+
+\vspace{3cm}
 
 \vfill
-\centerline{\textbf{--- END OF EXAMINATION ---}}
