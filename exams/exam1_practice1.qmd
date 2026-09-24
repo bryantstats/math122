@@ -17,7 +17,7 @@ format:
       \usepackage{fancyhdr}
       \pagestyle{fancy}
       \fancyhf{}
-      \lhead{\textbf{Math 101: Final Exam}}
+      \lhead{\textbf{Math 122: Exam 1 - Practice}}
       \rhead{\textbf{Fall 2026}}
       \cfoot{\thepage}
   html:
