@@ -1,0 +1,194 @@
+---
+title: "Math 122: Exam 1 Practice 2 Solutions"
+format: pdf
+---
+
+## Problem 1
+
+Find the exact arc length of the curve $y = (2x + 1)^{3/2}$ over the interval $[0, 1]$.
+
+**Solution:**
+
+The formula for arc length $L$ from $x = a$ to $x = b$ is given by:
+$$L = \int_a^b \sqrt{1 + \left(\frac{dy}{dx}\right)^2} \, dx$$
+
+First, find the derivative $\frac{dy}{dx}$:
+$$\frac{dy}{dx} = \frac{3}{2}(2x + 1)^{1/2} \cdot 2 = 3(2x + 1)^{1/2}$$
+
+Square the derivative:
+$$\left(\frac{dy}{dx}\right)^2 = \left(3(2x + 1)^{1/2}\right)^2 = 9(2x + 1) = 18x + 9$$
+
+Substitute into the arc length integrand:
+$$1 + \left(\frac{dy}{dx}\right)^2 = 1 + 18x + 9 = 18x + 10$$
+
+Set up and evaluate the integral:
+$$L = \int_0^1 \sqrt{18x + 10} \, dx$$
+
+Let $u = 18x + 10$, so $du = 18 \, dx \implies dx = \frac{du}{18}$.
+
+*   When $x = 0$, $u = 10$.
+*   When $x = 1$, $u = 28$.
+
+$$L = \frac{1}{18} \int_{10}^{28} u^{1/2} \, du = \frac{1}{18} \left[ \frac{2}{3} u^{3/2} \right]_{10}^{28} = \frac{1}{27} \left( 28^{3/2} - 10^{3/2} \right)$$
+
+Simplifying $28^{3/2} = 28\sqrt{28} = 56\sqrt{7}$ and $10^{3/2} = 10\sqrt{10}$:
+
+$$L = \frac{56\sqrt{7} - 10\sqrt{10}}{27}$$
+
+---
+
+## Problem 2
+
+Find the limit:
+$$\lim_{x \to 0} \frac{\tan(2x)}{\ln(1 + x)}$$
+
+**Solution:**
+
+Direct substitution gives:
+$$\frac{\tan(0)}{\ln(1)} = \frac{0}{0}$$
+
+This is an indeterminate form of type $\left[\frac{0}{0}\right]$, so we apply L'Hôpital's Rule:
+$$\lim_{x \to 0} \frac{\tan(2x)}{\ln(1 + x)} = \lim_{x \to 0} \frac{\frac{d}{dx}[\tan(2x)]}{\frac{d}{dx}[\ln(1 + x)]} = \lim_{x \to 0} \frac{2\sec^2(2x)}{\frac{1}{1 + x}}$$
+
+Evaluating the limit by direct substitution:
+$$= \frac{2\sec^2(0)}{\frac{1}{1 + 0}} = \frac{2(1)}{1} = 2$$
+
+---
+
+## Problem 3
+
+Find the limit:
+$$\lim_{x \to +\infty} x^2 e^{-2x}$$
+
+**Solution:**
+
+Rewrite the limit as a quotient:
+$$\lim_{x \to +\infty} \frac{x^2}{e^{2x}}$$
+
+Direct substitution yields $\left[\frac{\infty}{\infty}\right]$. Applying L'Hôpital's Rule:
+$$\lim_{x \to +\infty} \frac{\frac{d}{dx}[x^2]}{\frac{d}{dx}[e^{2x}]} = \lim_{x \to +\infty} \frac{2x}{2e^{2x}} = \lim_{x \to +\infty} \frac{x}{e^{2x}}$$
+
+This is still in the indeterminate form $\left[\frac{\infty}{\infty}\right]$. Applying L'Hôpital's Rule a second time:
+$$\lim_{x \to +\infty} \frac{\frac{d}{dx}[x]}{\frac{d}{dx}[e^{2x}]} = \lim_{x \to +\infty} \frac{1}{2e^{2x}} = 0$$
+
+---
+
+## Problem 4
+
+Find the limit:
+$$\lim_{x \to 0^+} (1 + 2x)^{1/x}$$
+
+**Solution:**
+
+This is an indeterminate form of type $[1^\infty]$. Let $y = (1 + 2x)^{1/x}$.
+
+Take the natural logarithm of both sides:
+$$\ln y = \ln\left((1 + 2x)^{1/x}\right) = \frac{\ln(1 + 2x)}{x}$$
+
+Find $\lim_{x \to 0^+} \ln y$:
+$$\lim_{x \to 0^+} \frac{\ln(1 + 2x)}{x}$$
+
+Direct substitution gives $\left[\frac{0}{0}\right]$. Applying L'Hôpital's Rule:
+$$\lim_{x \to 0^+} \frac{\frac{2}{1 + 2x}}{1} = \frac{2}{1 + 0} = 2$$
+
+Since $\lim_{x \to 0^+} \ln y = 2$, exponentiate to find the original limit:
+$$\lim_{x \to 0^+} y = e^2$$
+
+---
+
+## Problem 5
+
+Find $\frac{dy}{dx}$ for $y = \cos^{-1}\left(\frac{1}{x^2}\right)$.
+
+**Solution:**
+
+Using the derivative rule $\frac{d}{dx}[\cos^{-1}(u)] = -\frac{1}{\sqrt{1 - u^2}} \cdot \frac{du}{dx}$:
+
+Let $u = \frac{1}{x^2} = x^{-2}$, so $\frac{du}{dx} = -2x^{-3} = -\frac{2}{x^3}$.
+
+$$\frac{dy}{dx} = -\frac{1}{\sqrt{1 - \left(\frac{1}{x^2}\right)^2}} \cdot \left(-\frac{2}{x^3}\right)$$
+$$\frac{dy}{dx} = \frac{2}{x^3 \sqrt{1 - \frac{1}{x^4}}} = \frac{2}{x^3 \sqrt{\frac{x^4 - 1}{x^4}}}$$
+$$\frac{dy}{dx} = \frac{2}{x^3 \cdot \frac{\sqrt{x^4 - 1}}{x^2}} = \frac{2}{x\sqrt{x^4 - 1}}$$
+
+---
+
+## Problem 6
+
+Find $\frac{dy}{dx}$ for $y = \sin^{-1}x \cdot \cos^{-1}x$.
+
+**Solution:**
+
+Apply the Product Rule: $\frac{d}{dx}[u \cdot v] = u'v + uv'$.
+
+Recall:
+$$\frac{d}{dx}[\sin^{-1}x] = \frac{1}{\sqrt{1 - x^2}}, \quad \frac{d}{dx}[\cos^{-1}x] = -\frac{1}{\sqrt{1 - x^2}}$$
+
+Applying the rule:
+$$\frac{dy}{dx} = \left(\frac{1}{\sqrt{1 - x^2}}\right) \cdot \cos^{-1}x + \sin^{-1}x \cdot \left(-\frac{1}{\sqrt{1 - x^2}}\right)$$
+$$\frac{dy}{dx} = \frac{\cos^{-1}x - \sin^{-1}x}{\sqrt{1 - x^2}}$$
+
+---
+
+## Problem 7
+
+Evaluate the integral:
+$$\int \frac{dx}{1 + 9x^2}$$
+
+**Solution:**
+
+Rewrite the integrand in the standard inverse tangent form $\int \frac{du}{1 + u^2} = \tan^{-1}u + C$:
+
+Let $u = 3x$, then $du = 3 \, dx \implies dx = \frac{du}{3}$.
+
+$$\int \frac{dx}{1 + (3x)^2} = \frac{1}{3} \int \frac{du}{1 + u^2} = \frac{1}{3} \tan^{-1}u + C = \frac{1}{3} \tan^{-1}(3x) + C$$
+
+---
+
+## Problem 8
+
+Evaluate the integral:
+$$\int \frac{x \, dx}{\sqrt{1 - x^4}}$$
+
+**Solution:**
+
+Rewrite $x^4$ as $(x^2)^2$:
+$$\int \frac{x \, dx}{\sqrt{1 - (x^2)^2}}$$
+
+Let $u = x^2$, then $du = 2x \, dx \implies x \, dx = \frac{du}{2}$.
+
+$$\int \frac{\frac{1}{2} \, du}{\sqrt{1 - u^2}} = \frac{1}{2} \sin^{-1}u + C = \frac{1}{2} \sin^{-1}(x^2) + C$$
+
+---
+
+## Problem 9
+
+Evaluate the definite integral:
+$$\int_{0}^{1} \frac{(\sin^{-1}x)^3}{\sqrt{1 - x^2}} \, dx$$
+
+**Solution:**
+
+Let $u = \sin^{-1}x$, then $du = \frac{1}{\sqrt{1 - x^2}} \, dx$.
+
+Change the limits of integration:
+*   When $x = 0$, $u = \sin^{-1}(0) = 0$.
+*   When $x = 1$, $u = \sin^{-1}(1) = \frac{\pi}{2}$.
+
+Substitute into the integral:
+$$\int_{0}^{\pi/2} u^3 \, du = \left[ \frac{u^4}{4} \right]_{0}^{\pi/2} = \frac{(\pi/2)^4}{4} - 0 = \frac{\pi^4 / 16}{4} = \frac{\pi^4}{64}$$
+
+---
+
+## Problem 10
+
+Evaluate the integral:
+$$\int \frac{e^x}{1 + e^{2x}} \, dx$$
+
+**Solution:**
+
+Rewrite $e^{2x}$ as $(e^x)^2$:
+$$\int \frac{e^x}{1 + (e^x)^2} \, dx$$
+
+Let $u = e^x$, then $du = e^x \, dx$.
+
+Substitute into the integral:
+$$\int \frac{du}{1 + u^2} = \tan^{-1}u + C = \tan^{-1}(e^x) + C$$
