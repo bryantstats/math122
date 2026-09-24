@@ -181,6 +181,7 @@ $$\int_{1}^{\sqrt{3}} \frac{\sqrt{\tan^{-1}x}}{1 + x^2}\, dx$$
 Let $u = \tan^{-1}x$, which means $du = \frac{1}{1 + x^2}\, dx$.
 
 Find the transformed bounds:
+
 - When $x = 1$: $u = \tan^{-1}(1) = \frac{\pi}{4}$
 - When $x = \sqrt{3}$: $u = \tan^{-1}(\sqrt{3}) = \frac{\pi}{3}$
 
