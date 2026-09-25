@@ -170,6 +170,7 @@ $$\int_{0}^{1} \frac{(\sin^{-1}x)^3}{\sqrt{1 - x^2}} \, dx$$
 Let $u = \sin^{-1}x$, then $du = \frac{1}{\sqrt{1 - x^2}} \, dx$.
 
 Change the limits of integration:
+
 *   When $x = 0$, $u = \sin^{-1}(0) = 0$.
 *   When $x = 1$, $u = \sin^{-1}(1) = \frac{\pi}{2}$.
 
