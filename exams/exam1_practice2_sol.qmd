@@ -33,7 +33,7 @@ $$L = \frac{1}{18} \int_{10}^{28} u^{1/2} \, du = \frac{1}{18} \left[ \frac{2}{3
 
 Simplifying $28^{3/2} = 28\sqrt{28} = 56\sqrt{7}$ and $10^{3/2} = 10\sqrt{10}$:
 
-$$L = \frac{56\sqrt{7} - 10\sqrt{10}}{27}$$
+$$L = \frac{56\sqrt{7} - 10\sqrt{10}}{27} \approx 4.32$$
 
 ---
 
@@ -175,7 +175,7 @@ Change the limits of integration:
 *   When $x = 1$, $u = \sin^{-1}(1) = \frac{\pi}{2}$.
 
 Substitute into the integral:
-$$\int_{0}^{\pi/2} u^3 \, du = \left[ \frac{u^4}{4} \right]_{0}^{\pi/2} = \frac{(\pi/2)^4}{4} - 0 = \frac{\pi^4 / 16}{4} = \frac{\pi^4}{64}$$
+$$\int_{0}^{\pi/2} u^3 \, du = \left[ \frac{u^4}{4} \right]_{0}^{\pi/2} = \frac{(\pi/2)^4}{4} - 0 = \frac{\pi^4 / 16}{4} = \frac{\pi^4}{64} \approx 1.52$$
 
 ---
 
