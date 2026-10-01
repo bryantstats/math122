@@ -1,0 +1,79 @@
+---
+title: "Math 122: Exam 1 Solutions"
+format: html
+---
+
+**Problem 1**
+Find the exact arc length of the curve $y=\frac{2}{3}x^{3/2}+2026$ over the interval from $x=0$ to $x=1$[cite: 1].
+* The formula for arc length is $$L=\int_a^b\sqrt{1+\left(\frac{dy}{dx}\right)^2}dx$$
+* Calculate the derivative of the given function: $$\frac{dy}{dx}=\frac{2}{3}\cdot\frac{3}{2}x^{1/2}=\sqrt{x}$$
+* Square the derivative: $$\left(\frac{dy}{dx}\right)^2=(\sqrt{x})^2=x$$
+* Set up the integral with the given bounds: $$L=\int_0^1\sqrt{1+x}dx$$
+* Evaluate using the substitution $u=1+x$ and $du=dx$: $$L=\left[\frac{2}{3}(1+x)^{3/2}\right]_0^1=\frac{2}{3}(2^{3/2}-1)$$
+* Exact answer: $$\frac{2}{3}(2\sqrt{2}-1)$$
+* **Decimal answer: 1.21895**
+
+**Problem 2**
+Find the limit: $\lim_{x\rightarrow0}\frac{2^{x}-1}{\sin(2x)}$[cite: 2].
+* Substituting $x=0$ yields the indeterminate form $\frac{0}{0}$.
+* Apply L'Hôpital's Rule by taking the derivative of the numerator and the denominator: $$\lim_{x\rightarrow0}\frac{2^x\ln(2)}{2\cos(2x)}$$
+* Evaluate the limit as $x\rightarrow0$: $$\frac{2^0\ln(2)}{2\cos(0)}$$
+* Exact answer: $$\frac{\ln(2)}{2}$$
+* **Decimal answer: 0.34657**
+
+**Problem 3**
+Find the limit: $\lim_{x\rightarrow+\infty}x^{2}2^{-3x}$[cite: 2].
+* Rewrite the expression as a fraction: $$\lim_{x\rightarrow+\infty}\frac{x^2}{2^{3x}}$$
+* This yields the indeterminate form $\frac{\infty}{\infty}$, so apply L'Hôpital's Rule: $$\lim_{x\rightarrow+\infty}\frac{2x}{3\cdot2^{3x}\ln(2)}$$
+* Apply L'Hôpital's Rule a second time for the remaining $\frac{\infty}{\infty}$ form: $$\lim_{x\rightarrow+\infty}\frac{2}{9\cdot2^{3x}(\ln(2))^2}$$
+* As $x\rightarrow\infty$, the denominator grows without bound while the numerator is constant.
+* **Decimal answer: 0**
+
+**Problem 4**
+Find the limit: $\lim_{x\rightarrow0^{+}}(1+3x)^{1/x}$[cite: 3].
+* This limit takes the indeterminate form $1^\infty$.
+* Let $y=(1+3x)^{1/x}$. Taking the natural logarithm gives $\ln(y)=\frac{\ln(1+3x)}{x}$.
+* Evaluate the limit of $\ln(y)$ as $x\rightarrow0^+$, which takes the form $\frac{0}{0}$, using L'Hôpital's Rule: $$\lim_{x\rightarrow0^{+}}\frac{\frac{3}{1+3x}}{1}=3$$
+* Since $\lim_{x\rightarrow0^{+}}\ln(y)=3$, exponentiate to find the limit of $y$.
+* Exact answer: $$e^3$$
+* **Decimal answer: 20.08554**
+
+**Problem 5**
+Find $du$ for $y=\sin^{-1}\left(\frac{1}{x^{3}}\right)$[cite: 3].
+* Apply the chain rule using the derivative of inverse sine: $$\frac{dy}{dx}=\frac{1}{\sqrt{1-(x^{-3})^2}}\cdot\frac{d}{dx}(x^{-3})$$
+* Evaluate the inner derivative: $$\frac{dy}{dx}=\frac{1}{\sqrt{1-x^{-6}}}\cdot(-3x^{-4})$$
+* **Answer:** $$du=-\frac{3}{x^4\sqrt{1-x^{-6}}}dx$$ (No decimal evaluation applies).
+
+**Problem 6**
+Find the derivative of $y=\tan^{-1}(x)\cdot\sec^{-1}(x)$[cite: 4].
+* Apply the product rule: $$\frac{dy}{dx}=\frac{d}{dx}(\tan^{-1}(x))\cdot\sec^{-1}(x)+\tan^{-1}(x)\cdot\frac{d}{dx}(\sec^{-1}(x))$$
+* **Answer:** $$\frac{dy}{dx}=\frac{\sec^{-1}(x)}{1+x^2}+\frac{\tan^{-1}(x)}{|x|\sqrt{x^2-1}}$$ (No decimal evaluation applies).
+
+**Problem 7**
+Evaluate the integral: $\int\frac{dx}{1+16x^{2}}$[cite: 4].
+* Rewrite the denominator: $$\int\frac{dx}{1+(4x)^2}$$
+* Use substitution with $u=4x$, making $dx=\frac{du}{4}$.
+* Substitute and integrate: $$\frac{1}{4}\int\frac{du}{1+u^2}=\frac{1}{4}\tan^{-1}(u)+C$$
+* **Answer:** $$\frac{1}{4}\tan^{-1}(4x)+C$$ (No decimal evaluation applies).
+
+**Problem 8**
+Evaluate the integral: $\int\frac{x^{2}dx}{\sqrt{1-x^{6}}}$[cite: 5].
+* Rewrite the integral: $$\int\frac{x^2}{\sqrt{1-(x^3)^2}}dx$$
+* Let $u=x^3$, giving $du=3x^2dx$, or $x^2dx=\frac{du}{3}$.
+* Substitute and integrate: $$\frac{1}{3}\int\frac{du}{\sqrt{1-u^2}}=\frac{1}{3}\sin^{-1}(u)+C$$
+* **Answer:** $$\frac{1}{3}\sin^{-1}(x^3)+C$$ (No decimal evaluation applies).
+
+**Problem 9**
+Evaluate the definite integral: $\int_{0}^{1}\frac{(\sin^{-1}x)^{4}}{\sqrt{1-x^{2}}}dx$[cite: 5].
+* Let $u=\sin^{-1}(x)$, which makes $du=\frac{dx}{\sqrt{1-x^2}}$.
+* Determine new limits: When $x=0$, $u=0$. When $x=1$, $u=\frac{\pi}{2}$.
+* Evaluate the new integral: $$\int_{0}^{\pi/2}u^4du=\left[\frac{u^5}{5}\right]_{0}^{\pi/2}$$
+* Exact answer: $$\frac{(\pi/2)^5}{5}=\frac{\pi^5}{160}$$
+* **Decimal answer: 1.91262**
+
+**Problem 10**
+Evaluate the integral: $\int\frac{e^{2x}}{1+e^{4x}}dx$[cite: 6].
+* Rewrite to identify the substitution: $$\int\frac{e^{2x}}{1+(e^{2x})^2}dx$$
+* Let $u=e^{2x}$, yielding $du=2e^{2x}dx$, or $e^{2x}dx=\frac{du}{2}$.
+* Substitute and integrate: $$\frac{1}{2}\int\frac{du}{1+u^2}=\frac{1}{2}\tan^{-1}(u)+C$$
+* **Answer:** $$\frac{1}{2}\tan^{-1}(e^{2x})+C$$.
