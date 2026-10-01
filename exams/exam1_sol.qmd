@@ -1,6 +1,6 @@
 ---
 title: "Math 122: Exam 1 Solutions"
-format: html
+format: pdf
 ---
 
 **Problem 1**
