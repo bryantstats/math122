@@ -21,4 +21,5 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 |  | 9/17 | 6.7. Derivatives and Intergrals of Trigs | [Note](notes/note5_annotated.pdf), [Note](notes/note6_annotated.pdf) |  |
 | 4 | 9/21 | 6.7. Derivatives and Intergrals of Trigs | [Note](notes/note7_annotated.pdf) |  |
 |  | 9/24 | Exam 1's Review | [Practice 1](exams/exam1_practice1.pdf), [Solutions](exams/exam1_practice1_sol.pdf) <br> [Practice 2](exams/exam1_practice2.pdf), [Solutions](exams/exam1_practice2_sol.pdf) |  |
-|  | 9/27 | Exam 1 | [Exam 1](exams/exam1.pdf), [Solutions](exams/exam1_sol.html) |  |
+| 5 | 9/27 | Exam 1 | [Exam 1](exams/exam1.pdf), [Solutions](exams/exam1_sol.html) |  |
+| 5 | 10/1 | 7.2. Integration by Parts |  |  |
