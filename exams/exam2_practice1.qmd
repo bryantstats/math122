@@ -44,6 +44,11 @@ $$I = \int x^3 \ln x \, dx$$
 ## Solution 1
 **Choosing $u$ with LIATE** (Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential): pick $u$ as the function whose type comes first in the list. Here $\ln x$ is **L**ogarithmic and $x^3$ is **A**lgebraic, so L comes first and $u = \ln x$.
 
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function | $\ln x$ |  | $x^3$ |  |  |
+| Role | $u$ |  | $dv$ |  |  |
+
 $u = \ln x,\ dv = x^3\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^4}{4}$
 
 Apply $\int u\,dv = uv - \int v\,du$:
@@ -93,6 +98,11 @@ $$I = \int \tan^{-1} x \, dx$$
 ## Solution 3
 **Choosing $u$ with LIATE:** write the integrand as $\tan^{-1}x \cdot 1$. Here $\tan^{-1}x$ is **I**nverse trig and $1$ is **A**lgebraic, so I comes first and $u = \tan^{-1}x$, $dv = dx$.
 
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function |  | $\tan^{-1}x$ | $1$ |  |  |
+| Role |  | $u$ | $dv$ |  |  |
+
 $u = \tan^{-1}x,\ dv = dx \Rightarrow du = \frac{1}{1+x^2}dx,\ v = x$
 
 Apply $\int u\,dv = uv - \int v\,du$:
@@ -112,6 +122,11 @@ $$\int_1^e x \ln x \, dx$$
 ::: {.callout-tip collapse="true"}
 ## Solution 4
 **Choosing $u$ with LIATE:** $\ln x$ is **L**ogarithmic and $x$ is **A**lgebraic, so L comes first and $u = \ln x$.
+
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function | $\ln x$ |  | $x$ |  |  |
+| Role | $u$ |  | $dv$ |  |  |
 
 $u = \ln x,\ dv = x\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^2}{2}$
 
@@ -188,6 +203,9 @@ $$\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]$$
 Here we have $\sin 2x\cos x$, so use the first identity with $A = 2x$, $B = x$:
 $$\sin 2x\cos x = \frac{1}{2}\big[\sin x + \sin 3x\big]$$
 
+Recall the basic integrals (for $a \neq 0$):
+$$\int \sin(ax)\,dx = -\frac{1}{a}\cos(ax) + C \qquad \int \cos(ax)\,dx = \frac{1}{a}\sin(ax) + C$$
+
 Integrate term by term:
 $$\int \cos x\sin 2x\,dx = \frac{1}{2}\int (\sin x + \sin 3x)\,dx = -\frac{1}{2}\cos x - \frac{1}{6}\cos 3x + C$$
 
@@ -221,8 +239,12 @@ $$4\cos x\sin 2x\cos 3x = 2\sin x\cos 3x + 2\sin 3x\cos 3x$$
 
 So the integrand is $\sin 6x + \sin 4x - \sin 2x$.
 
+Recall the basic integrals (for $a \neq 0$):
+$$\int \sin(ax)\,dx = -\frac{1}{a}\cos(ax) + C \qquad \int \cos(ax)\,dx = \frac{1}{a}\sin(ax) + C$$
+
 **Step 4: integrate term by term.**
-$$\int 4\cos x\sin 2x\cos 3x\,dx = -\frac{\cos 6x}{6} - \frac{\cos 4x}{4} + \frac{\cos 2x}{2} + C$$
+$$\int 4\cos x\sin 2x\cos 3x\,dx = \int (\sin 6x + \sin 4x - \sin 2x)\,dx$$
+$$= -\frac{\cos 6x}{6} - \frac{\cos 4x}{4} + \frac{\cos 2x}{2} + C$$
 :::
 
 ## Part III: Partial Fractions

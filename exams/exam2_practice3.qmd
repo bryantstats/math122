@@ -42,6 +42,11 @@ $$I = \int x^4 \ln x \, dx$$
 ## Solution 1
 **Choosing $u$ with LIATE** (Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential): pick $u$ as the function whose type comes first in the list. Here $\ln x$ is **L**ogarithmic and $x^4$ is **A**lgebraic, so L comes first and $u = \ln x$.
 
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function | $\ln x$ |  | $x^4$ |  |  |
+| Role | $u$ |  | $dv$ |  |  |
+
 $u = \ln x,\ dv = x^4\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^5}{5}$
 
 Apply $\int u\,dv = uv - \int v\,du$:
@@ -89,6 +94,11 @@ $$I = \int \cos^{-1} x \, dx$$
 ## Solution 3
 **Choosing $u$ with LIATE:** write the integrand as $\cos^{-1}x \cdot 1$. Here $\cos^{-1}x$ is **I**nverse trig and $1$ is **A**lgebraic, so I comes first and $u = \cos^{-1}x$, $dv = dx$.
 
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function |  | $\cos^{-1}x$ | $1$ |  |  |
+| Role |  | $u$ | $dv$ |  |  |
+
 $u = \cos^{-1}x,\ dv = dx \Rightarrow du = -\frac{1}{\sqrt{1-x^2}}dx,\ v = x$
 
 Apply $\int u\,dv = uv - \int v\,du$:
@@ -108,6 +118,11 @@ $$\int_1^e \frac{\ln x}{x^2} \, dx$$
 ::: {.callout-tip collapse="true"}
 ## Solution 4
 **Choosing $u$ with LIATE:** write the integrand as $\ln x \cdot x^{-2}$. Here $\ln x$ is **L**ogarithmic and $x^{-2}$ is **A**lgebraic, so L comes first and $u = \ln x$.
+
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function | $\ln x$ |  | $x^{-2}$ |  |  |
+| Role | $u$ |  | $dv$ |  |  |
 
 $u = \ln x,\ dv = x^{-2}\,dx \Rightarrow du = \frac{1}{x}dx,\ v = -\frac{1}{x}$
 
@@ -184,6 +199,9 @@ $$\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]$$
 Here we have $\sin 5x\sin 2x$, so use the second identity with $A = 5x$, $B = 2x$:
 $$\sin 5x\sin 2x = \frac{1}{2}\big[\cos 3x - \cos 7x\big]$$
 
+Recall the basic integrals (for $a \neq 0$):
+$$\int \sin(ax)\,dx = -\frac{1}{a}\cos(ax) + C \qquad \int \cos(ax)\,dx = \frac{1}{a}\sin(ax) + C$$
+
 Integrate term by term:
 $$\int \sin 5x\sin 2x\,dx = \frac{1}{2}\int (\cos 3x - \cos 7x)\,dx = \frac{1}{6}\sin 3x - \frac{1}{14}\sin 7x + C$$
 :::
@@ -215,8 +233,12 @@ $$4\cos x\cos 2x\cos 3x = 2\cos x\cos 3x + 2\cos 3x\cos 3x$$
 
 So the integrand is $1 + \cos 2x + \cos 4x + \cos 6x$.
 
+Recall the basic integrals (for $a \neq 0$):
+$$\int \sin(ax)\,dx = -\frac{1}{a}\cos(ax) + C \qquad \int \cos(ax)\,dx = \frac{1}{a}\sin(ax) + C$$
+
 **Step 4: integrate term by term.**
-$$\int 4\cos x\cos 2x\cos 3x\,dx = x + \frac{\sin 2x}{2} + \frac{\sin 4x}{4} + \frac{\sin 6x}{6} + C$$
+$$\int 4\cos x\cos 2x\cos 3x\,dx = \int (1 + \cos 2x + \cos 4x + \cos 6x)\,dx$$
+$$= x + \frac{\sin 2x}{2} + \frac{\sin 4x}{4} + \frac{\sin 6x}{6} + C$$
 :::
 
 ## Part III: Partial Fractions

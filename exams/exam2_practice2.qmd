@@ -42,6 +42,11 @@ $$I = \int x^5 \ln x \, dx$$
 ## Solution 1
 **Choosing $u$ with LIATE** (Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential): pick $u$ as the function whose type comes first in the list. Here $\ln x$ is **L**ogarithmic and $x^5$ is **A**lgebraic, so L comes first and $u = \ln x$.
 
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function | $\ln x$ |  | $x^5$ |  |  |
+| Role | $u$ |  | $dv$ |  |  |
+
 $u = \ln x,\ dv = x^5\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^6}{6}$
 
 Apply $\int u\,dv = uv - \int v\,du$:
@@ -89,6 +94,11 @@ $$I = \int \sin^{-1} x \, dx$$
 ## Solution 3
 **Choosing $u$ with LIATE:** write the integrand as $\sin^{-1}x \cdot 1$. Here $\sin^{-1}x$ is **I**nverse trig and $1$ is **A**lgebraic, so I comes first and $u = \sin^{-1}x$, $dv = dx$.
 
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function |  | $\sin^{-1}x$ | $1$ |  |  |
+| Role |  | $u$ | $dv$ |  |  |
+
 $u = \sin^{-1}x,\ dv = dx \Rightarrow du = \frac{1}{\sqrt{1-x^2}}dx,\ v = x$
 
 Apply $\int u\,dv = uv - \int v\,du$:
@@ -108,6 +118,11 @@ $$\int_1^e x^2 \ln x \, dx$$
 ::: {.callout-tip collapse="true"}
 ## Solution 4
 **Choosing $u$ with LIATE:** $\ln x$ is **L**ogarithmic and $x^2$ is **A**lgebraic, so L comes first and $u = \ln x$.
+
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function | $\ln x$ |  | $x^2$ |  |  |
+| Role | $u$ |  | $dv$ |  |  |
 
 $u = \ln x,\ dv = x^2\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^3}{3}$
 
@@ -184,6 +199,9 @@ $$\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]$$
 Here we have $\sin 3x\cos 2x$, so use the first identity with $A = 3x$, $B = 2x$:
 $$\sin 3x\cos 2x = \frac{1}{2}\big[\sin x + \sin 5x\big]$$
 
+Recall the basic integrals (for $a \neq 0$):
+$$\int \sin(ax)\,dx = -\frac{1}{a}\cos(ax) + C \qquad \int \cos(ax)\,dx = \frac{1}{a}\sin(ax) + C$$
+
 Integrate term by term:
 $$\int \sin 3x\cos 2x\,dx = \frac{1}{2}\int (\sin x + \sin 5x)\,dx = -\frac{1}{2}\cos x - \frac{1}{10}\cos 5x + C$$
 :::
@@ -215,8 +233,12 @@ $$4\sin x\cos 2x\sin 3x = 2\sin 3x\sin 3x - 2\sin x\sin 3x$$
 
 So the integrand is $1 - \cos 6x - \cos 2x + \cos 4x$.
 
+Recall the basic integrals (for $a \neq 0$):
+$$\int \sin(ax)\,dx = -\frac{1}{a}\cos(ax) + C \qquad \int \cos(ax)\,dx = \frac{1}{a}\sin(ax) + C$$
+
 **Step 4: integrate term by term.**
-$$\int 4\sin x\cos 2x\sin 3x\,dx = x - \frac{\sin 6x}{6} + \frac{\sin 4x}{4} - \frac{\sin 2x}{2} + C$$
+$$\int 4\sin x\cos 2x\sin 3x\,dx = \int (1 - \cos 6x - \cos 2x + \cos 4x)\,dx$$
+$$= x - \frac{\sin 6x}{6} + \frac{\sin 4x}{4} - \frac{\sin 2x}{2} + C$$
 :::
 
 ## Part III: Partial Fractions
