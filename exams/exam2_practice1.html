@@ -2368,7 +2368,9 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(u = \ln x,\ dv = x^3\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^4}{4}\)</span> <span class="math display">\[= \frac{x^4}{4}\ln x - \int \frac{x^3}{4}\,dx = \frac{x^4}{4}\ln x - \frac{x^4}{16} + C\]</span></p>
+<p><strong>Choosing <span class="math inline">\(u\)</span> with LIATE</strong> (Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential): pick <span class="math inline">\(u\)</span> as the function whose type comes first in the list. Here <span class="math inline">\(\ln x\)</span> is <strong>L</strong>ogarithmic and <span class="math inline">\(x^3\)</span> is <strong>A</strong>lgebraic, so L comes first and <span class="math inline">\(u = \ln x\)</span>.</p>
+<p><span class="math inline">\(u = \ln x,\ dv = x^3\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^4}{4}\)</span></p>
+<p>Apply <span class="math inline">\(\int u\,dv = uv - \int v\,du\)</span>: <span class="math display">\[= \frac{x^4}{4}\ln x - \int \frac{x^4}{4}\cdot\frac{1}{x}\,dx = \frac{x^4}{4}\ln x - \int \frac{x^3}{4}\,dx = \frac{x^4}{4}\ln x - \frac{x^4}{16} + C\]</span></p>
 </div>
 </div>
 </div>
@@ -2388,7 +2390,59 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Tabular method (differentiate <span class="math inline">\(x^4\)</span>, integrate <span class="math inline">\(e^x\)</span>, alternate signs): <span class="math display">\[= e^x\left(x^4 - 4x^3 + 12x^2 - 24x + 24\right) + C\]</span></p>
+<p>Integrating by parts once only lowers <span class="math inline">\(x^4\)</span> to <span class="math inline">\(x^3\)</span>, so we would need four rounds. The <strong>tabular method</strong> does all of them at once.</p>
+<p><strong>Set up the table.</strong> In the <span class="math inline">\(D\)</span> column, differentiate <span class="math inline">\(u = x^4\)</span> until it reaches <span class="math inline">\(0\)</span>. In the <span class="math inline">\(I\)</span> column, integrate <span class="math inline">\(dv = e^x\,dx\)</span> the same number of times. Attach alternating signs <span class="math inline">\(+, -, +, -, \dots\)</span> to the <span class="math inline">\(D\)</span> column.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Sign</th>
+<th style="text-align: center;"><span class="math inline">\(D\)</span> (differentiate <span class="math inline">\(x^4\)</span>)</th>
+<th style="text-align: center;"><span class="math inline">\(I\)</span> (integrate <span class="math inline">\(e^x\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(+\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x^4\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(e^x\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(-\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(4x^3\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(e^x\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(+\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(12x^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(e^x\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(-\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(24x\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(e^x\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(+\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(24\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(e^x\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(e^x\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Multiply along the diagonals.</strong> Each entry in the <span class="math inline">\(D\)</span> column, with its sign, is multiplied by the <span class="math inline">\(I\)</span> entry one row below it:</p>
+<ul>
+<li><span class="math inline">\((+)\;x^4 \cdot e^x\)</span></li>
+<li><span class="math inline">\((-)\;4x^3 \cdot e^x\)</span></li>
+<li><span class="math inline">\((+)\;12x^2 \cdot e^x\)</span></li>
+<li><span class="math inline">\((-)\;24x \cdot e^x\)</span></li>
+<li><span class="math inline">\((+)\;24 \cdot e^x\)</span></li>
+</ul>
+<p>We stop when the <span class="math inline">\(D\)</span> column hits <span class="math inline">\(0\)</span>, so no integral is left over.</p>
+<p><strong>Add the products:</strong> <span class="math display">\[\int x^4 e^x\,dx = x^4e^x - 4x^3e^x + 12x^2e^x - 24xe^x + 24e^x + C = e^x\left(x^4 - 4x^3 + 12x^2 - 24x + 24\right) + C\]</span></p>
 </div>
 </div>
 </div>
@@ -2408,7 +2462,11 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(u = \tan^{-1}x,\ dv = dx \Rightarrow du = \frac{1}{1+x^2}dx,\ v = x\)</span> <span class="math display">\[= x\tan^{-1}x - \int \frac{x}{1+x^2}\,dx = x\tan^{-1}x - \frac{1}{2}\ln(1+x^2) + C\]</span></p>
+<p><strong>Choosing <span class="math inline">\(u\)</span> with LIATE:</strong> write the integrand as <span class="math inline">\(\tan^{-1}x \cdot 1\)</span>. Here <span class="math inline">\(\tan^{-1}x\)</span> is <strong>I</strong>nverse trig and <span class="math inline">\(1\)</span> is <strong>A</strong>lgebraic, so I comes first and <span class="math inline">\(u = \tan^{-1}x\)</span>, <span class="math inline">\(dv = dx\)</span>.</p>
+<p><span class="math inline">\(u = \tan^{-1}x,\ dv = dx \Rightarrow du = \frac{1}{1+x^2}dx,\ v = x\)</span></p>
+<p>Apply <span class="math inline">\(\int u\,dv = uv - \int v\,du\)</span>: <span class="math display">\[= x\tan^{-1}x - \int \frac{x}{1+x^2}\,dx\]</span></p>
+<p>For the remaining integral, let <span class="math inline">\(w = 1 + x^2\)</span>, <span class="math inline">\(dw = 2x\,dx\)</span>: <span class="math display">\[\int \frac{x}{1+x^2}\,dx = \frac{1}{2}\int \frac{dw}{w} = \frac{1}{2}\ln(1+x^2)\]</span></p>
+<p><span class="math display">\[\int \tan^{-1}x\,dx = x\tan^{-1}x - \frac{1}{2}\ln(1+x^2) + C\]</span></p>
 </div>
 </div>
 </div>
@@ -2428,7 +2486,10 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(u = \ln x,\ dv = x\,dx \Rightarrow v = \frac{x^2}{2}\)</span> <span class="math display">\[= \left[\frac{x^2}{2}\ln x - \frac{x^2}{4}\right]_1^e = \left(\frac{e^2}{2} - \frac{e^2}{4}\right) - \left(0 - \frac{1}{4}\right) = \frac{e^2 + 1}{4}\]</span></p>
+<p><strong>Choosing <span class="math inline">\(u\)</span> with LIATE:</strong> <span class="math inline">\(\ln x\)</span> is <strong>L</strong>ogarithmic and <span class="math inline">\(x\)</span> is <strong>A</strong>lgebraic, so L comes first and <span class="math inline">\(u = \ln x\)</span>.</p>
+<p><span class="math inline">\(u = \ln x,\ dv = x\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^2}{2}\)</span></p>
+<p>Apply <span class="math inline">\(\int_a^b u\,dv = \big[uv\big]_a^b - \int_a^b v\,du\)</span>: <span class="math display">\[= \left[\frac{x^2}{2}\ln x\right]_1^e - \int_1^e \frac{x}{2}\,dx = \left[\frac{x^2}{2}\ln x - \frac{x^2}{4}\right]_1^e\]</span></p>
+<p>Evaluate, using <span class="math inline">\(\ln e = 1\)</span> and <span class="math inline">\(\ln 1 = 0\)</span>: <span class="math display">\[= \left[\frac{x^2}{2}\ln x - \frac{x^2}{4}\right]_1^e = \left(\frac{e^2}{2} - \frac{e^2}{4}\right) - \left(0 - \frac{1}{4}\right) = \frac{e^2 + 1}{4}\]</span></p>
 </div>
 </div>
 </div>
@@ -2436,7 +2497,6 @@ table { margin: 1rem auto; }
 <section id="part-ii-trigonometric-integrals" class="level2">
 <h2 class="anchored" data-anchor-id="part-ii-trigonometric-integrals">Part II: Trigonometric Integrals</h2>
 <p><strong>5.</strong> (10 points) Evaluate <span class="math display">\[\int \cos^4 x \, dx\]</span></p>
-<p><em>Hint:</em> <span class="math inline">\(\sin^2 x = \dfrac{1 - \cos 2x}{2}\)</span> and <span class="math inline">\(\cos^2 x = \dfrac{1 + \cos 2x}{2}\)</span>.</p>
 <div class="work-lg">
 
 </div>
@@ -2452,7 +2512,10 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math display">\[\cos^4 x = \left(\frac{1+\cos 2x}{2}\right)^2 = \frac{3}{8} + \frac{1}{2}\cos 2x + \frac{1}{8}\cos 4x\]</span> <span class="math display">\[\int \cos^4 x\,dx = \frac{3x}{8} + \frac{\sin 2x}{4} + \frac{\sin 4x}{32} + C\]</span></p>
+<p>Use the <strong>reduction formula for cosine</strong>: <span class="math display">\[\int \cos^n x\,dx = \frac{1}{n}\cos^{n-1}x\,\sin x + \frac{n-1}{n}\int \cos^{n-2}x\,dx\]</span></p>
+<p><strong>Step 1: <span class="math inline">\(n = 4\)</span>.</strong> <span class="math display">\[\int \cos^4 x\,dx = \frac{1}{4}\cos^3 x\,\sin x + \frac{3}{4}\int \cos^2 x\,dx\]</span></p>
+<p><strong>Step 2: apply the formula again with <span class="math inline">\(n = 2\)</span>.</strong> <span class="math display">\[\int \cos^2 x\,dx = \frac{1}{2}\cos x\,\sin x + \frac{1}{2}\int \cos^0 x\,dx = \frac{1}{2}\cos x\,\sin x + \frac{x}{2}\]</span></p>
+<p><strong>Step 3: substitute back.</strong> <span class="math display">\[\int \cos^4 x\,dx = \frac{1}{4}\cos^3 x\,\sin x + \frac{3}{4}\left(\frac{1}{2}\cos x\,\sin x + \frac{x}{2}\right)\]</span> <span class="math display">\[= \frac{1}{4}\cos^3 x\,\sin x + \frac{3}{8}\cos x\,\sin x + \frac{3x}{8} + C\]</span></p>
 </div>
 </div>
 </div>
@@ -2472,7 +2535,32 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Odd power of sine: save one <span class="math inline">\(\sin x\)</span>, let <span class="math inline">\(u = \cos x\)</span>, <span class="math inline">\(du = -\sin x\,dx\)</span>. <span class="math display">\[= \int (1-\cos^2 x)^2\cos^2 x\,\sin x\,dx = -\int (u^2 - 2u^4 + u^6)\,du\]</span> <span class="math display">\[= -\frac{\cos^3 x}{3} + \frac{2\cos^5 x}{5} - \frac{\cos^7 x}{7} + C\]</span></p>
+<p>This is <span class="math inline">\(\int \sin^m x\cos^n x\,dx\)</span> with <span class="math inline">\(m = 5\)</span> and <span class="math inline">\(n = 2\)</span>. In the table <strong>Integrating Products of Sines and Cosines</strong>, <span class="math inline">\(m\)</span> is odd, so we follow the <strong>“<span class="math inline">\(m\)</span> odd”</strong> row:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(\int \sin^m x\cos^n x\,dx\)</span></th>
+<th style="text-align: left;">Procedure</th>
+<th style="text-align: left;">Relevant identity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(m\)</span> odd</td>
+<td style="text-align: left;">Split off a factor of <span class="math inline">\(\sin x\)</span>. Apply the relevant identity. Make the substitution <span class="math inline">\(u = \cos x\)</span>.</td>
+<td style="text-align: left;"><span class="math inline">\(\sin^2 x = 1 - \cos^2 x\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Split off a factor of <span class="math inline">\(\sin x\)</span>:</strong> <span class="math display">\[\int \sin^5 x\cos^2 x\,dx = \int \sin^4 x\cos^2 x\,\sin x\,dx = \int (\sin^2 x)^2\cos^2 x\,\sin x\,dx\]</span></p>
+<p><strong>Apply the identity</strong> <span class="math inline">\(\sin^2 x = 1 - \cos^2 x\)</span>: <span class="math display">\[= \int (1-\cos^2 x)^2\cos^2 x\,\sin x\,dx\]</span></p>
+<p><strong>Substitute</strong> <span class="math inline">\(u = \cos x\)</span>, <span class="math inline">\(du = -\sin x\,dx\)</span>: <span class="math display">\[= -\int (1-u^2)^2u^2\,du = -\int (u^2 - 2u^4 + u^6)\,du = -\frac{u^3}{3} + \frac{2u^5}{5} - \frac{u^7}{7} + C\]</span></p>
+<p><span class="math display">\[= -\frac{\cos^3 x}{3} + \frac{2\cos^5 x}{5} - \frac{\cos^7 x}{7} + C\]</span></p>
 </div>
 </div>
 </div>
@@ -2492,12 +2580,15 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Using <span class="math inline">\(\sin 2x = 2\sin x\cos x\)</span> and <span class="math inline">\(u = \cos x\)</span>: <span class="math display">\[= \int 2\cos^2 x\sin x\,dx = -\frac{2}{3}\cos^3 x + C\]</span> (Equivalent via product-to-sum: <span class="math inline">\(-\tfrac{1}{2}\cos x - \tfrac{1}{6}\cos 3x + C\)</span>.)</p>
+<p>Use the <strong>product-to-sum identities</strong>:</p>
+<p><span class="math display">\[\sin A\cos B = \frac{1}{2}\big[\sin(A-B) + \sin(A+B)\big]\]</span> <span class="math display">\[\sin A\sin B = \frac{1}{2}\big[\cos(A-B) - \cos(A+B)\big]\]</span> <span class="math display">\[\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]\]</span></p>
+<p>Here we have <span class="math inline">\(\sin 2x\cos x\)</span>, so use the first identity with <span class="math inline">\(A = 2x\)</span>, <span class="math inline">\(B = x\)</span>: <span class="math display">\[\sin 2x\cos x = \frac{1}{2}\big[\sin x + \sin 3x\big]\]</span></p>
+<p>Integrate term by term: <span class="math display">\[\int \cos x\sin 2x\,dx = \frac{1}{2}\int (\sin x + \sin 3x)\,dx = -\frac{1}{2}\cos x - \frac{1}{6}\cos 3x + C\]</span></p>
+<p>(Equivalent form, using <span class="math inline">\(\sin 2x = 2\sin x\cos x\)</span> and <span class="math inline">\(u = \cos x\)</span>: <span class="math inline">\(-\tfrac{2}{3}\cos^3 x + C\)</span>.)</p>
 </div>
 </div>
 </div>
 <p><strong>8.</strong> (10 points) Evaluate <span class="math display">\[\int 4 \cos x \sin 2x \cos 3x \, dx\]</span></p>
-<p><em>Hint:</em> Use product-to-sum identities, e.g. <span class="math inline">\(2\sin A\cos B = \sin(A+B) + \sin(A-B)\)</span>.</p>
 <div class="work">
 
 </div>
@@ -2513,7 +2604,17 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(2\sin 2x\cos x = \sin 3x + \sin x\)</span>, so the integrand is <span class="math display">\[2(\sin 3x + \sin x)\cos 3x = 2\sin 3x\cos 3x + 2\sin x\cos 3x = \sin 6x + \sin 4x - \sin 2x\]</span> <span class="math display">\[\int 4\cos x\sin 2x\cos 3x\,dx = -\frac{\cos 6x}{6} - \frac{\cos 4x}{4} + \frac{\cos 2x}{2} + C\]</span></p>
+<p>Use the <strong>product-to-sum identities</strong> (same as in Problem 7), two factors at a time:</p>
+<p><span class="math display">\[\sin A\cos B = \frac{1}{2}\big[\sin(A-B) + \sin(A+B)\big]\]</span> <span class="math display">\[\sin A\sin B = \frac{1}{2}\big[\cos(A-B) - \cos(A+B)\big]\]</span> <span class="math display">\[\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]\]</span></p>
+<p><strong>Step 1: combine <span class="math inline">\(\sin 2x\cos x\)</span></strong> (<span class="math inline">\(\sin A\cos B\)</span> with <span class="math inline">\(A = 2x\)</span>, <span class="math inline">\(B = x\)</span>): <span class="math display">\[\sin 2x\cos x = \frac{1}{2}\big[\sin x + \sin 3x\big] \quad\Rightarrow\quad 4\cos x\sin 2x = 2\sin x + 2\sin 3x\]</span></p>
+<p><strong>Step 2: multiply by <span class="math inline">\(\cos 3x\)</span>:</strong> <span class="math display">\[4\cos x\sin 2x\cos 3x = 2\sin x\cos 3x + 2\sin 3x\cos 3x\]</span></p>
+<p><strong>Step 3: apply <span class="math inline">\(\sin A\cos B\)</span> to each product.</strong></p>
+<ul>
+<li><span class="math inline">\(2\sin x\cos 3x\)</span> with <span class="math inline">\(A = x\)</span>, <span class="math inline">\(B = 3x\)</span>: <span class="math inline">\(\ \sin(-2x) + \sin 4x = \sin 4x - \sin 2x\)</span> (since <span class="math inline">\(\sin(-\theta) = -\sin\theta\)</span>)</li>
+<li><span class="math inline">\(2\sin 3x\cos 3x\)</span> with <span class="math inline">\(A = B = 3x\)</span>: <span class="math inline">\(\ \sin 0 + \sin 6x = \sin 6x\)</span></li>
+</ul>
+<p>So the integrand is <span class="math inline">\(\sin 6x + \sin 4x - \sin 2x\)</span>.</p>
+<p><strong>Step 4: integrate term by term.</strong> <span class="math display">\[\int 4\cos x\sin 2x\cos 3x\,dx = -\frac{\cos 6x}{6} - \frac{\cos 4x}{4} + \frac{\cos 2x}{2} + C\]</span></p>
 </div>
 </div>
 </div>
@@ -2536,11 +2637,18 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Factor: <span class="math inline">\(6x+2 = 2(3x+1)\)</span>, and <span class="math inline">\(\dfrac{1}{(3x-1)(3x+1)} = \dfrac{1}{2}\left(\dfrac{1}{3x-1} - \dfrac{1}{3x+1}\right)\)</span>, so <span class="math display">\[\frac{1}{(3x-1)(6x+2)} = \frac{1}{4}\left(\frac{1}{3x-1} - \frac{1}{3x+1}\right)\]</span> <span class="math display">\[\int \frac{1}{(3x-1)(6x+2)}\,dx = \frac{1}{12}\ln\left|\frac{3x-1}{3x+1}\right| + C\]</span></p>
+<p><strong>Set up the partial fractions</strong> with unknowns <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>: <span class="math display">\[\frac{1}{(3x-1)(6x+2)} = \frac{A}{3x-1} + \frac{B}{6x+2}\]</span></p>
+<p><strong>Clear denominators</strong> by multiplying both sides by <span class="math inline">\((3x-1)(6x+2)\)</span>: <span class="math display">\[1 = A(6x+2) + B(3x-1)\]</span></p>
+<p><strong>Solve for <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</strong> Expand and match coefficients: <span class="math display">\[1 = (6A + 3B)\,x + (2A - B)\]</span></p>
+<p><span class="math display">\[\begin{cases} 6A + 3B = 0 &amp; (\text{coefficient of } x)\\ 2A - B = 1 &amp; (\text{constant term}) \end{cases}\]</span></p>
+<p>From the first equation, <span class="math inline">\(B = -2A\)</span>. Substitute into the second: <span class="math inline">\(2A + 2A = 1\)</span>, so <span class="math inline">\(A = \tfrac{1}{4}\)</span> and <span class="math inline">\(B = -\tfrac{1}{2}\)</span>.</p>
+<p><em>Check by plugging in roots:</em> <span class="math inline">\(x = \tfrac{1}{3}\)</span> gives <span class="math inline">\(1 = 4A \Rightarrow A = \tfrac14\)</span>; <span class="math inline">\(x = -\tfrac{1}{3}\)</span> gives <span class="math inline">\(1 = -2B \Rightarrow B = -\tfrac12\)</span>. ✓</p>
+<p><strong>Integrate</strong> (remember <span class="math inline">\(\int \frac{dx}{ax+b} = \frac{1}{a}\ln|ax+b|\)</span>): <span class="math display">\[\int \left(\frac{1/4}{3x-1} - \frac{1/2}{6x+2}\right)dx = \frac{1}{4}\cdot\frac{1}{3}\ln|3x-1| - \frac{1}{2}\cdot\frac{1}{6}\ln|6x+2| + C\]</span></p>
+<p><span class="math display">\[= \frac{1}{12}\ln|3x-1| - \frac{1}{12}\ln|6x+2| + C = \frac{1}{12}\ln\left|\frac{3x-1}{6x+2}\right| + C\]</span></p>
 </div>
 </div>
 </div>
-<p><strong>10.</strong> (10 points) Evaluate <span class="math display">\[\int \frac{1}{(x+2)^2(x-1)} \, dx\]</span></p>
+<p><strong>10.</strong> (10 points) Evaluate <span class="math display">\[\int \frac{1}{x^2(x+2)} \, dx\]</span></p>
 <div class="work-lg">
 
 </div>
@@ -2556,7 +2664,14 @@ table { margin: 1rem auto; }
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><span class="math inline">\(\dfrac{A}{x+2} + \dfrac{B}{(x+2)^2} + \dfrac{C}{x-1}\)</span> with <span class="math inline">\(A = -\tfrac{1}{9},\ B = -\tfrac{1}{3},\ C = \tfrac{1}{9}\)</span> <span class="math display">\[\int \frac{1}{(x+2)^2(x-1)}\,dx = -\frac{1}{9}\ln|x+2| + \frac{1}{3(x+2)} + \frac{1}{9}\ln|x-1| + C\]</span></p>
+<p><strong>Set up the partial fractions</strong> with unknowns <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>. The repeated factor <span class="math inline">\(x^2\)</span> needs a term for each power: <span class="math display">\[\frac{1}{x^2(x+2)} = \frac{A}{x} + \frac{B}{x^2} + \frac{C}{x+2}\]</span></p>
+<p><strong>Clear denominators</strong> by multiplying both sides by <span class="math inline">\(x^2(x+2)\)</span>: <span class="math display">\[1 = Ax(x+2) + B(x+2) + Cx^2\]</span></p>
+<p><strong>Solve for <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>.</strong> Expand and match coefficients: <span class="math display">\[1 = A(x^2 + 2x) + B(x + 2) + Cx^2\]</span> <span class="math display">\[1 = (A + C)\,x^2 + (2A + B)\,x + 2B\]</span></p>
+<p><span class="math display">\[\begin{cases} A + C = 0 &amp; (\text{coefficient of } x^2)\\ 2A + B = 0 &amp; (\text{coefficient of } x)\\ 2B = 1 &amp; (\text{constant term}) \end{cases}\]</span></p>
+<p>From the third equation, <span class="math inline">\(B = \tfrac{1}{2}\)</span>. The second equation gives <span class="math inline">\(2A = -\tfrac{1}{2}\)</span>, so <span class="math inline">\(A = -\tfrac{1}{4}\)</span>. The first equation gives <span class="math inline">\(C = -A = \tfrac{1}{4}\)</span>.</p>
+<p><em>Check by plugging in roots:</em> <span class="math inline">\(x = 0\)</span> gives <span class="math inline">\(1 = 2B \Rightarrow B = \tfrac12\)</span>; <span class="math inline">\(x = -2\)</span> gives <span class="math inline">\(1 = 4C \Rightarrow C = \tfrac14\)</span>. ✓</p>
+<p><strong>Integrate</strong> each term, using <span class="math inline">\(\int x^{-2}\,dx = -x^{-1}\)</span>: <span class="math display">\[\int \left(\frac{-1/4}{x} + \frac{1/2}{x^2} + \frac{1/4}{x+2}\right)dx\]</span></p>
+<p><span class="math display">\[\int \frac{1}{x^2(x+2)}\,dx = -\frac{1}{4}\ln|x| - \frac{1}{2x} + \frac{1}{4}\ln|x+2| + C\]</span></p>
 </div>
 </div>
 </div>

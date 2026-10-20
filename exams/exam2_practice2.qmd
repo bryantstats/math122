@@ -1,0 +1,279 @@
+---
+title: "MATH 122 — Calculus II"
+subtitle: "Exam 2 Practice 2: Techniques of Integration"
+format:
+  html:
+    embed-resources: true
+    toc: false
+    html-math-method: mathjax
+---
+
+```{=html}
+<style>
+  .work { height: 260px; }
+  .work-lg { height: 320px; }
+  table { margin: 1rem auto; }
+  @media print {
+    .work { height: 7cm; }
+    .work-lg { height: 8cm; }
+    .callout { display: none; }
+  }
+</style>
+```
+
+**Instructions:**
+
+- Show all work: Full credit requires complete, correct steps and proper math notation.
+
+- Points: Each question is worth 10 points.
+
+- Formula Sheet: Permitted (formulas only; no worked examples).
+
+- Calculators: Basic, non-graphing calculators allowed.
+
+## Part I: Integration by Parts
+
+**1.** (10 points) Evaluate
+$$I = \int x^5 \ln x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+**Choosing $u$ with LIATE** (Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential): pick $u$ as the function whose type comes first in the list. Here $\ln x$ is **L**ogarithmic and $x^5$ is **A**lgebraic, so L comes first and $u = \ln x$.
+
+$u = \ln x,\ dv = x^5\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^6}{6}$
+
+Apply $\int u\,dv = uv - \int v\,du$:
+$$= \frac{x^6}{6}\ln x - \int \frac{x^6}{6}\cdot\frac{1}{x}\,dx = \frac{x^6}{6}\ln x - \int \frac{x^5}{6}\,dx = \frac{x^6}{6}\ln x - \frac{x^6}{36} + C$$
+:::
+
+**2.** (10 points) Evaluate
+$$I = \int x^3 \sin x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+Integrating by parts once only lowers $x^3$ to $x^2$, so we would need three rounds. The **tabular method** does all of them at once.
+
+**Set up the table.** In the $D$ column, differentiate $u = x^3$ until it reaches $0$. In the $I$ column, integrate $dv = \sin x\,dx$ the same number of times. Attach alternating signs $+, -, +, -, \dots$ to the $D$ column.
+
+| Sign | $D$ (differentiate $x^3$) | $I$ (integrate $\sin x$) |
+|:----:|:-------------------------:|:------------------------:|
+| $+$  | $x^3$                     | $\sin x$                 |
+| $-$  | $3x^2$                    | $-\cos x$                |
+| $+$  | $6x$                      | $-\sin x$                |
+| $-$  | $6$                       | $\cos x$                 |
+|      | $0$                       | $\sin x$                 |
+
+**Multiply along the diagonals.** Each entry in the $D$ column, with its sign, is multiplied by the $I$ entry one row below it:
+
+- $(+)\;x^3 \cdot (-\cos x) = -x^3\cos x$
+- $(-)\;3x^2 \cdot (-\sin x) = 3x^2\sin x$
+- $(+)\;6x \cdot \cos x = 6x\cos x$
+- $(-)\;6 \cdot \sin x = -6\sin x$
+
+We stop when the $D$ column hits $0$, so no integral is left over.
+
+**Add the products:**
+$$\int x^3 \sin x\,dx = -x^3\cos x + 3x^2\sin x + 6x\cos x - 6\sin x + C$$
+:::
+
+**3.** (10 points) Evaluate
+$$I = \int \sin^{-1} x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+**Choosing $u$ with LIATE:** write the integrand as $\sin^{-1}x \cdot 1$. Here $\sin^{-1}x$ is **I**nverse trig and $1$ is **A**lgebraic, so I comes first and $u = \sin^{-1}x$, $dv = dx$.
+
+$u = \sin^{-1}x,\ dv = dx \Rightarrow du = \frac{1}{\sqrt{1-x^2}}dx,\ v = x$
+
+Apply $\int u\,dv = uv - \int v\,du$:
+$$= x\sin^{-1}x - \int \frac{x}{\sqrt{1-x^2}}\,dx$$
+
+For the remaining integral, let $w = 1 - x^2$, $dw = -2x\,dx$:
+$$\int \frac{x}{\sqrt{1-x^2}}\,dx = -\frac{1}{2}\int w^{-1/2}\,dw = -\sqrt{w} = -\sqrt{1-x^2}$$
+
+$$\int \sin^{-1}x\,dx = x\sin^{-1}x + \sqrt{1-x^2} + C$$
+:::
+
+**4.** (10 points) Evaluate the definite integral
+$$\int_1^e x^2 \ln x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+**Choosing $u$ with LIATE:** $\ln x$ is **L**ogarithmic and $x^2$ is **A**lgebraic, so L comes first and $u = \ln x$.
+
+$u = \ln x,\ dv = x^2\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^3}{3}$
+
+Apply $\int_a^b u\,dv = \big[uv\big]_a^b - \int_a^b v\,du$:
+$$= \left[\frac{x^3}{3}\ln x\right]_1^e - \int_1^e \frac{x^2}{3}\,dx = \left[\frac{x^3}{3}\ln x - \frac{x^3}{9}\right]_1^e$$
+
+Evaluate, using $\ln e = 1$ and $\ln 1 = 0$:
+$$= \left(\frac{e^3}{3} - \frac{e^3}{9}\right) - \left(0 - \frac{1}{9}\right) = \frac{2e^3}{9} + \frac{1}{9} = \frac{2e^3 + 1}{9}$$
+:::
+
+## Part II: Trigonometric Integrals
+
+**5.** (10 points) Evaluate
+$$\int \sin^4 x \, dx$$
+
+
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+Use the **reduction formula for sine**:
+$$\int \sin^n x\,dx = -\frac{1}{n}\sin^{n-1}x\,\cos x + \frac{n-1}{n}\int \sin^{n-2}x\,dx$$
+
+**Step 1: $n = 4$.**
+$$\int \sin^4 x\,dx = -\frac{1}{4}\sin^3 x\,\cos x + \frac{3}{4}\int \sin^2 x\,dx$$
+
+**Step 2: apply the formula again with $n = 2$.**
+$$\int \sin^2 x\,dx = -\frac{1}{2}\sin x\,\cos x + \frac{1}{2}\int \sin^0 x\,dx = -\frac{1}{2}\sin x\,\cos x + \frac{x}{2}$$
+
+**Step 3: substitute back.**
+$$\int \sin^4 x\,dx = -\frac{1}{4}\sin^3 x\,\cos x + \frac{3}{4}\left(-\frac{1}{2}\sin x\,\cos x + \frac{x}{2}\right)$$
+$$= -\frac{1}{4}\sin^3 x\,\cos x - \frac{3}{8}\sin x\,\cos x + \frac{3x}{8} + C$$
+
+:::
+
+**6.** (10 points) Evaluate
+$$I = \int \sin^2 x \cos^5 x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+This is $\int \sin^m x\cos^n x\,dx$ with $m = 2$ and $n = 5$. In the table **Integrating Products of Sines and Cosines**, $n$ is odd, so we follow the **"$n$ odd"** row:
+
+| $\int \sin^m x\cos^n x\,dx$ | Procedure | Relevant identity |
+|:---|:---|:---|
+| $n$ odd | Split off a factor of $\cos x$. Apply the relevant identity. Make the substitution $u = \sin x$. | $\cos^2 x = 1 - \sin^2 x$ |
+
+**Split off a factor of $\cos x$:**
+$$\int \sin^2 x\cos^5 x\,dx = \int \sin^2 x\cos^4 x\,\cos x\,dx = \int \sin^2 x\,(\cos^2 x)^2\,\cos x\,dx$$
+
+**Apply the identity** $\cos^2 x = 1 - \sin^2 x$:
+$$= \int \sin^2 x\,(1-\sin^2 x)^2\,\cos x\,dx$$
+
+**Substitute** $u = \sin x$, $du = \cos x\,dx$:
+$$= \int u^2(1-u^2)^2\,du = \int (u^2 - 2u^4 + u^6)\,du = \frac{u^3}{3} - \frac{2u^5}{5} + \frac{u^7}{7} + C$$
+
+$$= \frac{\sin^3 x}{3} - \frac{2\sin^5 x}{5} + \frac{\sin^7 x}{7} + C$$
+:::
+
+**7.** (10 points) Evaluate
+$$I = \int \sin 3x \cos 2x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+Use the **product-to-sum identities**:
+
+$$\sin A\cos B = \frac{1}{2}\big[\sin(A-B) + \sin(A+B)\big]$$
+$$\sin A\sin B = \frac{1}{2}\big[\cos(A-B) - \cos(A+B)\big]$$
+$$\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]$$
+
+Here we have $\sin 3x\cos 2x$, so use the first identity with $A = 3x$, $B = 2x$:
+$$\sin 3x\cos 2x = \frac{1}{2}\big[\sin x + \sin 5x\big]$$
+
+Integrate term by term:
+$$\int \sin 3x\cos 2x\,dx = \frac{1}{2}\int (\sin x + \sin 5x)\,dx = -\frac{1}{2}\cos x - \frac{1}{10}\cos 5x + C$$
+:::
+
+**8.** (10 points) Evaluate
+$$\int 4 \sin x \cos 2x \sin 3x \, dx$$
+
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+Use the **product-to-sum identities** (same as in Problem 7), two factors at a time:
+
+$$\sin A\cos B = \frac{1}{2}\big[\sin(A-B) + \sin(A+B)\big]$$
+$$\sin A\sin B = \frac{1}{2}\big[\cos(A-B) - \cos(A+B)\big]$$
+$$\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]$$
+
+**Step 1: combine $\sin x\cos 2x$** ($\sin A\cos B$ with $A = x$, $B = 2x$):
+$$\sin x\cos 2x = \frac{1}{2}\big[\sin(-x) + \sin 3x\big] = \frac{1}{2}\big[\sin 3x - \sin x\big] \quad\Rightarrow\quad 4\sin x\cos 2x = 2\sin 3x - 2\sin x$$
+
+**Step 2: multiply by $\sin 3x$:**
+$$4\sin x\cos 2x\sin 3x = 2\sin 3x\sin 3x - 2\sin x\sin 3x$$
+
+**Step 3: apply $\sin A\sin B$ to each product.**
+
+- $2\sin 3x\sin 3x$ with $A = B = 3x$: $\ \cos 0 - \cos 6x = 1 - \cos 6x$
+- $2\sin x\sin 3x$ with $A = x$, $B = 3x$: $\ \cos(-2x) - \cos 4x = \cos 2x - \cos 4x$ (since $\cos(-\theta) = \cos\theta$)
+
+So the integrand is $1 - \cos 6x - \cos 2x + \cos 4x$.
+
+**Step 4: integrate term by term.**
+$$\int 4\sin x\cos 2x\sin 3x\,dx = x - \frac{\sin 6x}{6} + \frac{\sin 4x}{4} - \frac{\sin 2x}{2} + C$$
+:::
+
+## Part III: Partial Fractions
+
+**9.** (10 points) Evaluate
+$$\int \frac{7}{(2x-1)(x+3)} \, dx$$
+
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+**Set up the partial fractions** with unknowns $A$ and $B$:
+$$\frac{7}{(2x-1)(x+3)} = \frac{A}{2x-1} + \frac{B}{x+3}$$
+
+**Clear denominators** by multiplying both sides by $(2x-1)(x+3)$:
+$$7 = A(x+3) + B(2x-1)$$
+
+**Solve for $A$ and $B$.** Expand and match coefficients:
+$$7 = (A + 2B)\,x + (3A - B)$$
+
+$$\begin{cases} A + 2B = 0 & (\text{coefficient of } x)\\ 3A - B = 7 & (\text{constant term}) \end{cases}$$
+
+From the first equation, $A = -2B$. Substitute into the second: $-6B - B = 7$, so $B = -1$ and $A = 2$.
+
+*Check by plugging in roots:* $x = \tfrac{1}{2}$ gives $7 = \tfrac{7}{2}A \Rightarrow A = 2$; $x = -3$ gives $7 = -7B \Rightarrow B = -1$. ✓
+
+**Integrate** (remember $\int \frac{dx}{ax+b} = \frac{1}{a}\ln|ax+b|$):
+$$\int \left(\frac{2}{2x-1} - \frac{1}{x+3}\right)dx = 2\cdot\frac{1}{2}\ln|2x-1| - \ln|x+3| + C$$
+
+$$= \ln|2x-1| - \ln|x+3| + C = \ln\left|\frac{2x-1}{x+3}\right| + C$$
+:::
+
+**10.** (10 points) Evaluate
+$$\int \frac{9}{x^2(x-3)} \, dx$$
+
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 10
+**Set up the partial fractions** with unknowns $A$, $B$ and $C$. The repeated factor $x^2$ needs a term for each power:
+$$\frac{9}{x^2(x-3)} = \frac{A}{x} + \frac{B}{x^2} + \frac{C}{x-3}$$
+
+**Clear denominators** by multiplying both sides by $x^2(x-3)$:
+$$9 = Ax(x-3) + B(x-3) + Cx^2$$
+
+**Solve for $A$, $B$ and $C$.** Expand and match coefficients:
+$$9 = A(x^2 - 3x) + B(x - 3) + Cx^2$$
+$$9 = (A + C)\,x^2 + (-3A + B)\,x - 3B$$
+
+$$\begin{cases} A + C = 0 & (\text{coefficient of } x^2)\\ -3A + B = 0 & (\text{coefficient of } x)\\ -3B = 9 & (\text{constant term}) \end{cases}$$
+
+From the third equation, $B = -3$. The second equation gives $-3A = 3$, so $A = -1$. The first equation gives $C = -A = 1$.
+
+*Check by plugging in roots:* $x = 0$ gives $9 = -3B \Rightarrow B = -3$; $x = 3$ gives $9 = 9C \Rightarrow C = 1$. ✓
+
+**Integrate** each term, using $\int x^{-2}\,dx = -x^{-1}$:
+$$\int \left(\frac{-1}{x} + \frac{-3}{x^2} + \frac{1}{x-3}\right)dx$$
+
+$$\int \frac{9}{x^2(x-3)}\,dx = -\ln|x| + \frac{3}{x} + \ln|x-3| + C = \ln\left|\frac{x-3}{x}\right| + \frac{3}{x} + C$$
+:::

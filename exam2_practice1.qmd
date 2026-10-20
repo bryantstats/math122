@@ -1,0 +1,285 @@
+---
+title: "MATH 122 — Calculus II"
+subtitle: "Exam 2 Practice 1: Techniques of Integration"
+format:
+  html:
+    embed-resources: true
+    toc: false
+    html-math-method: mathjax
+---
+
+```{=html}
+<style>
+  .work { height: 260px; }
+  .work-lg { height: 320px; }
+  table { margin: 1rem auto; }
+  @media print {
+    .work { height: 7cm; }
+    .work-lg { height: 8cm; }
+    .callout { display: none; }
+  }
+</style>
+```
+
+**Instructions**
+
+**Instructions:**
+
+- Show all work: Full credit requires complete, correct steps and proper math notation.
+
+- Points: Each question is worth 10 points.
+
+- Formula Sheet: Permitted (formulas only; no worked examples).
+
+- Calculators: Basic, non-graphing calculators allowed.
+
+## Part I: Integration by Parts
+
+**1.** (10 points) Evaluate
+$$I = \int x^3 \ln x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+**Choosing $u$ with LIATE** (Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential): pick $u$ as the function whose type comes first in the list. Here $\ln x$ is **L**ogarithmic and $x^3$ is **A**lgebraic, so L comes first and $u = \ln x$.
+
+$u = \ln x,\ dv = x^3\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^4}{4}$
+
+Apply $\int u\,dv = uv - \int v\,du$:
+$$= \frac{x^4}{4}\ln x - \int \frac{x^4}{4}\cdot\frac{1}{x}\,dx = \frac{x^4}{4}\ln x - \int \frac{x^3}{4}\,dx = \frac{x^4}{4}\ln x - \frac{x^4}{16} + C$$
+:::
+
+**2.** (10 points) Evaluate
+$$I = \int x^4 e^x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+Integrating by parts once only lowers $x^4$ to $x^3$, so we would need four rounds. The **tabular method** does all of them at once.
+
+**Set up the table.** In the $D$ column, differentiate $u = x^4$ until it reaches $0$. In the $I$ column, integrate $dv = e^x\,dx$ the same number of times. Attach alternating signs $+, -, +, -, \dots$ to the $D$ column.
+
+| Sign | $D$ (differentiate $x^4$) | $I$ (integrate $e^x$) |
+|:----:|:-------------------------:|:---------------------:|
+| $+$  | $x^4$                     | $e^x$                 |
+| $-$  | $4x^3$                    | $e^x$                 |
+| $+$  | $12x^2$                   | $e^x$                 |
+| $-$  | $24x$                     | $e^x$                 |
+| $+$  | $24$                      | $e^x$                 |
+|      | $0$                       | $e^x$                 |
+
+**Multiply along the diagonals.** Each entry in the $D$ column, with its sign, is multiplied by the $I$ entry one row below it:
+
+- $(+)\;x^4 \cdot e^x$
+- $(-)\;4x^3 \cdot e^x$
+- $(+)\;12x^2 \cdot e^x$
+- $(-)\;24x \cdot e^x$
+- $(+)\;24 \cdot e^x$
+
+We stop when the $D$ column hits $0$, so no integral is left over.
+
+**Add the products:**
+$$\int x^4 e^x\,dx = x^4e^x - 4x^3e^x + 12x^2e^x - 24xe^x + 24e^x + C = e^x\left(x^4 - 4x^3 + 12x^2 - 24x + 24\right) + C$$
+:::
+
+**3.** (10 points) Evaluate
+$$I = \int \tan^{-1} x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+**Choosing $u$ with LIATE:** write the integrand as $\tan^{-1}x \cdot 1$. Here $\tan^{-1}x$ is **I**nverse trig and $1$ is **A**lgebraic, so I comes first and $u = \tan^{-1}x$, $dv = dx$.
+
+$u = \tan^{-1}x,\ dv = dx \Rightarrow du = \frac{1}{1+x^2}dx,\ v = x$
+
+Apply $\int u\,dv = uv - \int v\,du$:
+$$= x\tan^{-1}x - \int \frac{x}{1+x^2}\,dx$$
+
+For the remaining integral, let $w = 1 + x^2$, $dw = 2x\,dx$:
+$$\int \frac{x}{1+x^2}\,dx = \frac{1}{2}\int \frac{dw}{w} = \frac{1}{2}\ln(1+x^2)$$
+
+$$\int \tan^{-1}x\,dx = x\tan^{-1}x - \frac{1}{2}\ln(1+x^2) + C$$
+:::
+
+**4.** (10 points) Evaluate the definite integral
+$$\int_1^e x \ln x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+**Choosing $u$ with LIATE:** $\ln x$ is **L**ogarithmic and $x$ is **A**lgebraic, so L comes first and $u = \ln x$.
+
+$u = \ln x,\ dv = x\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^2}{2}$
+
+Apply $\int_a^b u\,dv = \big[uv\big]_a^b - \int_a^b v\,du$:
+$$= \left[\frac{x^2}{2}\ln x\right]_1^e - \int_1^e \frac{x}{2}\,dx = \left[\frac{x^2}{2}\ln x - \frac{x^2}{4}\right]_1^e$$
+
+Evaluate, using $\ln e = 1$ and $\ln 1 = 0$:
+$$= \left[\frac{x^2}{2}\ln x - \frac{x^2}{4}\right]_1^e = \left(\frac{e^2}{2} - \frac{e^2}{4}\right) - \left(0 - \frac{1}{4}\right) = \frac{e^2 + 1}{4}$$
+:::
+
+## Part II: Trigonometric Integrals
+
+**5.** (10 points) Evaluate
+$$\int \cos^4 x \, dx$$
+
+
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+Use the **reduction formula for cosine**:
+$$\int \cos^n x\,dx = \frac{1}{n}\cos^{n-1}x\,\sin x + \frac{n-1}{n}\int \cos^{n-2}x\,dx$$
+
+**Step 1: $n = 4$.**
+$$\int \cos^4 x\,dx = \frac{1}{4}\cos^3 x\,\sin x + \frac{3}{4}\int \cos^2 x\,dx$$
+
+**Step 2: apply the formula again with $n = 2$.**
+$$\int \cos^2 x\,dx = \frac{1}{2}\cos x\,\sin x + \frac{1}{2}\int \cos^0 x\,dx = \frac{1}{2}\cos x\,\sin x + \frac{x}{2}$$
+
+**Step 3: substitute back.**
+$$\int \cos^4 x\,dx = \frac{1}{4}\cos^3 x\,\sin x + \frac{3}{4}\left(\frac{1}{2}\cos x\,\sin x + \frac{x}{2}\right)$$
+$$= \frac{1}{4}\cos^3 x\,\sin x + \frac{3}{8}\cos x\,\sin x + \frac{3x}{8} + C$$
+
+:::
+
+**6.** (10 points) Evaluate
+$$I = \int \sin^5 x \cos^2 x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+This is $\int \sin^m x\cos^n x\,dx$ with $m = 5$ and $n = 2$. In the table **Integrating Products of Sines and Cosines**, $m$ is odd, so we follow the **"$m$ odd"** row:
+
+| $\int \sin^m x\cos^n x\,dx$ | Procedure | Relevant identity |
+|:---|:---|:---|
+| $m$ odd | Split off a factor of $\sin x$. Apply the relevant identity. Make the substitution $u = \cos x$. | $\sin^2 x = 1 - \cos^2 x$ |
+
+**Split off a factor of $\sin x$:**
+$$\int \sin^5 x\cos^2 x\,dx = \int \sin^4 x\cos^2 x\,\sin x\,dx = \int (\sin^2 x)^2\cos^2 x\,\sin x\,dx$$
+
+**Apply the identity** $\sin^2 x = 1 - \cos^2 x$:
+$$= \int (1-\cos^2 x)^2\cos^2 x\,\sin x\,dx$$
+
+**Substitute** $u = \cos x$, $du = -\sin x\,dx$:
+$$= -\int (1-u^2)^2u^2\,du = -\int (u^2 - 2u^4 + u^6)\,du = -\frac{u^3}{3} + \frac{2u^5}{5} - \frac{u^7}{7} + C$$
+
+$$= -\frac{\cos^3 x}{3} + \frac{2\cos^5 x}{5} - \frac{\cos^7 x}{7} + C$$
+:::
+
+**7.** (10 points) Evaluate
+$$I = \int \cos x \sin 2x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+Use the **product-to-sum identities**:
+
+$$\sin A\cos B = \frac{1}{2}\big[\sin(A-B) + \sin(A+B)\big]$$
+$$\sin A\sin B = \frac{1}{2}\big[\cos(A-B) - \cos(A+B)\big]$$
+$$\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]$$
+
+Here we have $\sin 2x\cos x$, so use the first identity with $A = 2x$, $B = x$:
+$$\sin 2x\cos x = \frac{1}{2}\big[\sin x + \sin 3x\big]$$
+
+Integrate term by term:
+$$\int \cos x\sin 2x\,dx = \frac{1}{2}\int (\sin x + \sin 3x)\,dx = -\frac{1}{2}\cos x - \frac{1}{6}\cos 3x + C$$
+
+(Equivalent form, using $\sin 2x = 2\sin x\cos x$ and $u = \cos x$: $-\tfrac{2}{3}\cos^3 x + C$.)
+:::
+
+**8.** (10 points) Evaluate
+$$\int 4 \cos x \sin 2x \cos 3x \, dx$$
+
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+Use the **product-to-sum identities** (same as in Problem 7), two factors at a time:
+
+$$\sin A\cos B = \frac{1}{2}\big[\sin(A-B) + \sin(A+B)\big]$$
+$$\sin A\sin B = \frac{1}{2}\big[\cos(A-B) - \cos(A+B)\big]$$
+$$\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]$$
+
+**Step 1: combine $\sin 2x\cos x$** ($\sin A\cos B$ with $A = 2x$, $B = x$):
+$$\sin 2x\cos x = \frac{1}{2}\big[\sin x + \sin 3x\big] \quad\Rightarrow\quad 4\cos x\sin 2x = 2\sin x + 2\sin 3x$$
+
+**Step 2: multiply by $\cos 3x$:**
+$$4\cos x\sin 2x\cos 3x = 2\sin x\cos 3x + 2\sin 3x\cos 3x$$
+
+**Step 3: apply $\sin A\cos B$ to each product.**
+
+- $2\sin x\cos 3x$ with $A = x$, $B = 3x$: $\ \sin(-2x) + \sin 4x = \sin 4x - \sin 2x$ (since $\sin(-\theta) = -\sin\theta$)
+- $2\sin 3x\cos 3x$ with $A = B = 3x$: $\ \sin 0 + \sin 6x = \sin 6x$
+
+So the integrand is $\sin 6x + \sin 4x - \sin 2x$.
+
+**Step 4: integrate term by term.**
+$$\int 4\cos x\sin 2x\cos 3x\,dx = -\frac{\cos 6x}{6} - \frac{\cos 4x}{4} + \frac{\cos 2x}{2} + C$$
+:::
+
+## Part III: Partial Fractions
+
+**9.** (10 points) Evaluate
+$$\int \frac{1}{(3x-1)(6x+2)} \, dx$$
+
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+**Set up the partial fractions** with unknowns $A$ and $B$:
+$$\frac{1}{(3x-1)(6x+2)} = \frac{A}{3x-1} + \frac{B}{6x+2}$$
+
+**Clear denominators** by multiplying both sides by $(3x-1)(6x+2)$:
+$$1 = A(6x+2) + B(3x-1)$$
+
+**Solve for $A$ and $B$.** Expand and match coefficients:
+$$1 = (6A + 3B)\,x + (2A - B)$$
+
+$$\begin{cases} 6A + 3B = 0 & (\text{coefficient of } x)\\ 2A - B = 1 & (\text{constant term}) \end{cases}$$
+
+From the first equation, $B = -2A$. Substitute into the second: $2A + 2A = 1$, so $A = \tfrac{1}{4}$ and $B = -\tfrac{1}{2}$.
+
+*Check by plugging in roots:* $x = \tfrac{1}{3}$ gives $1 = 4A \Rightarrow A = \tfrac14$; $x = -\tfrac{1}{3}$ gives $1 = -2B \Rightarrow B = -\tfrac12$. ✓
+
+**Integrate** (remember $\int \frac{dx}{ax+b} = \frac{1}{a}\ln|ax+b|$):
+$$\int \left(\frac{1/4}{3x-1} - \frac{1/2}{6x+2}\right)dx = \frac{1}{4}\cdot\frac{1}{3}\ln|3x-1| - \frac{1}{2}\cdot\frac{1}{6}\ln|6x+2| + C$$
+
+$$= \frac{1}{12}\ln|3x-1| - \frac{1}{12}\ln|6x+2| + C = \frac{1}{12}\ln\left|\frac{3x-1}{6x+2}\right| + C$$
+:::
+
+**10.** (10 points) Evaluate
+$$\int \frac{1}{x^2(x+2)} \, dx$$
+
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 10
+**Set up the partial fractions** with unknowns $A$, $B$ and $C$. The repeated factor $x^2$ needs a term for each power:
+$$\frac{1}{x^2(x+2)} = \frac{A}{x} + \frac{B}{x^2} + \frac{C}{x+2}$$
+
+**Clear denominators** by multiplying both sides by $x^2(x+2)$:
+$$1 = Ax(x+2) + B(x+2) + Cx^2$$
+
+**Solve for $A$, $B$ and $C$.** Expand and match coefficients:
+$$1 = A(x^2 + 2x) + B(x + 2) + Cx^2$$
+$$1 = (A + C)\,x^2 + (2A + B)\,x + 2B$$
+
+$$\begin{cases} A + C = 0 & (\text{coefficient of } x^2)\\ 2A + B = 0 & (\text{coefficient of } x)\\ 2B = 1 & (\text{constant term}) \end{cases}$$
+
+From the third equation, $B = \tfrac{1}{2}$. The second equation gives $2A = -\tfrac{1}{2}$, so $A = -\tfrac{1}{4}$. The first equation gives $C = -A = \tfrac{1}{4}$.
+
+*Check by plugging in roots:* $x = 0$ gives $1 = 2B \Rightarrow B = \tfrac12$; $x = -2$ gives $1 = 4C \Rightarrow C = \tfrac14$. ✓
+
+**Integrate** each term, using $\int x^{-2}\,dx = -x^{-1}$:
+$$\int \left(\frac{-1/4}{x} + \frac{1/2}{x^2} + \frac{1/4}{x+2}\right)dx$$
+
+$$\int \frac{1}{x^2(x+2)}\,dx = -\frac{1}{4}\ln|x| - \frac{1}{2x} + \frac{1}{4}\ln|x+2| + C$$
+:::
