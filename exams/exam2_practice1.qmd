@@ -1,0 +1,107 @@
+---
+title: "Math 122: Exam 2 - Practice 1"
+# subtitle: "Semester Fall 2026"
+# date: "December 15, 2026"
+# author: "Department of Mathematics"
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - top=1in
+      - bottom=1in
+      - left=1in
+      - right=1in
+    header-includes: |
+      \usepackage{amsmath,amssymb,amsthm}
+      \usepackage{enumitem}
+      \usepackage{fancyhdr}
+      \pagestyle{fancy}
+      \fancyhf{}
+      \lhead{\textbf{Math 122: Exam 1 - Practice}}
+      \rhead{\textbf{Fall 2026}}
+      \cfoot{\thepage}
+  html:
+    toc: false
+    theme: cosmo
+---
+
+\noindent
+**Student Name:** \underline{\hspace{8cm}} 
+
+\vspace{0.5cm}
+
+\noindent
+
+**Instructions:**
+
+- Show all work: Full credit requires complete, correct steps and proper math notation.
+
+- Points: Each question is worth 10 points.
+
+- Formula Sheet: Permitted (formulas only; no worked examples).
+
+- Calculators: Basic, non-graphing calculators allowed.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.8cm}
+
+
+## Part I: Integration by Parts
+
+**1.** (10 points) Evaluate
+$$I = \int x \ln x \, dx$$
+
+\vspace{7cm}
+
+**2.** (10 points) Evaluate
+$$I = \int x^5 e^x \, dx$$
+
+\newpage
+
+**3.** (10 points) Evaluate
+$$I = \int \sin^{-1} x \, dx$$
+
+\vspace{7cm}
+
+**4.** (10 points) Evaluate the definite integral
+$$\int_1^e x^2 \ln x \, dx$$
+
+\newpage
+
+## Part II: Trigonometric Integrals
+
+**5.** (10 points) Evaluate
+$$\int \sin^4 x \, dx$$
+
+
+\vspace{8cm}
+
+**6.** (10 points) Evaluate
+$$I = \int \sin^4 x \cos^5 x \, dx$$
+
+\newpage
+
+**7.** (10 points) Evaluate
+$$I = \int \sin x \sin 2x \, dx$$
+
+\vspace{7cm}
+
+**8.** (10 points) Evaluate
+$$\int 4 \sin x \cos 2x \sin 3x \, dx$$
+
+\newpage
+
+## Part III: Partial Fractions
+
+**9.** (10 points) Evaluate
+$$\int \frac{1}{(2x-1)(4x+2)} \, dx$$
+
+\vspace{8cm}
+
+**10.** (10 points) Evaluate
+$$\int \frac{1}{(x-1)^2(x+1)} \, dx$$
+
+\vfill
+
+\begin{center}\textit{End of Exam}\end{center}
