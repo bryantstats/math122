@@ -1,36 +1,27 @@
 ---
-title: "Math 122: Exam 2 - Practice 1"
-# subtitle: "Semester Fall 2026"
-# date: "December 15, 2026"
-# author: "Department of Mathematics"
+title: "MATH 122 — Calculus II"
+subtitle: "Exam 2 Practice 1: Techniques of Integration"
 format:
-  pdf:
-    documentclass: article
-    geometry:
-      - top=1in
-      - bottom=1in
-      - left=1in
-      - right=1in
-    header-includes: |
-      \usepackage{amsmath,amssymb,amsthm}
-      \usepackage{enumitem}
-      \usepackage{fancyhdr}
-      \pagestyle{fancy}
-      \fancyhf{}
-      \lhead{\textbf{Math 122: Exam 1 - Practice}}
-      \rhead{\textbf{Fall 2026}}
-      \cfoot{\thepage}
   html:
+    embed-resources: true
     toc: false
-    theme: cosmo
+    html-math-method: mathjax
 ---
 
-\noindent
-**Student Name:** \underline{\hspace{8cm}} 
+```{=html}
+<style>
+  .work { height: 260px; }
+  .work-lg { height: 320px; }
+  table { margin: 1rem auto; }
+  @media print {
+    .work { height: 7cm; }
+    .work-lg { height: 8cm; }
+    .callout { display: none; }
+  }
+</style>
+```
 
-\vspace{0.5cm}
-
-\noindent
+**Instructions**
 
 **Instructions:**
 
@@ -42,66 +33,126 @@ format:
 
 - Calculators: Basic, non-graphing calculators allowed.
 
-\vspace{0.5cm}
-\hrule
-\vspace{0.8cm}
-
-
 ## Part I: Integration by Parts
 
 **1.** (10 points) Evaluate
-$$I = \int x \ln x \, dx$$
+$$I = \int x^3 \ln x \, dx$$
 
-\vspace{7cm}
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+$u = \ln x,\ dv = x^3\,dx \Rightarrow du = \frac{1}{x}dx,\ v = \frac{x^4}{4}$
+$$= \frac{x^4}{4}\ln x - \int \frac{x^3}{4}\,dx = \frac{x^4}{4}\ln x - \frac{x^4}{16} + C$$
+:::
 
 **2.** (10 points) Evaluate
-$$I = \int x^5 e^x \, dx$$
+$$I = \int x^4 e^x \, dx$$
 
-\newpage
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+Tabular method (differentiate $x^4$, integrate $e^x$, alternate signs):
+$$= e^x\left(x^4 - 4x^3 + 12x^2 - 24x + 24\right) + C$$
+:::
 
 **3.** (10 points) Evaluate
-$$I = \int \sin^{-1} x \, dx$$
+$$I = \int \tan^{-1} x \, dx$$
 
-\vspace{7cm}
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+$u = \tan^{-1}x,\ dv = dx \Rightarrow du = \frac{1}{1+x^2}dx,\ v = x$
+$$= x\tan^{-1}x - \int \frac{x}{1+x^2}\,dx = x\tan^{-1}x - \frac{1}{2}\ln(1+x^2) + C$$
+:::
 
 **4.** (10 points) Evaluate the definite integral
-$$\int_1^e x^2 \ln x \, dx$$
+$$\int_1^e x \ln x \, dx$$
 
-\newpage
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+$u = \ln x,\ dv = x\,dx \Rightarrow v = \frac{x^2}{2}$
+$$= \left[\frac{x^2}{2}\ln x - \frac{x^2}{4}\right]_1^e = \left(\frac{e^2}{2} - \frac{e^2}{4}\right) - \left(0 - \frac{1}{4}\right) = \frac{e^2 + 1}{4}$$
+:::
 
 ## Part II: Trigonometric Integrals
 
 **5.** (10 points) Evaluate
-$$\int \sin^4 x \, dx$$
+$$\int \cos^4 x \, dx$$
 
+*Hint:* $\sin^2 x = \dfrac{1 - \cos 2x}{2}$ and $\cos^2 x = \dfrac{1 + \cos 2x}{2}$.
 
-\vspace{8cm}
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+$$\cos^4 x = \left(\frac{1+\cos 2x}{2}\right)^2 = \frac{3}{8} + \frac{1}{2}\cos 2x + \frac{1}{8}\cos 4x$$
+$$\int \cos^4 x\,dx = \frac{3x}{8} + \frac{\sin 2x}{4} + \frac{\sin 4x}{32} + C$$
+:::
 
 **6.** (10 points) Evaluate
-$$I = \int \sin^4 x \cos^5 x \, dx$$
+$$I = \int \sin^5 x \cos^2 x \, dx$$
 
-\newpage
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+Odd power of sine: save one $\sin x$, let $u = \cos x$, $du = -\sin x\,dx$.
+$$= \int (1-\cos^2 x)^2\cos^2 x\,\sin x\,dx = -\int (u^2 - 2u^4 + u^6)\,du$$
+$$= -\frac{\cos^3 x}{3} + \frac{2\cos^5 x}{5} - \frac{\cos^7 x}{7} + C$$
+:::
 
 **7.** (10 points) Evaluate
-$$I = \int \sin x \sin 2x \, dx$$
+$$I = \int \cos x \sin 2x \, dx$$
 
-\vspace{7cm}
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+Using $\sin 2x = 2\sin x\cos x$ and $u = \cos x$:
+$$= \int 2\cos^2 x\sin x\,dx = -\frac{2}{3}\cos^3 x + C$$
+(Equivalent via product-to-sum: $-\tfrac{1}{2}\cos x - \tfrac{1}{6}\cos 3x + C$.)
+:::
 
 **8.** (10 points) Evaluate
-$$\int 4 \sin x \cos 2x \sin 3x \, dx$$
+$$\int 4 \cos x \sin 2x \cos 3x \, dx$$
 
-\newpage
+*Hint:* Use product-to-sum identities, e.g. $2\sin A\cos B = \sin(A+B) + \sin(A-B)$.
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+$2\sin 2x\cos x = \sin 3x + \sin x$, so the integrand is
+$$2(\sin 3x + \sin x)\cos 3x = 2\sin 3x\cos 3x + 2\sin x\cos 3x = \sin 6x + \sin 4x - \sin 2x$$
+$$\int 4\cos x\sin 2x\cos 3x\,dx = -\frac{\cos 6x}{6} - \frac{\cos 4x}{4} + \frac{\cos 2x}{2} + C$$
+:::
 
 ## Part III: Partial Fractions
 
 **9.** (10 points) Evaluate
-$$\int \frac{1}{(2x-1)(4x+2)} \, dx$$
+$$\int \frac{1}{(3x-1)(6x+2)} \, dx$$
 
-\vspace{8cm}
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+Factor: $6x+2 = 2(3x+1)$, and $\dfrac{1}{(3x-1)(3x+1)} = \dfrac{1}{2}\left(\dfrac{1}{3x-1} - \dfrac{1}{3x+1}\right)$, so
+$$\frac{1}{(3x-1)(6x+2)} = \frac{1}{4}\left(\frac{1}{3x-1} - \frac{1}{3x+1}\right)$$
+$$\int \frac{1}{(3x-1)(6x+2)}\,dx = \frac{1}{12}\ln\left|\frac{3x-1}{3x+1}\right| + C$$
+:::
 
 **10.** (10 points) Evaluate
-$$\int \frac{1}{(x-1)^2(x+1)} \, dx$$
+$$\int \frac{1}{(x+2)^2(x-1)} \, dx$$
 
-\vfill
+<div class="work-lg"></div>
 
-\begin{center}\textit{End of Exam}\end{center}
+::: {.callout-tip collapse="true"}
+## Solution 10
+$\dfrac{A}{x+2} + \dfrac{B}{(x+2)^2} + \dfrac{C}{x-1}$ with $A = -\tfrac{1}{9},\ B = -\tfrac{1}{3},\ C = \tfrac{1}{9}$
+$$\int \frac{1}{(x+2)^2(x-1)}\,dx = -\frac{1}{9}\ln|x+2| + \frac{1}{3(x+2)} + \frac{1}{9}\ln|x-1| + C$$
+:::
