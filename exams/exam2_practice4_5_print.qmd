@@ -1,0 +1,179 @@
+---
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+    fontsize: 11pt
+    geometry:
+      - margin=0.7in
+      - footskip=0.2in
+    include-in-header:
+      text: |
+        \pagestyle{empty}
+        \setlength{\parindent}{0pt}
+        \setlength{\abovedisplayskip}{4pt}
+        \setlength{\belowdisplayskip}{4pt}
+---
+
+<!-- ===================== PRACTICE 4 ===================== -->
+
+\begin{center}
+{\Large\bfseries MATH 122 --- Calculus II}\\[3pt]
+{\large Exam 2 Practice 4: Techniques of Integration}
+\end{center}
+
+```{=latex}
+Name: \rule{3.4in}{0.4pt}\hfill Date: \rule{1.5in}{0.4pt}\par\medskip
+```
+
+**Instructions:**
+
+- **Show all work:** Full credit requires complete, correct steps and proper math notation.
+- **Points:** Each question is worth 10 points.
+- **Formula Sheet:** Permitted (formulas only; no worked examples).
+- **Calculators:** Basic, non-graphing calculators allowed.
+
+### Part I: Integration by Parts
+
+**1.** (10 points) Evaluate
+$$I = \int x^6 \ln x \, dx$$
+
+\vfill
+
+**2.** (10 points) Evaluate
+$$I = \int x^3 \cos 2x \, dx$$
+
+\vfill
+
+\newpage
+
+**3.** (10 points) Evaluate
+$$I = \int \cot^{-1} x \, dx$$
+
+\vfill
+
+**4.** (10 points) Evaluate the definite integral
+$$\int_1^e \sqrt{x}\,\ln x \, dx$$
+
+\vfill
+
+### Part II: Trigonometric Integrals
+
+**5.** (10 points) Evaluate
+$$\int \cos^5 x \, dx$$
+
+\vfill
+
+\newpage
+
+**6.** (10 points) Evaluate
+$$I = \int \sin^3 x \cos^4 x \, dx$$
+
+\vfill
+
+**7.** (10 points) Evaluate
+$$I = \int \cos 4x \cos x \, dx$$
+
+\vfill
+
+**8.** (10 points) Evaluate
+$$\int 4 \sin x \sin 2x \cos 3x \, dx$$
+
+\vfill
+
+\newpage
+
+### Part III: Partial Fractions
+
+**9.** (10 points) Evaluate
+$$\int \frac{6}{(x-1)(2x+1)} \, dx$$
+
+\vfill
+
+**10.** (10 points) Evaluate
+$$\int \frac{4}{x^2(x+1)} \, dx$$
+
+\vfill
+
+\newpage
+
+<!-- ===================== PRACTICE 5 ===================== -->
+
+\begin{center}
+{\Large\bfseries MATH 122 --- Calculus II}\\[3pt]
+{\large Exam 2 Practice 5: Techniques of Integration}
+\end{center}
+
+```{=latex}
+Name: \rule{3.4in}{0.4pt}\hfill Date: \rule{1.5in}{0.4pt}\par\medskip
+```
+
+**Instructions:**
+
+- **Show all work:** Full credit requires complete, correct steps and proper math notation.
+- **Points:** Each question is worth 10 points.
+- **Formula Sheet:** Permitted (formulas only; no worked examples).
+- **Calculators:** Basic, non-graphing calculators allowed.
+
+### Part I: Integration by Parts
+
+**1.** (10 points) Evaluate
+$$I = \int \frac{\ln x}{\sqrt{x}} \, dx$$
+
+\vfill
+
+**2.** (10 points) Evaluate
+$$I = \int x^3 e^{-x} \, dx$$
+
+\vfill
+
+\newpage
+
+**3.** (10 points) Evaluate
+$$I = \int \tan^{-1}(2x) \, dx$$
+
+\vfill
+
+**4.** (10 points) Evaluate the definite integral
+$$\int_0^{\pi/2} x \cos x \, dx$$
+
+\vfill
+
+### Part II: Trigonometric Integrals
+
+**5.** (10 points) Evaluate
+$$\int \cos^6 x \, dx$$
+
+\vfill
+
+\newpage
+
+**6.** (10 points) Evaluate
+$$I = \int \sin^2 x \cos^3 x \, dx$$
+
+\vfill
+
+**7.** (10 points) Evaluate
+$$I = \int \sin 4x \cos 3x \, dx$$
+
+\vfill
+
+**8.** (10 points) Evaluate
+$$\int 4 \sin x \sin 2x \sin 3x \, dx$$
+
+\vfill
+
+\newpage
+
+### Part III: Partial Fractions
+
+**9.** (10 points) Evaluate
+$$\int \frac{10}{(x+2)(2x-1)} \, dx$$
+
+\vfill
+
+**10.** (10 points) Evaluate
+$$\int \frac{2}{x(x-1)^2} \, dx$$
+
+\vfill
+
