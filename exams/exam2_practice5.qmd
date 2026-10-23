@@ -1,0 +1,304 @@
+---
+title: "MATH 122 — Calculus II"
+subtitle: "Exam 2 Practice 5: Techniques of Integration"
+format:
+  html:
+    embed-resources: true
+    toc: false
+    html-math-method: mathjax
+---
+
+```{=html}
+<style>
+  .work { height: 260px; }
+  .work-lg { height: 320px; }
+  table { margin: 1rem auto; }
+  @media print {
+    .work { height: 7cm; }
+    .work-lg { height: 8cm; }
+    .callout { display: none; }
+  }
+</style>
+```
+
+**Instructions:**
+
+- Show all work: Full credit requires complete, correct steps and proper math notation.
+
+- Points: Each question is worth 10 points.
+
+- Formula Sheet: Permitted (formulas only; no worked examples).
+
+- Calculators: Basic, non-graphing calculators allowed.
+
+## Part I: Integration by Parts
+
+**1.** (10 points) Evaluate
+$$I = \int \frac{\ln x}{\sqrt{x}} \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 1
+**Choosing $u$ with LIATE:** write the integrand as $\ln x \cdot x^{-1/2}$. Here $\ln x$ is **L**ogarithmic and $x^{-1/2}$ is **A**lgebraic, so L comes first and $u = \ln x$.
+
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function | $\ln x$ |  | $x^{-1/2}$ |  |  |
+| Role | $u$ |  | $dv$ |  |  |
+
+$u = \ln x,\ dv = x^{-1/2}\,dx \Rightarrow du = \frac{1}{x}dx,\ v = 2x^{1/2}$
+
+Apply $\int u\,dv = uv - \int v\,du$:
+$$= 2\sqrt{x}\ln x - \int 2x^{1/2}\cdot\frac{1}{x}\,dx = 2\sqrt{x}\ln x - \int 2x^{-1/2}\,dx = 2\sqrt{x}\ln x - 4\sqrt{x} + C$$
+:::
+
+**2.** (10 points) Evaluate
+$$I = \int x^3 e^{-x} \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 2
+Integrating by parts once only lowers $x^3$ to $x^2$, so we would need three rounds. The **tabular method** does all of them at once.
+
+**Set up the table.** In the $D$ column, differentiate $u = x^3$ until it reaches $0$. In the $I$ column, integrate $dv = e^{-x}\,dx$ the same number of times. Attach alternating signs $+, -, +, -, \dots$ to the $D$ column.
+
+| Sign | $D$ (differentiate $x^3$) | $I$ (integrate $e^{-x}$) |
+|:----:|:-------------------------:|:------------------------:|
+| $+$  | $x^3$                     | $e^{-x}$                 |
+| $-$  | $3x^2$                    | $-e^{-x}$                |
+| $+$  | $6x$                      | $e^{-x}$                 |
+| $-$  | $6$                       | $-e^{-x}$                |
+|      | $0$                       | $e^{-x}$                 |
+
+**Multiply along the diagonals.** Each entry in the $D$ column, with its sign, is multiplied by the $I$ entry one row below it:
+
+- $(+)\;x^3 \cdot (-e^{-x}) = -x^3e^{-x}$
+- $(-)\;3x^2 \cdot e^{-x} = -3x^2e^{-x}$
+- $(+)\;6x \cdot (-e^{-x}) = -6xe^{-x}$
+- $(-)\;6 \cdot e^{-x} = -6e^{-x}$
+
+We stop when the $D$ column hits $0$, so no integral is left over.
+
+**Add the products:**
+$$\int x^3 e^{-x}\,dx = -e^{-x}\left(x^3 + 3x^2 + 6x + 6\right) + C$$
+:::
+
+**3.** (10 points) Evaluate
+$$I = \int \tan^{-1}(2x) \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 3
+**Choosing $u$ with LIATE:** write the integrand as $\tan^{-1}(2x) \cdot 1$. Here $\tan^{-1}(2x)$ is **I**nverse trig and $1$ is **A**lgebraic, so I comes first and $u = \tan^{-1}(2x)$, $dv = dx$.
+
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function |  | $\tan^{-1}(2x)$ | $1$ |  |  |
+| Role |  | $u$ | $dv$ |  |  |
+
+$u = \tan^{-1}(2x),\ dv = dx \Rightarrow du = \frac{2}{1+4x^2}dx$ (chain rule)$,\ v = x$
+
+Apply $\int u\,dv = uv - \int v\,du$:
+$$= x\tan^{-1}(2x) - \int \frac{2x}{1+4x^2}\,dx$$
+
+For the remaining integral, let $w = 1 + 4x^2$, $dw = 8x\,dx$:
+$$\int \frac{2x}{1+4x^2}\,dx = \frac{1}{4}\int \frac{dw}{w} = \frac{1}{4}\ln(1+4x^2)$$
+
+$$\int \tan^{-1}(2x)\,dx = x\tan^{-1}(2x) - \frac{1}{4}\ln(1+4x^2) + C$$
+:::
+
+**4.** (10 points) Evaluate the definite integral
+$$\int_0^{\pi/2} x \cos x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 4
+**Choosing $u$ with LIATE:** $x$ is **A**lgebraic and $\cos x$ is **T**rigonometric, so A comes first and $u = x$.
+
+| | **L**ogarithmic | **I**nverse trig | **A**lgebraic | **T**rigonometric | **E**xponential |
+|:--|:--:|:--:|:--:|:--:|:--:|
+| Function |  |  | $x$ | $\cos x$ |  |
+| Role |  |  | $u$ | $dv$ |  |
+
+$u = x,\ dv = \cos x\,dx \Rightarrow du = dx,\ v = \sin x$
+
+Apply $\int_a^b u\,dv = \big[uv\big]_a^b - \int_a^b v\,du$:
+$$= \Big[x\sin x\Big]_0^{\pi/2} - \int_0^{\pi/2} \sin x\,dx = \Big[x\sin x + \cos x\Big]_0^{\pi/2}$$
+
+Evaluate, using $\sin\frac{\pi}{2} = 1$, $\cos\frac{\pi}{2} = 0$ and $\cos 0 = 1$:
+$$= \left(\frac{\pi}{2} + 0\right) - \left(0 + 1\right) = \frac{\pi}{2} - 1$$
+:::
+
+## Part II: Trigonometric Integrals
+
+**5.** (10 points) Evaluate
+$$\int \cos^6 x \, dx$$
+
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 5
+Use the **reduction formula for cosine**:
+$$\int \cos^n x\,dx = \frac{1}{n}\cos^{n-1}x\,\sin x + \frac{n-1}{n}\int \cos^{n-2}x\,dx$$
+
+**Step 1: $n = 6$.**
+$$\int \cos^6 x\,dx = \frac{1}{6}\cos^5 x\,\sin x + \frac{5}{6}\int \cos^4 x\,dx$$
+
+**Step 2: $n = 4$.**
+$$\int \cos^4 x\,dx = \frac{1}{4}\cos^3 x\,\sin x + \frac{3}{4}\int \cos^2 x\,dx$$
+
+**Step 3: $n = 2$.**
+$$\int \cos^2 x\,dx = \frac{1}{2}\cos x\,\sin x + \frac{1}{2}\int \cos^0 x\,dx = \frac{1}{2}\cos x\,\sin x + \frac{x}{2}$$
+
+**Step 4: substitute back.** From Steps 2 and 3:
+$$\int \cos^4 x\,dx = \frac{1}{4}\cos^3 x\,\sin x + \frac{3}{8}\cos x\,\sin x + \frac{3x}{8}$$
+
+Then from Step 1:
+$$\int \cos^6 x\,dx = \frac{1}{6}\cos^5 x\,\sin x + \frac{5}{6}\left(\frac{1}{4}\cos^3 x\,\sin x + \frac{3}{8}\cos x\,\sin x + \frac{3x}{8}\right)$$
+$$= \frac{1}{6}\cos^5 x\,\sin x + \frac{5}{24}\cos^3 x\,\sin x + \frac{5}{16}\cos x\,\sin x + \frac{5x}{16} + C$$
+:::
+
+**6.** (10 points) Evaluate
+$$I = \int \sin^2 x \cos^3 x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 6
+This is $\int \sin^m x\cos^n x\,dx$ with $m = 2$ and $n = 3$. In the table **Integrating Products of Sines and Cosines**, $n$ is odd, so we follow the **"$n$ odd"** row:
+
+| $\int \sin^m x\cos^n x\,dx$ | Procedure | Relevant identity |
+|:---|:---|:---|
+| $n$ odd | Split off a factor of $\cos x$. Apply the relevant identity. Make the substitution $u = \sin x$. | $\cos^2 x = 1 - \sin^2 x$ |
+
+**Split off a factor of $\cos x$:**
+$$\int \sin^2 x\cos^3 x\,dx = \int \sin^2 x\cos^2 x\,\cos x\,dx$$
+
+**Apply the identity** $\cos^2 x = 1 - \sin^2 x$:
+$$= \int \sin^2 x\,(1-\sin^2 x)\,\cos x\,dx$$
+
+**Substitute** $u = \sin x$, $du = \cos x\,dx$:
+$$= \int u^2(1-u^2)\,du = \int (u^2 - u^4)\,du = \frac{u^3}{3} - \frac{u^5}{5} + C$$
+
+$$= \frac{\sin^3 x}{3} - \frac{\sin^5 x}{5} + C$$
+:::
+
+**7.** (10 points) Evaluate
+$$I = \int \sin 4x \cos 3x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 7
+Use the **product-to-sum identities**:
+
+$$\sin A\cos B = \frac{1}{2}\big[\sin(A-B) + \sin(A+B)\big]$$
+$$\sin A\sin B = \frac{1}{2}\big[\cos(A-B) - \cos(A+B)\big]$$
+$$\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]$$
+
+Here we have $\sin 4x\cos 3x$, so use the first identity with $A = 4x$, $B = 3x$:
+$$\sin 4x\cos 3x = \frac{1}{2}\big[\sin x + \sin 7x\big]$$
+
+Recall the basic integrals (for $a \neq 0$):
+$$\int \sin(ax)\,dx = -\frac{1}{a}\cos(ax) + C \qquad \int \cos(ax)\,dx = \frac{1}{a}\sin(ax) + C$$
+
+Integrate term by term:
+$$\int \sin 4x\cos 3x\,dx = \frac{1}{2}\int (\sin x + \sin 7x)\,dx = -\frac{1}{2}\cos x - \frac{1}{14}\cos 7x + C$$
+:::
+
+**8.** (10 points) Evaluate
+$$\int 4 \sin x \sin 2x \sin 3x \, dx$$
+
+<div class="work"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 8
+Use the **product-to-sum identities** (same as in Problem 7), two factors at a time:
+
+$$\sin A\cos B = \frac{1}{2}\big[\sin(A-B) + \sin(A+B)\big]$$
+$$\sin A\sin B = \frac{1}{2}\big[\cos(A-B) - \cos(A+B)\big]$$
+$$\cos A\cos B = \frac{1}{2}\big[\cos(A-B) + \cos(A+B)\big]$$
+
+**Step 1: combine $\sin x\sin 2x$** ($\sin A\sin B$ with $A = x$, $B = 2x$):
+$$\sin x\sin 2x = \frac{1}{2}\big[\cos(-x) - \cos 3x\big] = \frac{1}{2}\big[\cos x - \cos 3x\big] \quad\Rightarrow\quad 4\sin x\sin 2x = 2\cos x - 2\cos 3x$$
+
+**Step 2: multiply by $\sin 3x$:**
+$$4\sin x\sin 2x\sin 3x = 2\sin 3x\cos x - 2\sin 3x\cos 3x$$
+
+**Step 3: apply $\sin A\cos B$ to each product.**
+
+- $2\sin 3x\cos x$ with $A = 3x$, $B = x$: $\ \sin 2x + \sin 4x$
+- $2\sin 3x\cos 3x$ with $A = B = 3x$: $\ \sin 0 + \sin 6x = \sin 6x$
+
+So the integrand is $\sin 2x + \sin 4x - \sin 6x$.
+
+Recall the basic integrals (for $a \neq 0$):
+$$\int \sin(ax)\,dx = -\frac{1}{a}\cos(ax) + C \qquad \int \cos(ax)\,dx = \frac{1}{a}\sin(ax) + C$$
+
+**Step 4: integrate term by term.**
+$$\int 4\sin x\sin 2x\sin 3x\,dx = \int (\sin 2x + \sin 4x - \sin 6x)\,dx$$
+$$= -\frac{\cos 2x}{2} - \frac{\cos 4x}{4} + \frac{\cos 6x}{6} + C$$
+:::
+
+## Part III: Partial Fractions
+
+**9.** (10 points) Evaluate
+$$\int \frac{10}{(x+2)(2x-1)} \, dx$$
+
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 9
+**Set up the partial fractions** with unknowns $A$ and $B$:
+$$\frac{10}{(x+2)(2x-1)} = \frac{A}{x+2} + \frac{B}{2x-1}$$
+
+**Clear denominators** by multiplying both sides by $(x+2)(2x-1)$:
+$$10 = A(2x-1) + B(x+2)$$
+
+**Solve for $A$ and $B$.** Expand and match coefficients:
+$$10 = (2A + B)\,x + (-A + 2B)$$
+
+$$\begin{cases} 2A + B = 0 & (\text{coefficient of } x)\\ -A + 2B = 10 & (\text{constant term}) \end{cases}$$
+
+From the first equation, $B = -2A$. Substitute into the second: $-A - 4A = 10$, so $A = -2$ and $B = 4$.
+
+*Check by plugging in roots:* $x = -2$ gives $10 = -5A \Rightarrow A = -2$; $x = \tfrac{1}{2}$ gives $10 = \tfrac{5}{2}B \Rightarrow B = 4$. ✓
+
+**Integrate** (remember $\int \frac{dx}{ax+b} = \frac{1}{a}\ln|ax+b|$):
+$$\int \left(\frac{-2}{x+2} + \frac{4}{2x-1}\right)dx = -2\ln|x+2| + 4\cdot\frac{1}{2}\ln|2x-1| + C$$
+
+$$= 2\ln|2x-1| - 2\ln|x+2| + C = 2\ln\left|\frac{2x-1}{x+2}\right| + C$$
+:::
+
+**10.** (10 points) Evaluate
+$$\int \frac{2}{x(x-1)^2} \, dx$$
+
+<div class="work-lg"></div>
+
+::: {.callout-tip collapse="true"}
+## Solution 10
+**Set up the partial fractions** with unknowns $A$, $B$ and $C$. The repeated factor $(x-1)^2$ needs a term for each power:
+$$\frac{2}{x(x-1)^2} = \frac{A}{x} + \frac{B}{x-1} + \frac{C}{(x-1)^2}$$
+
+**Clear denominators** by multiplying both sides by $x(x-1)^2$:
+$$2 = A(x-1)^2 + Bx(x-1) + Cx$$
+
+**Solve for $A$, $B$ and $C$.** Expand and match coefficients:
+$$2 = A(x^2 - 2x + 1) + B(x^2 - x) + Cx$$
+$$2 = (A + B)\,x^2 + (-2A - B + C)\,x + A$$
+
+$$\begin{cases} A + B = 0 & (\text{coefficient of } x^2)\\ -2A - B + C = 0 & (\text{coefficient of } x)\\ A = 2 & (\text{constant term}) \end{cases}$$
+
+From the third equation, $A = 2$. The first equation gives $B = -2$. The second gives $-4 + 2 + C = 0$, so $C = 2$.
+
+*Check by plugging in roots:* $x = 0$ gives $2 = A$; $x = 1$ gives $2 = C$. ✓
+
+**Integrate** each term, using $\int (x-1)^{-2}\,dx = -(x-1)^{-1}$:
+$$\int \left(\frac{2}{x} - \frac{2}{x-1} + \frac{2}{(x-1)^2}\right)dx$$
+
+$$\int \frac{2}{x(x-1)^2}\,dx = 2\ln|x| - 2\ln|x-1| - \frac{2}{x-1} + C = 2\ln\left|\frac{x}{x-1}\right| - \frac{2}{x-1} + C$$
+:::
