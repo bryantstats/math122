@@ -1,0 +1,134 @@
+---
+title: "MATH 122 — Calculus II · Exam 2: Techniques of Integration"
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+    fontsize: 11pt
+    geometry:
+      - top=0.5in
+      - bottom=0.5in
+      - left=0.5in
+      - right=0.5in
+    include-in-header:
+      text: |
+        \usepackage{titling}
+        \setlength{\droptitle}{-2em}
+        \pretitle{\begin{center}\Large\bfseries}
+        \posttitle{\par\end{center}\vspace{-0.4em}}
+        \predate{}\postdate{}
+        \date{}
+        \makeatletter\let\ps@plain\ps@empty\makeatother
+        \pagestyle{empty}
+        \usepackage{sectsty}
+        \sectionfont{\large}
+        \subsectionfont{\large}
+        \usepackage{titlesec}
+        \titlespacing*{\section}{0pt}{0.8em}{0.3em}
+        \titlespacing*{\subsection}{0pt}{0.8em}{0.3em}
+        \usepackage{enumitem}
+        \setlist{nosep}
+        \AtBeginDocument{\setlength{\abovedisplayskip}{4pt}\setlength{\belowdisplayskip}{4pt}}
+  html:
+    embed-resources: true
+    toc: false
+    html-math-method: mathjax
+---
+
+```{=latex}
+\vspace{-2.5em}
+\begin{center}
+\begin{tabular}{@{}p{4.4in}p{2.9in}@{}}
+\textbf{Name:} \hrulefill & \textbf{Date:} \hrulefill \\
+\end{tabular}
+\end{center}
+\vspace{0.4em}
+```
+
+**Instructions:**
+
+- Show all work: Full credit requires complete, correct steps and proper math notation.
+- Points: Each question is worth 10 points.
+- Formula Sheet: Permitted (formulas only; no worked examples).
+- Calculators: Basic, non-graphing calculators allowed.
+
+## Part I: Integration by Parts
+
+**1.** (10 points) Evaluate
+$$\int x^{20} \ln x \, dx$$
+
+```{=latex}
+\vfill
+```
+
+**2.** (10 points) Evaluate
+$$\int 3x^3 e^{x} \, dx$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+**3.** (10 points) Evaluate
+$$\int \cot^{-1}(x) \, dx$$
+
+```{=latex}
+\vfill
+```
+
+**4.** (10 points) Evaluate the definite integral
+$$\int_0^{\pi} x \sin x \, dx$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+## Part II: Trigonometric Integrals
+
+**5.** (10 points) Evaluate
+$$\int \sin^7 x \, dx$$
+
+```{=latex}
+\vfill
+```
+
+**6.** (10 points) Evaluate
+$$\int \sin^3 x \cos^2 x \, dx$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+**7.** (10 points) Evaluate
+$$\int \sin 10x \cos 3x \, dx$$
+
+```{=latex}
+\vfill
+```
+
+**8.** (10 points) Evaluate
+$$\int 4 \sin 3x \cos 5x \sin 7x \, dx$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+## Part III: Partial Fractions
+
+**9.** (10 points) Evaluate
+$$\int \frac{5}{(x-2)(x+3)} \, dx$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+**10.** (10 points) Evaluate
+$$\int \frac{4}{x^2(x-2)} \, dx$$
+
+```{=latex}
+\vfill
+```
