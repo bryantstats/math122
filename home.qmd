@@ -32,4 +32,5 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 | 9 | 10/26 | Exam 2 | [Exam 2](exams/exam2/exam2.pdf), [Solutions](exams/exam2/exam2_solution.html) |  |
 |  | 10/29 | 9.1. Sequences | [Note](notes/note15_annotated.pdf) |  |
 | 10 | 11/2 | 9.1. Sequences | [Note](notes/note16_annotated.pdf) <br> [Problems](notes/sequence_limit_problems.pdf), [Solutions](notes/sequence_limit_solutions.pdf) |  |
+|  | 11/5 | 9.2. Series | [Note](notes/note17_annotated.pdf) |  |
 | Final | Sat, Dec. 12 <br> 12:00pm | Final Exam |  |  |
