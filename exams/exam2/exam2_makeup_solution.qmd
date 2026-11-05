@@ -1,0 +1,178 @@
+---
+title: "MATH 122 — Calculus II · Exam 2 Makeup Solutions"
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+    fontsize: 11pt
+    geometry:
+      - top=0.5in
+      - bottom=0.5in
+      - left=0.5in
+      - right=0.5in
+    include-in-header:
+      text: |
+        \usepackage{titling}
+        \setlength{\droptitle}{-2em}
+        \pretitle{\begin{center}\Large\bfseries}
+        \posttitle{\par\end{center}\vspace{-0.4em}}
+        \predate{}\postdate{}
+        \date{}
+        \makeatletter\let\ps@plain\ps@empty\makeatother
+        \pagestyle{empty}
+        \usepackage{sectsty}
+        \sectionfont{\large}
+        \subsectionfont{\large}
+        \usepackage{titlesec}
+        \titlespacing*{\section}{0pt}{0.8em}{0.3em}
+        \titlespacing*{\subsection}{0pt}{0.8em}{0.3em}
+        \usepackage{enumitem}
+        \setlist{nosep}
+        \AtBeginDocument{\setlength{\abovedisplayskip}{4pt}\setlength{\belowdisplayskip}{4pt}}
+  html:
+    embed-resources: true
+    toc: false
+    html-math-method: mathjax
+---
+
+## Part I: Integration by Parts
+
+**1.** Evaluate $\displaystyle\int x^{15} \ln x \, dx$
+
+**LIATE:** $\ln x$ is **L**ogarithmic and $x^{15}$ is **A**lgebraic, so $u = \ln x$.
+
+$u = \ln x,\ dv = x^{15}\,dx \Rightarrow du = \frac{1}{x}\,dx,\ v = \frac{x^{16}}{16}$
+
+$$\int x^{15}\ln x\,dx = \frac{x^{16}}{16}\ln x - \int \frac{x^{16}}{16}\cdot\frac{1}{x}\,dx = \frac{x^{16}}{16}\ln x - \frac{1}{16}\int x^{15}\,dx$$
+
+$$\boxed{\int x^{15}\ln x\,dx = \frac{x^{16}}{16}\ln x - \frac{x^{16}}{256} + C}$$
+
+**2.** Evaluate $\displaystyle\int 4x^3 e^{-x} \, dx$
+
+Pull out the constant, then use the **tabular method** with $u = x^3$, $dv = e^{-x}\,dx$.
+
+| Sign | $D$ (differentiate $x^3$) | $I$ (integrate $e^{-x}$) |
+|:----:|:-------------------------:|:------------------------:|
+| $+$  | $x^3$                     | $e^{-x}$                 |
+| $-$  | $3x^2$                    | $-e^{-x}$                |
+| $+$  | $6x$                      | $e^{-x}$                 |
+| $-$  | $6$                       | $-e^{-x}$                |
+|      | $0$                       | $e^{-x}$                 |
+
+Multiply each signed $D$ entry by the $I$ entry one row below and add:
+$$\int x^3e^{-x}\,dx = -x^3e^{-x} - 3x^2e^{-x} - 6xe^{-x} - 6e^{-x} + C$$
+
+$$\boxed{\int 4x^3e^{-x}\,dx = -4e^{-x}\left(x^3 + 3x^2 + 6x + 6\right) + C}$$
+
+**3.** Evaluate $\displaystyle\int \tan^{-1}x \, dx$
+
+**LIATE:** write the integrand as $\tan^{-1}x\cdot 1$; $\tan^{-1}x$ is **I**nverse trig, so $u = \tan^{-1}x$, $dv = dx$.
+
+$u = \tan^{-1}x,\ dv = dx \Rightarrow du = \frac{1}{1+x^2}\,dx,\ v = x$
+
+$$\int \tan^{-1}x\,dx = x\tan^{-1}x - \int \frac{x}{1+x^2}\,dx$$
+
+Let $w = 1 + x^2$, $dw = 2x\,dx$:
+$$\int \frac{x}{1+x^2}\,dx = \frac12\int \frac{dw}{w} = \frac12\ln(1+x^2)$$
+
+(No absolute value is needed since $1 + x^2 > 0$.)
+
+$$\boxed{\int \tan^{-1}x\,dx = x\tan^{-1}x - \frac12\ln(1+x^2) + C}$$
+
+**4.** Evaluate $\displaystyle\int_0^{\pi/2} x \cos x \, dx$
+
+**LIATE:** $x$ is **A**lgebraic and $\cos x$ is **T**rigonometric, so $u = x$.
+
+$u = x,\ dv = \cos x\,dx \Rightarrow du = dx,\ v = \sin x$
+
+$$\int_0^{\pi/2} x\cos x\,dx = \big[x\sin x\big]_0^{\pi/2} - \int_0^{\pi/2}\sin x\,dx = \big[x\sin x + \cos x\big]_0^{\pi/2}$$
+$$= \left(\frac{\pi}{2}\sin\frac{\pi}{2} + \cos\frac{\pi}{2}\right) - \big(0 + \cos 0\big) = \left(\frac{\pi}{2} + 0\right) - 1$$
+
+$$\boxed{\int_0^{\pi/2} x\cos x\,dx = \frac{\pi}{2} - 1}$$
+
+## Part II: Trigonometric Integrals
+
+**5.** Evaluate $\displaystyle\int \cos^7 x \, dx$
+
+Use the **reduction formula for cosine**:
+$$\int \cos^n x\,dx = \frac{1}{n}\cos^{n-1}x\,\sin x + \frac{n-1}{n}\int \cos^{n-2}x\,dx$$
+
+**$n = 7$:** $\displaystyle\int \cos^7 x\,dx = \frac17\cos^6x\sin x + \frac67\int\cos^5x\,dx$
+
+**$n = 5$:** $\displaystyle\int \cos^5 x\,dx = \frac15\cos^4x\sin x + \frac45\int\cos^3x\,dx$
+
+**$n = 3$:** $\displaystyle\int \cos^3 x\,dx = \frac13\cos^2x\sin x + \frac23\int\cos x\,dx = \frac13\cos^2x\sin x + \frac23\sin x$
+
+**Substitute back:**
+$$\int \cos^7 x\,dx = \frac17\cos^6x\sin x + \frac67\left[\frac15\cos^4x\sin x + \frac45\left(\frac13\cos^2x\sin x + \frac23\sin x\right)\right]$$
+
+$$\boxed{\int \cos^7 x\,dx = \frac17\cos^6x\sin x + \frac{6}{35}\cos^4x\sin x + \frac{8}{35}\cos^2x\sin x + \frac{16}{35}\sin x + C}$$
+
+*Alternative (odd power):* write $\cos^7x = (1-\sin^2x)^3\cos x$ and let $u = \sin x$, $du = \cos x\,dx$:
+$$\int \cos^7x\,dx = \int(1-u^2)^3\,du = \sin x - \sin^3x + \frac35\sin^5x - \frac17\sin^7x + C$$
+Both answers are correct; they are equal as functions.
+
+**6.** Evaluate $\displaystyle\int \sin^2 x \cos^3 x \, dx$
+
+This is $\int \sin^m x\cos^n x\,dx$ with $m = 2$ and $n = 3$. Since $n$ is odd, follow the **"$n$ odd"** row: split off a factor of $\cos x$, use $\cos^2 x = 1 - \sin^2 x$, and substitute $u = \sin x$.
+
+$$\int \sin^2 x\cos^3 x\,dx = \int \sin^2 x\,(1-\sin^2 x)\cos x\,dx$$
+
+With $u = \sin x$, $du = \cos x\,dx$:
+$$= \int u^2(1-u^2)\,du = \int (u^2 - u^4)\,du = \frac{u^3}{3} - \frac{u^5}{5} + C$$
+
+$$\boxed{\int \sin^2 x\cos^3 x\,dx = \frac{\sin^3 x}{3} - \frac{\sin^5 x}{5} + C}$$
+
+**7.** Evaluate $\displaystyle\int \sin 8x \cos 3x \, dx$
+
+Use $\sin A\cos B = \frac12\big[\sin(A-B) + \sin(A+B)\big]$ with $A = 8x$, $B = 3x$:
+$$\sin 8x\cos 3x = \frac12\big[\sin 5x + \sin 11x\big]$$
+
+$$\int \sin 8x\cos 3x\,dx = \frac12\left(-\frac{\cos 5x}{5} - \frac{\cos 11x}{11}\right) + C$$
+
+$$\boxed{\int \sin 8x\cos 3x\,dx = -\frac{\cos 5x}{10} - \frac{\cos 11x}{22} + C}$$
+
+**8.** Evaluate $\displaystyle\int 4 \sin 2x \cos 4x \cos 6x \, dx$
+
+**Step 1:** $\sin 2x\cos 4x = \frac12\big[\sin(-2x) + \sin 6x\big] = \frac12\big[\sin 6x - \sin 2x\big]$, so $4\sin 2x\cos 4x = 2\sin 6x - 2\sin 2x$.
+
+**Step 2:** multiply by $\cos 6x$:
+$$4\sin 2x\cos 4x\cos 6x = 2\sin 6x\cos 6x - 2\sin 2x\cos 6x$$
+
+**Step 3:** use $\sin A\cos B = \frac12\big[\sin(A-B) + \sin(A+B)\big]$:
+
+- $2\sin 6x\cos 6x = \sin 0 + \sin 12x = \sin 12x$
+- $2\sin 2x\cos 6x = \sin(-4x) + \sin 8x = \sin 8x - \sin 4x$
+
+So the integrand is $\sin 12x - \sin 8x + \sin 4x$.
+
+**Step 4:** integrate term by term:
+
+$$\boxed{\int 4\sin 2x\cos 4x\cos 6x\,dx = -\frac{\cos 12x}{12} + \frac{\cos 8x}{8} - \frac{\cos 4x}{4} + C}$$
+
+## Part III: Partial Fractions
+
+**9.** Evaluate $\displaystyle\int \frac{6}{(x-1)(x+2)} \, dx$
+
+$$\frac{6}{(x-1)(x+2)} = \frac{A}{x-1} + \frac{B}{x+2} \quad\Rightarrow\quad 6 = A(x+2) + B(x-1)$$
+
+Match coefficients: $6 = (A + B)\,x + (2A - B)$, so $A + B = 0$ and $2A - B = 6$, giving $A = 2$, $B = -2$.
+
+*Check:* $x = 1$ gives $6 = 3A$; $x = -2$ gives $6 = -3B$. ✓
+
+$$\int\left(\frac{2}{x-1} - \frac{2}{x+2}\right)dx$$
+
+$$\boxed{\int \frac{6}{(x-1)(x+2)}\,dx = 2\ln|x-1| - 2\ln|x+2| + C = 2\ln\left|\frac{x-1}{x+2}\right| + C}$$
+
+**10.** Evaluate $\displaystyle\int \frac{9}{x^2(x-3)} \, dx$
+
+$$\frac{9}{x^2(x-3)} = \frac{A}{x} + \frac{B}{x^2} + \frac{C}{x-3} \quad\Rightarrow\quad 9 = Ax(x-3) + B(x-3) + Cx^2$$
+
+Match coefficients: $9 = (A + C)\,x^2 + (-3A + B)\,x - 3B$, so
+$$\begin{cases} A + C = 0 \\ -3A + B = 0 \\ -3B = 9 \end{cases} \quad\Rightarrow\quad B = -3,\ A = -1,\ C = 1$$
+
+*Check:* $x = 0$ gives $9 = -3B$; $x = 3$ gives $9 = 9C$. ✓
+
+$$\int\left(-\frac{1}{x} - \frac{3}{x^2} + \frac{1}{x-3}\right)dx$$
+
+$$\boxed{\int \frac{9}{x^2(x-3)}\,dx = -\ln|x| + \frac{3}{x} + \ln|x-3| + C}$$
