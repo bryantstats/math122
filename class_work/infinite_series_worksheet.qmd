@@ -1,0 +1,85 @@
+---
+title-meta: "Infinite Series Worksheet (Section 9.3)"
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+    fontsize: 10pt
+    geometry:
+      - margin=0.4in
+    include-in-header:
+      text: |
+        \pagestyle{empty}
+        \setlength{\parindent}{0pt}
+        \setlength{\parskip}{0pt}
+        \newcommand{\worksheethead}{\textbf{\large Infinite Series Worksheet (9.3)}
+          \hfill Name: \underline{\hspace{5cm}} \quad Date: \underline{\hspace{2.5cm}}\par}
+        \newcommand{\typehead}[2]{{\large\bfseries #1}\par\vspace{2pt}
+          {\small #2}\par\vspace{4pt}\hrule\vspace{6pt}}
+        \newcommand{\problem}[2]{\textbf{#1}\ $\displaystyle #2$\par
+          \hfill {\small $\square$ converges, sum $=$ \underline{\hspace{2cm}}
+          \quad $\square$ diverges}\par\vfill}
+        \newcommand{\divider}{\hrule\vspace{6pt}}
+---
+
+\worksheethead
+
+\vspace{8pt}
+
+\typehead{Type A: Geometric Series}{Determine whether the series converges, and if so find its sum. Recall: $\sum_{k=0}^{\infty} ar^k = a + ar + ar^2 + \cdots + ar^k + \cdots$ converges to $\dfrac{a}{1-r}$ if $|r|<1$ and diverges if $|r|\ge 1$. Some series are geometric in \emph{concealed form} --- rewrite them first.}
+
+\problem{1.}{\sum_{k=0}^{\infty} \frac{7}{3^{k}} = 7 + \frac{7}{3} + \frac{7}{3^{2}} + \cdots + \frac{7}{3^{k}} + \cdots}
+
+\divider
+
+\problem{2.}{\sum_{k=0}^{\infty} \frac{(-1)^{k}\, 6}{5^{k}} = 6 - \frac{6}{5} + \frac{6}{5^{2}} - \cdots + \frac{(-1)^{k}\,6}{5^{k}} + \cdots}
+
+\divider
+
+\problem{3.}{\sum_{k=1}^{\infty} 2^{2k}\, 3^{1-k} = 4 + \frac{16}{3} + \frac{64}{9} + \cdots + 2^{2k}\,3^{1-k} + \cdots}
+
+\divider
+
+\problem{4.}{\sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{25}{8} + \frac{125}{64} + \frac{625}{512} + \cdots + \frac{5^{k+1}}{8^{k}} + \cdots}
+
+\divider
+
+\problem{5.}{\sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{9}{32} + \frac{27}{256} + \frac{81}{2048} + \cdots + \frac{3^{k}}{2^{3k-1}} + \cdots}
+
+\divider
+
+\problem{6.}{3 + \frac{3}{4} + \frac{3}{4^{2}} + \cdots + \frac{3}{4^{k-1}} + \cdots}
+
+\divider
+
+\problem{7.}{\frac{2}{9} - \frac{4}{27} + \frac{8}{81} - \cdots + \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} + \cdots}
+
+\newpage
+
+\typehead{Type B: Telescoping Sums}{Find a closed form for the $n$th partial sum $s_n$ (use partial fractions or log rules), then determine whether the series converges by computing $\lim_{n\to+\infty} s_n$. If it converges, find its sum.}
+
+\problem{8.}{\sum_{k=1}^{\infty} \frac{1}{k^{2}+3k+2} = \frac{1}{6} + \frac{1}{12} + \frac{1}{20} + \cdots + \frac{1}{k^{2}+3k+2} + \cdots}
+
+\divider
+
+\problem{9.}{\sum_{k=1}^{\infty} \frac{1}{(2k-1)(2k+1)} = \frac{1}{1\cdot 3} + \frac{1}{3\cdot 5} + \frac{1}{5\cdot 7} + \cdots + \frac{1}{(2k-1)(2k+1)} + \cdots}
+
+\divider
+
+\problem{10.}{\sum_{k=1}^{\infty} \ln\!\left(\frac{k}{k+1}\right) = \ln\frac12 + \ln\frac23 + \ln\frac34 + \cdots + \ln\!\left(\frac{k}{k+1}\right) + \cdots}
+
+\divider
+
+\problem{11.}{\sum_{k=1}^{\infty} \frac{2}{k(k+2)} = \frac{2}{1\cdot 3} + \frac{2}{2\cdot 4} + \frac{2}{3\cdot 5} + \cdots + \frac{2}{k(k+2)} + \cdots}
+
+\divider
+
+\problem{12.}{\sum_{k=1}^{\infty} \frac{4}{k^{2}+4k+3} = \frac{4}{2\cdot 4} + \frac{4}{3\cdot 5} + \frac{4}{4\cdot 6} + \cdots + \frac{4}{k^{2}+4k+3} + \cdots}
+
+\divider
+
+\problem{13.}{\frac{1}{4\cdot 5} + \frac{1}{5\cdot 6} + \frac{1}{6\cdot 7} + \cdots + \frac{1}{(k+3)(k+4)} + \cdots}
+
+\divider
+
+\problem{14.}{\frac{1}{1\cdot 4} + \frac{1}{4\cdot 7} + \frac{1}{7\cdot 10} + \cdots + \frac{1}{(3k-2)(3k+1)} + \cdots}
