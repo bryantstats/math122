@@ -33,5 +33,5 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 |  | 10/29 | 9.1. Sequences | [Note](notes/note15_annotated.pdf) |
 | 10 | 11/2 | 9.1. Sequences | [Note](notes/note16_annotated.pdf) <br> [In-Class Problems](notes/sequence_limit_problems.pdf), [Solutions](notes/sequence_limit_solutions.pdf) |
 |  | 11/5 | 9.2. Monotone Sequence | [Note](notes/note17_annotated.pdf) <br> [In-Class Problems](class_work/monotonic_sequences_worksheet.pdf), [Solutions](class_work/monotonic_sequences_solutions.pdf) |
-| 11 | 11/9 | 9.3. Infinite Series | [In-Class Problems](class_work/infinite_series_worksheet.pdf), [Solutions](class_work/infinite_series_solutions.pdf) |
+| 11 | 11/9 | 9.3. Infinite Series | [In-Class Problems](class_work/infinite_series_worksheet.pdf) |
 | Final | Sat, Dec. 12 <br> 12:00pm | Final Exam |  |
