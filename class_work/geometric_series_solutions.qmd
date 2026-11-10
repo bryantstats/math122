@@ -1,149 +1,218 @@
 ---
-title-meta: "Geometric Series Worksheet Solutions (Section 9.3)"
+title: "9.3 Geometric Series Worksheet — Solutions"
 format:
-  pdf:
-    documentclass: article
-    papersize: letter
-    fontsize: 11pt
-    geometry:
-      - margin=0.75in
-    include-in-header:
-      text: |
-        \pagestyle{plain}
-        \setlength{\parindent}{0pt}
-        \setlength{\parskip}{4pt}
-        \usepackage{needspace}
-        \newcommand{\typehead}[2]{\textbf{\Large #1}\par\vspace{2pt}
-          #2\par\vspace{4pt}\hrule\vspace{8pt}}
-        \newcommand{\problem}[2]{\needspace{8\baselineskip}\textbf{\large #1}\ $\displaystyle #2$\par\vspace{4pt}}
-        \newcommand{\step}[1]{\textbf{#1}\ }
-        \newcommand{\answer}[1]{\par\vspace{4pt}\textbf{Answer:} \fbox{#1}\par\vspace{10pt}\hrule\vspace{10pt}}
+  html:
+    embed-resources: true
+    toc: false
+    html-math-method: mathjax
 ---
 
-\textbf{\LARGE 9.3 Geometric Series Worksheet --- Solutions}
+## Geometric Series
 
-\vspace{10pt}
-
-\typehead{Geometric Series}{A geometric series has the form
+A geometric series has the form
 $$
 a + ar + ar^2 + \cdots + ar^{k-1} + \cdots,
 $$
 where each term is obtained by multiplying the previous term by the same number $r$.
 
-\textbf{How to find $a$ and $r$:}
-\begin{itemize}
-\item[\textbf{1.}] $a$ = \textbf{the first term} of the series.
-\item[\textbf{2.}] $r$ = \textbf{(second term)} $\div$ \textbf{(first term)}. To be sure the series is geometric, also check that the ratio of \emph{any} two consecutive terms, $\dfrac{u_{k+1}}{u_k}$, is the same constant $r$.
-\item[\textbf{3.}] If $|r| < 1$, the series converges and its sum is $\dfrac{a}{1-r}$. If $|r| \ge 1$, the series diverges.
-\end{itemize}}
+**How to find $a$ and $r$:**
 
-\problem{1.}{\sum_{k=0}^{\infty} \frac{7}{3^{k}} = 7 + \frac{7}{3} + \frac{7}{3^{2}} + \cdots + \frac{7}{3^{k}} + \cdots}
+1. $a$ = **the first term** of the series.
+2. $r$ = **(second term) $\div$ (first term)**. To be sure the series is geometric, also check that the ratio of *any* two consecutive terms, $\dfrac{u_{k+1}}{u_k}$, is the same constant $r$.
+3. If $|r| < 1$, the series converges and its sum is $\dfrac{a}{1-r}$. If $|r| \ge 1$, the series diverges.
 
-\step{Find $a$.} $a$ is the first term: $a = 7$.
+**Alternative method (series starting at $k \ge 1$):** Extend the series back to $k = 0$, sum it with $\displaystyle\sum_{k=0}^{\infty} ar^k = \frac{a}{1-r}$ (here $a$ is the $k=0$ term), then **subtract the missing terms** $k = 0, 1, \dots$ that are not in the original series.
 
-\step{Find $r$.} The second term ($k=1$) is $\dfrac{7}{3}$, so
+---
+
+### Problem 1. $\displaystyle\sum_{k=0}^{\infty} \frac{7}{3^{k}} = 7 + \frac{7}{3} + \frac{7}{3^{2}} + \cdots + \frac{7}{3^{k}} + \cdots$
+
+**Find $a$.** $a$ is the first term: $a = 7$.
+
+**Find $r$.** The second term ($k=1$) is $\dfrac{7}{3}$, so
 $$
 r = \frac{\text{second term}}{\text{first term}} = \frac{7/3}{7} = \frac{1}{3}.
 $$
-Check with the general term: $\dfrac{u_{k+1}}{u_k} = \dfrac{7/3^{k+1}}{7/3^{k}} = \dfrac{3^{k}}{3^{k+1}} = \dfrac13$ for every $k$. $\checkmark$
+Check with the general term: $\dfrac{u_{k+1}}{u_k} = \dfrac{7/3^{k+1}}{7/3^{k}} = \dfrac{3^{k}}{3^{k+1}} = \dfrac13$ for every $k$. ✓
 
-\step{Converge or diverge?} $|r| = \frac13 < 1$, so the series converges and
+**Converge or diverge?** $|r| = \frac13 < 1$, so the series converges and
 $$
 \sum_{k=0}^{\infty} \frac{7}{3^{k}} = \frac{a}{1-r} = \frac{7}{1-\frac13} = \frac{7}{\frac23} = 7\cdot\frac32 = \frac{21}{2}.
 $$
-\answer{converges, sum $= \dfrac{21}{2}$}
 
-\problem{2.}{\sum_{k=0}^{\infty} \frac{(-1)^{k}\, 6}{5^{k}} = 6 - \frac{6}{5} + \frac{6}{5^{2}} - \cdots + \frac{(-1)^{k}\,6}{5^{k}} + \cdots}
+> **Answer:** converges, sum $= \dfrac{21}{2}$
 
-\step{Find $a$.} $a$ is the first term: $a = 6$.
+---
 
-\step{Find $r$.} The second term ($k=1$) is $\dfrac{(-1)^1\cdot 6}{5} = -\dfrac65$, so
+### Problem 2. $\displaystyle\sum_{k=0}^{\infty} \frac{(-1)^{k}\, 6}{5^{k}} = 6 - \frac{6}{5} + \frac{6}{5^{2}} - \cdots + \frac{(-1)^{k}\,6}{5^{k}} + \cdots$
+
+**Find $a$.** $a$ is the first term: $a = 6$.
+
+**Find $r$.** The second term ($k=1$) is $\dfrac{(-1)^1\cdot 6}{5} = -\dfrac65$, so
 $$
 r = \frac{-6/5}{6} = -\frac{1}{5}.
 $$
-Check: $\dfrac{u_{k+1}}{u_k} = \dfrac{(-1)^{k+1}\,6/5^{k+1}}{(-1)^{k}\,6/5^{k}} = (-1)\cdot\dfrac{5^k}{5^{k+1}} = -\dfrac15$. $\checkmark$ \newline
-(The alternating signs give a \emph{negative} ratio.)
+Check: $\dfrac{u_{k+1}}{u_k} = \dfrac{(-1)^{k+1}\,6/5^{k+1}}{(-1)^{k}\,6/5^{k}} = (-1)\cdot\dfrac{5^k}{5^{k+1}} = -\dfrac15$. ✓
+(The alternating signs give a *negative* ratio.)
 
-\step{Converge or diverge?} $|r| = \frac15 < 1$, so the series converges and
+**Converge or diverge?** $|r| = \frac15 < 1$, so the series converges and
 $$
 \sum_{k=0}^{\infty} \frac{(-1)^{k}\, 6}{5^{k}} = \frac{a}{1-r} = \frac{6}{1-\left(-\frac15\right)} = \frac{6}{\frac65} = 5.
 $$
-\answer{converges, sum $= 5$}
 
-\problem{3.}{\sum_{k=1}^{\infty} 2^{2k}\, 3^{1-k} = 4 + \frac{16}{3} + \frac{64}{9} + \cdots + 2^{2k}\,3^{1-k} + \cdots}
+> **Answer:** converges, sum $= 5$
 
-\step{Find $a$.} $a$ is the first term: $a = 4$.
+---
 
-\step{Find $r$.} The second term ($k=2$) is $2^{4}\cdot 3^{-1} = \dfrac{16}{3}$, so
+### Problem 3. $\displaystyle\sum_{k=1}^{\infty} 2^{2k}\, 3^{1-k} = 4 + \frac{16}{3} + \frac{64}{9} + \cdots + 2^{2k}\,3^{1-k} + \cdots$
+
+**Find $a$.** $a$ is the first term: $a = 4$.
+
+**Find $r$.** The second term ($k=2$) is $2^{4}\cdot 3^{-1} = \dfrac{16}{3}$, so
 $$
 r = \frac{16/3}{4} = \frac{16}{12} = \frac{4}{3}.
 $$
-Check (concealed form): $2^{2k}\,3^{1-k} = \dfrac{4^{k}}{3^{k-1}} = 4\cdot\dfrac{4^{k-1}}{3^{k-1}} = 4\left(\dfrac43\right)^{k-1}$, which is $ar^{k-1}$ with $a=4$, $r=\frac43$. $\checkmark$
+Check (concealed form): $2^{2k}\,3^{1-k} = \dfrac{4^{k}}{3^{k-1}} = 4\cdot\dfrac{4^{k-1}}{3^{k-1}} = 4\left(\dfrac43\right)^{k-1}$, which is $ar^{k-1}$ with $a=4$, $r=\frac43$. ✓
 
-\step{Converge or diverge?} $|r| = \frac43 \ge 1$, so the series diverges.
-\answer{diverges}
+**Converge or diverge?** $|r| = \frac43 \ge 1$, so the series diverges.
 
-\problem{4.}{\sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{25}{8} + \frac{125}{64} + \frac{625}{512} + \cdots + \frac{5^{k+1}}{8^{k}} + \cdots}
+**Alternative: start at $k=0$ and subtract.** Rewrite the general term as
+$$
+2^{2k}\,3^{1-k} = 3\cdot\frac{4^k}{3^k} = 3\left(\frac43\right)^k,
+$$
+so $\displaystyle\sum_{k=0}^{\infty} 3\left(\frac43\right)^k$ is geometric with $r = \frac43$. Since $|r| \ge 1$, this series diverges. Subtracting the single missing term ($k=0$: $3$) cannot make a divergent series converge, so the original series also diverges.
 
-\step{Find $a$.} $a$ is the first term: $a = \dfrac{25}{8}$.
+> **Answer:** diverges
 
-\step{Find $r$.} The second term ($k=2$) is $\dfrac{5^{3}}{8^{2}} = \dfrac{125}{64}$, so
+---
+
+### Problem 4. $\displaystyle\sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{25}{8} + \frac{125}{64} + \frac{625}{512} + \cdots + \frac{5^{k+1}}{8^{k}} + \cdots$
+
+**Find $a$.** $a$ is the first term: $a = \dfrac{25}{8}$.
+
+**Find $r$.** The second term ($k=2$) is $\dfrac{5^{3}}{8^{2}} = \dfrac{125}{64}$, so
 $$
 r = \frac{125/64}{25/8} = \frac{125}{64}\cdot\frac{8}{25} = \frac{5}{8}.
 $$
-Check: $\dfrac{u_{k+1}}{u_k} = \dfrac{5^{k+2}/8^{k+1}}{5^{k+1}/8^{k}} = \dfrac{5^{k+2}}{5^{k+1}}\cdot\dfrac{8^{k}}{8^{k+1}} = 5\cdot\dfrac18 = \dfrac58$. $\checkmark$
+Check: $\dfrac{u_{k+1}}{u_k} = \dfrac{5^{k+2}/8^{k+1}}{5^{k+1}/8^{k}} = \dfrac{5^{k+2}}{5^{k+1}}\cdot\dfrac{8^{k}}{8^{k+1}} = 5\cdot\dfrac18 = \dfrac58$. ✓
 
-\step{Converge or diverge?} $|r| = \frac58 < 1$, so the series converges and
+**Converge or diverge?** $|r| = \frac58 < 1$, so the series converges and
 $$
 \sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{a}{1-r} = \frac{\frac{25}{8}}{1-\frac58} = \frac{\frac{25}{8}}{\frac38} = \frac{25}{3}.
 $$
-\answer{converges, sum $= \dfrac{25}{3}$}
 
-\problem{5.}{\sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{9}{32} + \frac{27}{256} + \frac{81}{2048} + \cdots + \frac{3^{k}}{2^{3k-1}} + \cdots}
+**Alternative: start at $k=0$ and subtract.** Rewrite the general term as
+$$
+\frac{5^{k+1}}{8^{k}} = 5\left(\frac58\right)^k.
+$$
+Starting at $k=0$, this is geometric with first term $5$ and $r = \frac58$:
+$$
+\sum_{k=0}^{\infty} 5\left(\frac58\right)^k = \frac{5}{1-\frac58} = \frac{5}{\frac38} = \frac{40}{3}.
+$$
+The original series is missing the $k=0$ term, $5\left(\frac58\right)^0 = 5$. Subtract it:
+$$
+\sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{40}{3} - 5 = \frac{40}{3} - \frac{15}{3} = \frac{25}{3}. \ ✓
+$$
 
-\step{Find $a$.} $a$ is the first term: $a = \dfrac{9}{32}$.
+> **Answer:** converges, sum $= \dfrac{25}{3}$
 
-\step{Find $r$.} The second term ($k=3$) is $\dfrac{3^{3}}{2^{8}} = \dfrac{27}{256}$, so
+---
+
+### Problem 5. $\displaystyle\sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{9}{32} + \frac{27}{256} + \frac{81}{2048} + \cdots + \frac{3^{k}}{2^{3k-1}} + \cdots$
+
+**Find $a$.** $a$ is the first term: $a = \dfrac{9}{32}$.
+
+**Find $r$.** The second term ($k=3$) is $\dfrac{3^{3}}{2^{8}} = \dfrac{27}{256}$, so
 $$
 r = \frac{27/256}{9/32} = \frac{27}{256}\cdot\frac{32}{9} = \frac{3}{8}.
 $$
-Check: $\dfrac{u_{k+1}}{u_k} = \dfrac{3^{k+1}/2^{3k+2}}{3^{k}/2^{3k-1}} = \dfrac{3^{k+1}}{3^{k}}\cdot\dfrac{2^{3k-1}}{2^{3k+2}} = 3\cdot\dfrac{1}{2^{3}} = \dfrac38$. $\checkmark$
+Check: $\dfrac{u_{k+1}}{u_k} = \dfrac{3^{k+1}/2^{3k+2}}{3^{k}/2^{3k-1}} = \dfrac{3^{k+1}}{3^{k}}\cdot\dfrac{2^{3k-1}}{2^{3k+2}} = 3\cdot\dfrac{1}{2^{3}} = \dfrac38$. ✓
 
-\step{Converge or diverge?} $|r| = \frac38 < 1$, so the series converges and
+**Converge or diverge?** $|r| = \frac38 < 1$, so the series converges and
 $$
 \sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{a}{1-r} = \frac{\frac{9}{32}}{1-\frac38} = \frac{\frac{9}{32}}{\frac58} = \frac{9}{32}\cdot\frac{8}{5} = \frac{9}{20}.
 $$
-\answer{converges, sum $= \dfrac{9}{20}$}
 
-\problem{6.}{3 + \frac{3}{4} + \frac{3}{4^{2}} + \cdots + \frac{3}{4^{k-1}} + \cdots}
+**Alternative: start at $k=0$ and subtract.** Rewrite the general term as
+$$
+\frac{3^{k}}{2^{3k-1}} = \frac{2\cdot 3^k}{2^{3k}} = 2\left(\frac38\right)^k.
+$$
+Starting at $k=0$, this is geometric with first term $2$ and $r = \frac38$:
+$$
+\sum_{k=0}^{\infty} 2\left(\frac38\right)^k = \frac{2}{1-\frac38} = \frac{2}{\frac58} = \frac{16}{5}.
+$$
+The original series starts at $k=2$, so it is missing **two** terms:
+$$
+k=0:\ 2\left(\tfrac38\right)^0 = 2, \qquad k=1:\ 2\left(\tfrac38\right)^1 = \tfrac34.
+$$
+Subtract both:
+$$
+\sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{16}{5} - 2 - \frac34 = \frac{64}{20} - \frac{40}{20} - \frac{15}{20} = \frac{9}{20}. \ ✓
+$$
 
-\step{Find $a$.} $a$ is the first term: $a = 3$.
+> **Answer:** converges, sum $= \dfrac{9}{20}$
 
-\step{Find $r$.} The second term is $\dfrac34$, so
+---
+
+### Problem 6. $\displaystyle 3 + \frac{3}{4} + \frac{3}{4^{2}} + \cdots + \frac{3}{4^{k-1}} + \cdots$
+
+**Find $a$.** $a$ is the first term: $a = 3$.
+
+**Find $r$.** The second term is $\dfrac34$, so
 $$
 r = \frac{3/4}{3} = \frac{1}{4}.
 $$
-Check: $\dfrac{3}{4^{k-1}} = 3\left(\dfrac14\right)^{k-1}$, which is $ar^{k-1}$ with $a=3$, $r = \frac14$. $\checkmark$
+Check: $\dfrac{3}{4^{k-1}} = 3\left(\dfrac14\right)^{k-1}$, which is $ar^{k-1}$ with $a=3$, $r = \frac14$. ✓
 
-\step{Converge or diverge?} $|r| = \frac14 < 1$, so the series converges and
+**Converge or diverge?** $|r| = \frac14 < 1$, so the series converges and
 $$
 \frac{a}{1-r} = \frac{3}{1-\frac14} = \frac{3}{\frac34} = 4.
 $$
-\answer{converges, sum $= 4$}
 
-\problem{7.}{\frac{2}{9} - \frac{4}{27} + \frac{8}{81} - \cdots + \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} + \cdots}
+**Alternative: start at $k=0$ and subtract.** In sigma notation the series is $\displaystyle\sum_{k=1}^{\infty} \frac{3}{4^{k-1}}$. Rewrite the general term as
+$$
+\frac{3}{4^{k-1}} = \frac{3\cdot 4}{4^{k}} = 12\left(\frac14\right)^k.
+$$
+Starting at $k=0$, this is geometric with first term $12$ and $r = \frac14$:
+$$
+\sum_{k=0}^{\infty} 12\left(\frac14\right)^k = \frac{12}{1-\frac14} = \frac{12}{\frac34} = 16.
+$$
+The original series is missing the $k=0$ term, $12$. Subtract it:
+$$
+\sum_{k=1}^{\infty} \frac{3}{4^{k-1}} = 16 - 12 = 4. \ ✓
+$$
 
-\step{Find $a$.} $a$ is the first term: $a = \dfrac29$.
+> **Answer:** converges, sum $= 4$
 
-\step{Find $r$.} The second term is $-\dfrac{4}{27}$, so
+---
+
+### Problem 7. $\displaystyle \frac{2}{9} - \frac{4}{27} + \frac{8}{81} - \cdots + \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} + \cdots$
+
+**Find $a$.** $a$ is the first term: $a = \dfrac29$.
+
+**Find $r$.** The second term is $-\dfrac{4}{27}$, so
 $$
 r = \frac{-4/27}{2/9} = -\frac{4}{27}\cdot\frac{9}{2} = -\frac{2}{3}.
 $$
-Check with the third term: $\dfrac{8/81}{-4/27} = \dfrac{8}{81}\cdot\left(-\dfrac{27}{4}\right) = -\dfrac23$. $\checkmark$ \newline
+Check with the third term: $\dfrac{8/81}{-4/27} = \dfrac{8}{81}\cdot\left(-\dfrac{27}{4}\right) = -\dfrac23$. ✓
 In general, $\dfrac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = \dfrac{2}{9}\left(-\dfrac23\right)^{k-1}$.
 
-\step{Converge or diverge?} $|r| = \frac23 < 1$, so the series converges and
+**Converge or diverge?** $|r| = \frac23 < 1$, so the series converges and
 $$
 \frac{a}{1-r} = \frac{\frac29}{1-\left(-\frac23\right)} = \frac{\frac29}{\frac53} = \frac29\cdot\frac35 = \frac{2}{15}.
 $$
-\answer{converges, sum $= \dfrac{2}{15}$}
+
+**Alternative: start at $k=0$ and subtract.** In sigma notation the series is $\displaystyle\sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}}$. Rewrite the general term as
+$$
+\frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = (-1)^{-1}\cdot\frac{1}{3}\cdot\frac{(-1)^{k}\,2^{k}}{3^{k}} = -\frac13\left(-\frac23\right)^k.
+$$
+Starting at $k=0$, this is geometric with first term $-\frac13$ and $r = -\frac23$:
+$$
+\sum_{k=0}^{\infty} -\frac13\left(-\frac23\right)^k = \frac{-\frac13}{1-\left(-\frac23\right)} = \frac{-\frac13}{\frac53} = -\frac15.
+$$
+The original series is missing the $k=0$ term, $-\frac13$. Subtract it:
+$$
+\sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = -\frac15 - \left(-\frac13\right) = -\frac{3}{15} + \frac{5}{15} = \frac{2}{15}. \ ✓
+$$
+
+> **Answer:** converges, sum $= \dfrac{2}{15}$
