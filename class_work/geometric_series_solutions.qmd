@@ -21,7 +21,9 @@ where each term is obtained by multiplying the previous term by the same number 
 2. $r$ = **(second term) $\div$ (first term)**. To be sure the series is geometric, also check that the ratio of *any* two consecutive terms, $\dfrac{u_{k+1}}{u_k}$, is the same constant $r$.
 3. If $|r| < 1$, the series converges and its sum is $\dfrac{a}{1-r}$. If $|r| \ge 1$, the series diverges.
 
-**Alternative method (series starting at $k \ge 1$):** Extend the series back to $k = 0$, sum it with $\displaystyle\sum_{k=0}^{\infty} ar^k = \frac{a}{1-r}$ (here $a$ is the $k=0$ term), then **subtract the missing terms** $k = 0, 1, \dots$ that are not in the original series.
+::: {.callout-tip icon=false title="Alternative method (series starting at $k \ge 1$)"}
+Extend the series back to $k = 0$, sum it with $\displaystyle\sum_{k=0}^{\infty} ar^k = \frac{a}{1-r}$ (here $a$ is the $k=0$ term), then **subtract the missing terms** $k = 0, 1, \dots$ that are not in the original series.
+:::
 
 ---
 
@@ -76,11 +78,13 @@ Check (concealed form): $2^{2k}\,3^{1-k} = \dfrac{4^{k}}{3^{k-1}} = 4\cdot\dfrac
 
 **Converge or diverge?** $|r| = \frac43 \ge 1$, so the series diverges.
 
-**Alternative: start at $k=0$ and subtract.** Rewrite the general term as
+::: {.callout-tip icon=false title="Alternative: start at $k=0$ and subtract"}
+Rewrite the general term as
 $$
 2^{2k}\,3^{1-k} = 3\cdot\frac{4^k}{3^k} = 3\left(\frac43\right)^k,
 $$
 so $\displaystyle\sum_{k=0}^{\infty} 3\left(\frac43\right)^k$ is geometric with $r = \frac43$. Since $|r| \ge 1$, this series diverges. Subtracting the single missing term ($k=0$: $3$) cannot make a divergent series converge, so the original series also diverges.
+:::
 
 > **Answer:** diverges
 
@@ -101,7 +105,8 @@ $$
 \sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{a}{1-r} = \frac{\frac{25}{8}}{1-\frac58} = \frac{\frac{25}{8}}{\frac38} = \frac{25}{3}.
 $$
 
-**Alternative: start at $k=0$ and subtract.** Rewrite the general term as
+::: {.callout-tip icon=false title="Alternative: start at $k=0$ and subtract"}
+Rewrite the general term as
 $$
 \frac{5^{k+1}}{8^{k}} = 5\left(\frac58\right)^k.
 $$
@@ -113,6 +118,7 @@ The original series is missing the $k=0$ term, $5\left(\frac58\right)^0 = 5$. Su
 $$
 \sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{40}{3} - 5 = \frac{40}{3} - \frac{15}{3} = \frac{25}{3}. \ ✓
 $$
+:::
 
 > **Answer:** converges, sum $= \dfrac{25}{3}$
 
@@ -133,7 +139,8 @@ $$
 \sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{a}{1-r} = \frac{\frac{9}{32}}{1-\frac38} = \frac{\frac{9}{32}}{\frac58} = \frac{9}{32}\cdot\frac{8}{5} = \frac{9}{20}.
 $$
 
-**Alternative: start at $k=0$ and subtract.** Rewrite the general term as
+::: {.callout-tip icon=false title="Alternative: start at $k=0$ and subtract"}
+Rewrite the general term as
 $$
 \frac{3^{k}}{2^{3k-1}} = \frac{2\cdot 3^k}{2^{3k}} = 2\left(\frac38\right)^k.
 $$
@@ -149,6 +156,7 @@ Subtract both:
 $$
 \sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{16}{5} - 2 - \frac34 = \frac{64}{20} - \frac{40}{20} - \frac{15}{20} = \frac{9}{20}. \ ✓
 $$
+:::
 
 > **Answer:** converges, sum $= \dfrac{9}{20}$
 
@@ -169,7 +177,8 @@ $$
 \frac{a}{1-r} = \frac{3}{1-\frac14} = \frac{3}{\frac34} = 4.
 $$
 
-**Alternative: start at $k=0$ and subtract.** In sigma notation the series is $\displaystyle\sum_{k=1}^{\infty} \frac{3}{4^{k-1}}$. Rewrite the general term as
+::: {.callout-tip icon=false title="Alternative: start at $k=0$ and subtract"}
+In sigma notation the series is $\displaystyle\sum_{k=1}^{\infty} \frac{3}{4^{k-1}}$. Rewrite the general term as
 $$
 \frac{3}{4^{k-1}} = \frac{3\cdot 4}{4^{k}} = 12\left(\frac14\right)^k.
 $$
@@ -181,6 +190,7 @@ The original series is missing the $k=0$ term, $12$. Subtract it:
 $$
 \sum_{k=1}^{\infty} \frac{3}{4^{k-1}} = 16 - 12 = 4. \ ✓
 $$
+:::
 
 > **Answer:** converges, sum $= 4$
 
@@ -202,7 +212,8 @@ $$
 \frac{a}{1-r} = \frac{\frac29}{1-\left(-\frac23\right)} = \frac{\frac29}{\frac53} = \frac29\cdot\frac35 = \frac{2}{15}.
 $$
 
-**Alternative: start at $k=0$ and subtract.** In sigma notation the series is $\displaystyle\sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}}$. Rewrite the general term as
+::: {.callout-tip icon=false title="Alternative: start at $k=0$ and subtract"}
+In sigma notation the series is $\displaystyle\sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}}$. Rewrite the general term as
 $$
 \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = (-1)^{-1}\cdot\frac{1}{3}\cdot\frac{(-1)^{k}\,2^{k}}{3^{k}} = -\frac13\left(-\frac23\right)^k.
 $$
@@ -214,5 +225,6 @@ The original series is missing the $k=0$ term, $-\frac13$. Subtract it:
 $$
 \sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = -\frac15 - \left(-\frac13\right) = -\frac{3}{15} + \frac{5}{15} = \frac{2}{15}. \ ✓
 $$
+:::
 
 > **Answer:** converges, sum $= \dfrac{2}{15}$

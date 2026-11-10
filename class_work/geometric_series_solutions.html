@@ -2342,7 +2342,19 @@ a + ar + ar^2 + \cdots + ar^{k-1} + \cdots,
 <li><span class="math inline">\(r\)</span> = <strong>(second term) <span class="math inline">\(\div\)</span> (first term)</strong>. To be sure the series is geometric, also check that the ratio of <em>any</em> two consecutive terms, <span class="math inline">\(\dfrac{u_{k+1}}{u_k}\)</span>, is the same constant <span class="math inline">\(r\)</span>.</li>
 <li>If <span class="math inline">\(|r| &lt; 1\)</span>, the series converges and its sum is <span class="math inline">\(\dfrac{a}{1-r}\)</span>. If <span class="math inline">\(|r| \ge 1\)</span>, the series diverges.</li>
 </ol>
-<p><strong>Alternative method (series starting at <span class="math inline">\(k \ge 1\)</span>):</strong> Extend the series back to <span class="math inline">\(k = 0\)</span>, sum it with <span class="math inline">\(\displaystyle\sum_{k=0}^{\infty} ar^k = \frac{a}{1-r}\)</span> (here <span class="math inline">\(a\)</span> is the <span class="math inline">\(k=0\)</span> term), then <strong>subtract the missing terms</strong> <span class="math inline">\(k = 0, 1, \dots\)</span> that are not in the original series.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Alternative method (series starting at $k \ge 1$)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Alternative method (series starting at <span class="math inline">\(k \ge 1\)</span>)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Extend the series back to <span class="math inline">\(k = 0\)</span>, sum it with <span class="math inline">\(\displaystyle\sum_{k=0}^{\infty} ar^k = \frac{a}{1-r}\)</span> (here <span class="math inline">\(a\)</span> is the <span class="math inline">\(k=0\)</span> term), then <strong>subtract the missing terms</strong> <span class="math inline">\(k = 0, 1, \dots\)</span> that are not in the original series.</p>
+</div>
+</div>
 <hr>
 <section id="problem-1.-displaystylesum_k0infty-frac73k-7-frac73-frac732-cdots-frac73k-cdots" class="level3">
 <h3 class="anchored" data-anchor-id="problem-1.-displaystylesum_k0infty-frac73k-7-frac73-frac732-cdots-frac73k-cdots">Problem 1. <span class="math inline">\(\displaystyle\sum_{k=0}^{\infty} \frac{7}{3^{k}} = 7 + \frac{7}{3} + \frac{7}{3^{2}} + \cdots + \frac{7}{3^{k}} + \cdots\)</span></h3>
@@ -2379,9 +2391,21 @@ r = \frac{-6/5}{6} = -\frac{1}{5}.
 r = \frac{16/3}{4} = \frac{16}{12} = \frac{4}{3}.
 \]</span> Check (concealed form): <span class="math inline">\(2^{2k}\,3^{1-k} = \dfrac{4^{k}}{3^{k-1}} = 4\cdot\dfrac{4^{k-1}}{3^{k-1}} = 4\left(\dfrac43\right)^{k-1}\)</span>, which is <span class="math inline">\(ar^{k-1}\)</span> with <span class="math inline">\(a=4\)</span>, <span class="math inline">\(r=\frac43\)</span>. ✓</p>
 <p><strong>Converge or diverge?</strong> <span class="math inline">\(|r| = \frac43 \ge 1\)</span>, so the series diverges.</p>
-<p><strong>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract.</strong> Rewrite the general term as <span class="math display">\[
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Alternative: start at $k=0$ and subtract">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rewrite the general term as <span class="math display">\[
 2^{2k}\,3^{1-k} = 3\cdot\frac{4^k}{3^k} = 3\left(\frac43\right)^k,
 \]</span> so <span class="math inline">\(\displaystyle\sum_{k=0}^{\infty} 3\left(\frac43\right)^k\)</span> is geometric with <span class="math inline">\(r = \frac43\)</span>. Since <span class="math inline">\(|r| \ge 1\)</span>, this series diverges. Subtracting the single missing term (<span class="math inline">\(k=0\)</span>: <span class="math inline">\(3\)</span>) cannot make a divergent series converge, so the original series also diverges.</p>
+</div>
+</div>
 <blockquote class="blockquote">
 <p><strong>Answer:</strong> diverges</p>
 </blockquote>
@@ -2396,13 +2420,25 @@ r = \frac{125/64}{25/8} = \frac{125}{64}\cdot\frac{8}{25} = \frac{5}{8}.
 <p><strong>Converge or diverge?</strong> <span class="math inline">\(|r| = \frac58 &lt; 1\)</span>, so the series converges and <span class="math display">\[
 \sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{a}{1-r} = \frac{\frac{25}{8}}{1-\frac58} = \frac{\frac{25}{8}}{\frac38} = \frac{25}{3}.
 \]</span></p>
-<p><strong>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract.</strong> Rewrite the general term as <span class="math display">\[
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Alternative: start at $k=0$ and subtract">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rewrite the general term as <span class="math display">\[
 \frac{5^{k+1}}{8^{k}} = 5\left(\frac58\right)^k.
 \]</span> Starting at <span class="math inline">\(k=0\)</span>, this is geometric with first term <span class="math inline">\(5\)</span> and <span class="math inline">\(r = \frac58\)</span>: <span class="math display">\[
 \sum_{k=0}^{\infty} 5\left(\frac58\right)^k = \frac{5}{1-\frac58} = \frac{5}{\frac38} = \frac{40}{3}.
 \]</span> The original series is missing the <span class="math inline">\(k=0\)</span> term, <span class="math inline">\(5\left(\frac58\right)^0 = 5\)</span>. Subtract it: <span class="math display">\[
 \sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{40}{3} - 5 = \frac{40}{3} - \frac{15}{3} = \frac{25}{3}. \ ✓
 \]</span></p>
+</div>
+</div>
 <blockquote class="blockquote">
 <p><strong>Answer:</strong> converges, sum <span class="math inline">\(= \dfrac{25}{3}\)</span></p>
 </blockquote>
@@ -2417,7 +2453,17 @@ r = \frac{27/256}{9/32} = \frac{27}{256}\cdot\frac{32}{9} = \frac{3}{8}.
 <p><strong>Converge or diverge?</strong> <span class="math inline">\(|r| = \frac38 &lt; 1\)</span>, so the series converges and <span class="math display">\[
 \sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{a}{1-r} = \frac{\frac{9}{32}}{1-\frac38} = \frac{\frac{9}{32}}{\frac58} = \frac{9}{32}\cdot\frac{8}{5} = \frac{9}{20}.
 \]</span></p>
-<p><strong>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract.</strong> Rewrite the general term as <span class="math display">\[
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Alternative: start at $k=0$ and subtract">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rewrite the general term as <span class="math display">\[
 \frac{3^{k}}{2^{3k-1}} = \frac{2\cdot 3^k}{2^{3k}} = 2\left(\frac38\right)^k.
 \]</span> Starting at <span class="math inline">\(k=0\)</span>, this is geometric with first term <span class="math inline">\(2\)</span> and <span class="math inline">\(r = \frac38\)</span>: <span class="math display">\[
 \sum_{k=0}^{\infty} 2\left(\frac38\right)^k = \frac{2}{1-\frac38} = \frac{2}{\frac58} = \frac{16}{5}.
@@ -2426,6 +2472,8 @@ k=0:\ 2\left(\tfrac38\right)^0 = 2, \qquad k=1:\ 2\left(\tfrac38\right)^1 = \tfr
 \]</span> Subtract both: <span class="math display">\[
 \sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{16}{5} - 2 - \frac34 = \frac{64}{20} - \frac{40}{20} - \frac{15}{20} = \frac{9}{20}. \ ✓
 \]</span></p>
+</div>
+</div>
 <blockquote class="blockquote">
 <p><strong>Answer:</strong> converges, sum <span class="math inline">\(= \dfrac{9}{20}\)</span></p>
 </blockquote>
@@ -2440,13 +2488,25 @@ r = \frac{3/4}{3} = \frac{1}{4}.
 <p><strong>Converge or diverge?</strong> <span class="math inline">\(|r| = \frac14 &lt; 1\)</span>, so the series converges and <span class="math display">\[
 \frac{a}{1-r} = \frac{3}{1-\frac14} = \frac{3}{\frac34} = 4.
 \]</span></p>
-<p><strong>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract.</strong> In sigma notation the series is <span class="math inline">\(\displaystyle\sum_{k=1}^{\infty} \frac{3}{4^{k-1}}\)</span>. Rewrite the general term as <span class="math display">\[
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Alternative: start at $k=0$ and subtract">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In sigma notation the series is <span class="math inline">\(\displaystyle\sum_{k=1}^{\infty} \frac{3}{4^{k-1}}\)</span>. Rewrite the general term as <span class="math display">\[
 \frac{3}{4^{k-1}} = \frac{3\cdot 4}{4^{k}} = 12\left(\frac14\right)^k.
 \]</span> Starting at <span class="math inline">\(k=0\)</span>, this is geometric with first term <span class="math inline">\(12\)</span> and <span class="math inline">\(r = \frac14\)</span>: <span class="math display">\[
 \sum_{k=0}^{\infty} 12\left(\frac14\right)^k = \frac{12}{1-\frac14} = \frac{12}{\frac34} = 16.
 \]</span> The original series is missing the <span class="math inline">\(k=0\)</span> term, <span class="math inline">\(12\)</span>. Subtract it: <span class="math display">\[
 \sum_{k=1}^{\infty} \frac{3}{4^{k-1}} = 16 - 12 = 4. \ ✓
 \]</span></p>
+</div>
+</div>
 <blockquote class="blockquote">
 <p><strong>Answer:</strong> converges, sum <span class="math inline">\(= 4\)</span></p>
 </blockquote>
@@ -2461,13 +2521,25 @@ r = \frac{-4/27}{2/9} = -\frac{4}{27}\cdot\frac{9}{2} = -\frac{2}{3}.
 <p><strong>Converge or diverge?</strong> <span class="math inline">\(|r| = \frac23 &lt; 1\)</span>, so the series converges and <span class="math display">\[
 \frac{a}{1-r} = \frac{\frac29}{1-\left(-\frac23\right)} = \frac{\frac29}{\frac53} = \frac29\cdot\frac35 = \frac{2}{15}.
 \]</span></p>
-<p><strong>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract.</strong> In sigma notation the series is <span class="math inline">\(\displaystyle\sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}}\)</span>. Rewrite the general term as <span class="math display">\[
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Alternative: start at $k=0$ and subtract">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Alternative: start at <span class="math inline">\(k=0\)</span> and subtract
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In sigma notation the series is <span class="math inline">\(\displaystyle\sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}}\)</span>. Rewrite the general term as <span class="math display">\[
 \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = (-1)^{-1}\cdot\frac{1}{3}\cdot\frac{(-1)^{k}\,2^{k}}{3^{k}} = -\frac13\left(-\frac23\right)^k.
 \]</span> Starting at <span class="math inline">\(k=0\)</span>, this is geometric with first term <span class="math inline">\(-\frac13\)</span> and <span class="math inline">\(r = -\frac23\)</span>: <span class="math display">\[
 \sum_{k=0}^{\infty} -\frac13\left(-\frac23\right)^k = \frac{-\frac13}{1-\left(-\frac23\right)} = \frac{-\frac13}{\frac53} = -\frac15.
 \]</span> The original series is missing the <span class="math inline">\(k=0\)</span> term, <span class="math inline">\(-\frac13\)</span>. Subtract it: <span class="math display">\[
 \sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = -\frac15 - \left(-\frac13\right) = -\frac{3}{15} + \frac{5}{15} = \frac{2}{15}. \ ✓
 \]</span></p>
+</div>
+</div>
 <blockquote class="blockquote">
 <p><strong>Answer:</strong> converges, sum <span class="math inline">\(= \dfrac{2}{15}\)</span></p>
 </blockquote>
