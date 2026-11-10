@@ -177,21 +177,6 @@ $$
 \frac{a}{1-r} = \frac{3}{1-\frac14} = \frac{3}{\frac34} = 4.
 $$
 
-::: {.callout-tip icon=false title="Alternative: start at $k=0$ and subtract"}
-In sigma notation the series is $\displaystyle\sum_{k=1}^{\infty} \frac{3}{4^{k-1}}$. Rewrite the general term as
-$$
-\frac{3}{4^{k-1}} = \frac{3\cdot 4}{4^{k}} = 12\left(\frac14\right)^k.
-$$
-Starting at $k=0$, this is geometric with first term $12$ and $r = \frac14$:
-$$
-\sum_{k=0}^{\infty} 12\left(\frac14\right)^k = \frac{12}{1-\frac14} = \frac{12}{\frac34} = 16.
-$$
-The original series is missing the $k=0$ term, $12$. Subtract it:
-$$
-\sum_{k=1}^{\infty} \frac{3}{4^{k-1}} = 16 - 12 = 4. \ ✓
-$$
-:::
-
 > **Answer:** converges, sum $= 4$
 
 ---
@@ -211,20 +196,5 @@ In general, $\dfrac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = \dfrac{2}{9}\left(-\dfrac23\ri
 $$
 \frac{a}{1-r} = \frac{\frac29}{1-\left(-\frac23\right)} = \frac{\frac29}{\frac53} = \frac29\cdot\frac35 = \frac{2}{15}.
 $$
-
-::: {.callout-tip icon=false title="Alternative: start at $k=0$ and subtract"}
-In sigma notation the series is $\displaystyle\sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}}$. Rewrite the general term as
-$$
-\frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = (-1)^{-1}\cdot\frac{1}{3}\cdot\frac{(-1)^{k}\,2^{k}}{3^{k}} = -\frac13\left(-\frac23\right)^k.
-$$
-Starting at $k=0$, this is geometric with first term $-\frac13$ and $r = -\frac23$:
-$$
-\sum_{k=0}^{\infty} -\frac13\left(-\frac23\right)^k = \frac{-\frac13}{1-\left(-\frac23\right)} = \frac{-\frac13}{\frac53} = -\frac15.
-$$
-The original series is missing the $k=0$ term, $-\frac13$. Subtract it:
-$$
-\sum_{k=1}^{\infty} \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} = -\frac15 - \left(-\frac13\right) = -\frac{3}{15} + \frac{5}{15} = \frac{2}{15}. \ ✓
-$$
-:::
 
 > **Answer:** converges, sum $= \dfrac{2}{15}$
