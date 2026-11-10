@@ -1,5 +1,5 @@
 ---
-title-meta: "Infinite Series Worksheet Solutions (Section 9.3)"
+title-meta: "Geometric Series Worksheet Solutions (Section 9.3)"
 format:
   pdf:
     documentclass: article
@@ -20,11 +20,11 @@ format:
         \newcommand{\answer}[1]{\par\vspace{4pt}\textbf{Answer:} \fbox{#1}\par\vspace{10pt}\hrule\vspace{10pt}}
 ---
 
-\textbf{\LARGE Infinite Series Worksheet (9.3) --- Solutions}
+\textbf{\LARGE 9.3 Geometric Series Worksheet --- Solutions}
 
 \vspace{10pt}
 
-\typehead{Type A: Geometric Series}{A geometric series has the form
+\typehead{Geometric Series}{A geometric series has the form
 $$
 a + ar + ar^2 + \cdots + ar^{k-1} + \cdots,
 $$
