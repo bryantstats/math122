@@ -32,17 +32,14 @@ where each term is obtained by multiplying the previous term by the same number 
 
 \textbf{How to find $a$ and $r$:}
 \begin{itemize}
-\item[\textbf{1.}] $a$ = \textbf{the first term} of the series. Plug in the \emph{starting} value of $k$ (which may be $k=0$, $k=1$, $k=2$, \dots).
+\item[\textbf{1.}] $a$ = \textbf{the first term} of the series.
 \item[\textbf{2.}] $r$ = \textbf{(second term)} $\div$ \textbf{(first term)}. To be sure the series is geometric, also check that the ratio of \emph{any} two consecutive terms, $\dfrac{u_{k+1}}{u_k}$, is the same constant $r$.
 \item[\textbf{3.}] If $|r| < 1$, the series converges and its sum is $\dfrac{a}{1-r}$. If $|r| \ge 1$, the series diverges.
 \end{itemize}}
 
 \problem{1.}{\sum_{k=0}^{\infty} \frac{7}{3^{k}} = 7 + \frac{7}{3} + \frac{7}{3^{2}} + \cdots + \frac{7}{3^{k}} + \cdots}
 
-\step{Find $a$.} The series starts at $k = 0$, so the first term is
-$$
-a = \frac{7}{3^{0}} = \frac{7}{1} = 7.
-$$
+\step{Find $a$.} $a$ is the first term: $a = 7$.
 
 \step{Find $r$.} The second term ($k=1$) is $\dfrac{7}{3}$, so
 $$
@@ -58,10 +55,7 @@ $$
 
 \problem{2.}{\sum_{k=0}^{\infty} \frac{(-1)^{k}\, 6}{5^{k}} = 6 - \frac{6}{5} + \frac{6}{5^{2}} - \cdots + \frac{(-1)^{k}\,6}{5^{k}} + \cdots}
 
-\step{Find $a$.} The series starts at $k = 0$:
-$$
-a = \frac{(-1)^{0}\cdot 6}{5^{0}} = \frac{1\cdot 6}{1} = 6.
-$$
+\step{Find $a$.} $a$ is the first term: $a = 6$.
 
 \step{Find $r$.} The second term ($k=1$) is $\dfrac{(-1)^1\cdot 6}{5} = -\dfrac65$, so
 $$
@@ -78,10 +72,7 @@ $$
 
 \problem{3.}{\sum_{k=1}^{\infty} 2^{2k}\, 3^{1-k} = 4 + \frac{16}{3} + \frac{64}{9} + \cdots + 2^{2k}\,3^{1-k} + \cdots}
 
-\step{Find $a$.} The series starts at $k = 1$:
-$$
-a = 2^{2(1)}\cdot 3^{1-1} = 2^{2}\cdot 3^{0} = 4\cdot 1 = 4.
-$$
+\step{Find $a$.} $a$ is the first term: $a = 4$.
 
 \step{Find $r$.} The second term ($k=2$) is $2^{4}\cdot 3^{-1} = \dfrac{16}{3}$, so
 $$
@@ -94,10 +85,7 @@ Check (concealed form): $2^{2k}\,3^{1-k} = \dfrac{4^{k}}{3^{k-1}} = 4\cdot\dfrac
 
 \problem{4.}{\sum_{k=1}^{\infty} \frac{5^{k+1}}{8^{k}} = \frac{25}{8} + \frac{125}{64} + \frac{625}{512} + \cdots + \frac{5^{k+1}}{8^{k}} + \cdots}
 
-\step{Find $a$.} The series starts at $k = 1$:
-$$
-a = \frac{5^{1+1}}{8^{1}} = \frac{25}{8}.
-$$
+\step{Find $a$.} $a$ is the first term: $a = \dfrac{25}{8}$.
 
 \step{Find $r$.} The second term ($k=2$) is $\dfrac{5^{3}}{8^{2}} = \dfrac{125}{64}$, so
 $$
@@ -113,11 +101,7 @@ $$
 
 \problem{5.}{\sum_{k=2}^{\infty} \frac{3^{k}}{2^{3k-1}} = \frac{9}{32} + \frac{27}{256} + \frac{81}{2048} + \cdots + \frac{3^{k}}{2^{3k-1}} + \cdots}
 
-\step{Find $a$.} Careful: this series starts at $k = 2$, so the first term is
-$$
-a = \frac{3^{2}}{2^{3(2)-1}} = \frac{9}{2^{5}} = \frac{9}{32}.
-$$
-(A common mistake is to use $k=1$ or $k=0$ here.)
+\step{Find $a$.} $a$ is the first term: $a = \dfrac{9}{32}$.
 
 \step{Find $r$.} The second term ($k=3$) is $\dfrac{3^{3}}{2^{8}} = \dfrac{27}{256}$, so
 $$
@@ -133,8 +117,7 @@ $$
 
 \problem{6.}{3 + \frac{3}{4} + \frac{3}{4^{2}} + \cdots + \frac{3}{4^{k-1}} + \cdots}
 
-\step{Find $a$.} Read the first term directly from the list: $a = 3$. \newline
-(In sigma notation the series is $\sum_{k=1}^{\infty} \frac{3}{4^{k-1}}$, and $k=1$ gives $\frac{3}{4^0} = 3$.)
+\step{Find $a$.} $a$ is the first term: $a = 3$.
 
 \step{Find $r$.} The second term is $\dfrac34$, so
 $$
@@ -150,8 +133,7 @@ $$
 
 \problem{7.}{\frac{2}{9} - \frac{4}{27} + \frac{8}{81} - \cdots + \frac{(-1)^{k-1}\,2^{k}}{3^{k+1}} + \cdots}
 
-\step{Find $a$.} Read the first term directly: $a = \dfrac29$. \newline
-(With the general term starting at $k=1$: $\frac{(-1)^{0}\,2^{1}}{3^{2}} = \frac29$.)
+\step{Find $a$.} $a$ is the first term: $a = \dfrac29$.
 
 \step{Find $r$.} The second term is $-\dfrac{4}{27}$, so
 $$
