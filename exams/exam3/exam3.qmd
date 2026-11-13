@@ -1,0 +1,134 @@
+---
+title: "MATH 122 — Calculus II · Exam 3: Sequences and Series"
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+    fontsize: 11pt
+    geometry:
+      - top=0.5in
+      - bottom=0.5in
+      - left=0.5in
+      - right=0.5in
+    include-in-header:
+      text: |
+        \usepackage{titling}
+        \setlength{\droptitle}{-2em}
+        \pretitle{\begin{center}\Large\bfseries}
+        \posttitle{\par\end{center}\vspace{-0.4em}}
+        \predate{}\postdate{}
+        \date{}
+        \makeatletter\let\ps@plain\ps@empty\makeatother
+        \pagestyle{empty}
+        \usepackage{sectsty}
+        \sectionfont{\large}
+        \subsectionfont{\large}
+        \usepackage{titlesec}
+        \titlespacing*{\section}{0pt}{0.8em}{0.3em}
+        \titlespacing*{\subsection}{0pt}{0.8em}{0.3em}
+        \usepackage{enumitem}
+        \setlist{nosep}
+        \AtBeginDocument{\setlength{\abovedisplayskip}{4pt}\setlength{\belowdisplayskip}{4pt}}
+  html:
+    embed-resources: true
+    toc: false
+    html-math-method: mathjax
+---
+
+```{=latex}
+\vspace{-2.5em}
+\begin{center}
+\begin{tabular}{@{}p{4.4in}p{2.9in}@{}}
+\textbf{Name:} \hrulefill & \textbf{Date:} \hrulefill \\
+\end{tabular}
+\end{center}
+\vspace{0.4em}
+```
+
+**Instructions:**
+
+- Show all work: Full credit requires complete, correct steps and proper math notation.
+- Points: Each question is worth 10 points.
+- Formula Sheet: Permitted (formulas only; no worked examples).
+- Calculators: Basic, non-graphing calculators allowed.
+
+## Part I: Limits of Sequences
+
+**1.** (10 points) Use L'Hôpital's Rule to determine whether the sequence converges. If it converges, find its limit.
+$$\left\{ \frac{\ln n}{\sqrt[3]{n}} \right\}_{n=1}^{+\infty}$$
+
+```{=latex}
+\vfill
+```
+
+**2.** (10 points) Use the Squeezing Theorem for Sequences to find the limit.
+$$\lim_{n\to+\infty} \frac{n + \cos n}{4n + 3}$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+**3.** (10 points) Use the Squeezing Theorem for Sequences to find the limit.
+$$\lim_{n\to+\infty} \left(2^{n} + 7^{n}\right)^{1/n}$$
+(Hint: compare $2^{n} + 7^{n}$ with $7^{n}$ and with $2 \cdot 7^{n}$.)
+
+```{=latex}
+\vfill
+```
+
+**4.** (10 points) Assume the sequence below converges and all of its terms are positive. Find its limit.
+$$a_1 = 1, \qquad a_{n+1} = \frac{1}{2}\left(a_n + \frac{7}{a_n}\right)$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+## Part II: Monotone Sequences
+
+**5.** (10 points) Use the difference $a_{n+1} - a_n$ to show that the sequence is strictly increasing or strictly decreasing.
+$$\left\{ \frac{n}{4n + 1} \right\}_{n=1}^{+\infty}$$
+
+```{=latex}
+\vfill
+```
+
+**6.** (10 points) Use the ratio $a_{n+1}/a_n$ to show that the sequence is strictly increasing or strictly decreasing.
+$$\left\{ \frac{n}{4^{n}} \right\}_{n=1}^{+\infty}$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+## Part III: Infinite Series
+
+**7.** (10 points) Determine whether the geometric series converges. If it converges, find its sum.
+$$\sum_{k=0}^{\infty} \frac{(-1)^{k}\, 4}{3^{k}} = 4 - \frac{4}{3} + \frac{4}{3^{2}} - \cdots + \frac{(-1)^{k}\,4}{3^{k}} + \cdots$$
+
+```{=latex}
+\vfill
+```
+
+**8.** (10 points) Determine whether the geometric series converges. If it converges, find its sum.
+$$\sum_{k=2}^{\infty} \frac{2^{k}}{3^{k-1}} = \frac{4}{3} + \frac{8}{9} + \frac{16}{27} + \cdots + \frac{2^{k}}{3^{k-1}} + \cdots$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+**9.** (10 points) Find a closed form for the $n$th partial sum $s_n$, then determine whether the series converges. If it converges, find its sum.
+$$\sum_{k=1}^{\infty} \frac{1}{k^{2} + 5k + 6} = \frac{1}{12} + \frac{1}{20} + \frac{1}{30} + \cdots + \frac{1}{k^{2}+5k+6} + \cdots$$
+
+```{=latex}
+\vfill
+```
+
+**10.** (10 points) Find a closed form for the $n$th partial sum $s_n$, then determine whether the series converges. If it converges, find its sum.
+$$\sum_{k=1}^{\infty} \frac{3}{k(k+3)} = \frac{3}{1\cdot 4} + \frac{3}{2\cdot 5} + \frac{3}{3\cdot 6} + \cdots + \frac{3}{k(k+3)} + \cdots$$
+
+```{=latex}
+\vfill
+```

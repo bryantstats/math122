@@ -42,6 +42,15 @@ $$
 \sum_{k=0}^{\infty} \frac{7}{3^{k}} = \frac{a}{1-r} = \frac{7}{1-\frac13} = \frac{7}{\frac23} = 7\cdot\frac32 = \frac{21}{2}.
 $$
 
+**Alternative: subtract the first term.** Let $S$ be the sum. Subtract the first term, $7$, from $S$:
+$$
+S - 7 = \frac{7}{3} + \frac{7}{3^{2}} + \frac{7}{3^{3}} + \cdots = \frac13\left(7 + \frac{7}{3} + \frac{7}{3^{2}} + \cdots\right) = \frac13 S.
+$$
+Solve for $S$:
+$$
+S - \frac13 S = 7 \quad\Longrightarrow\quad \frac23 S = 7 \quad\Longrightarrow\quad S = \frac{21}{2}. \ ✓
+$$
+
 > **Answer:** converges, sum $= \dfrac{21}{2}$
 
 ---
@@ -60,6 +69,15 @@ Check: $\dfrac{u_{k+1}}{u_k} = \dfrac{(-1)^{k+1}\,6/5^{k+1}}{(-1)^{k}\,6/5^{k}} 
 **Converge or diverge?** $|r| = \frac15 < 1$, so the series converges and
 $$
 \sum_{k=0}^{\infty} \frac{(-1)^{k}\, 6}{5^{k}} = \frac{a}{1-r} = \frac{6}{1-\left(-\frac15\right)} = \frac{6}{\frac65} = 5.
+$$
+
+**Alternative: subtract the first term.** Let $S$ be the sum. Subtract the first term, $6$, from $S$:
+$$
+S - 6 = -\frac{6}{5} + \frac{6}{5^{2}} - \frac{6}{5^{3}} + \cdots = -\frac15\left(6 - \frac{6}{5} + \frac{6}{5^{2}} - \cdots\right) = -\frac15 S.
+$$
+Solve for $S$:
+$$
+S + \frac15 S = 6 \quad\Longrightarrow\quad \frac65 S = 6 \quad\Longrightarrow\quad S = 5. \ ✓
 $$
 
 > **Answer:** converges, sum $= 5$
