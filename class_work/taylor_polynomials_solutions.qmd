@@ -11,7 +11,6 @@ format:
 
 - **$n$th Taylor polynomial about $x = x_0$:** $\displaystyle p_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k$.
 - **$n$th Maclaurin polynomial** ($x_0 = 0$): $\displaystyle p_n(x) = \sum_{k=0}^{n} \frac{f^{(k)}(0)}{k!}x^k$.
-- **Remainder Estimation Theorem:** if $|f^{(n+1)}(x)| \le M$ on an interval containing $x_0$, then $\displaystyle |R_n(x)| \le \frac{M}{(n+1)!}|x - x_0|^{n+1}$ on that interval.
 
 ---
 
@@ -74,68 +73,3 @@ p_3(x) &= \tfrac12 - \tfrac{\sqrt3}{2}\left(x-\tfrac\pi3\right) - \tfrac14\left(
 \end{aligned}
 $$
 
----
-
-## Type B: $n$th Maclaurin Polynomial from a Repeating Derivative Pattern
-
-### Problem 4. $f(x) = \cosh x$
-
-The derivatives cycle $\cosh x, \sinh x, \cosh x, \sinh x, \ldots$. Since $\cosh 0 = 1$ and $\sinh 0 = 0$, the values $f^{(k)}(0)$ cycle $1, 0, 1, 0, \ldots$. Only even powers survive, all with $+$ signs:
-$$
-p_{2n}(x) = p_{2n+1}(x) = 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \cdots + \frac{x^{2n}}{(2n)!} = \sum_{k=0}^{n} \frac{x^{2k}}{(2k)!}.
-$$
-
-### Problem 5. $f(x) = \sinh x$
-
-The derivatives cycle $\sinh x, \cosh x, \sinh x, \cosh x, \ldots$, so $f^{(k)}(0)$ cycles $0, 1, 0, 1, \ldots$. Only odd powers survive, all with $+$ signs:
-$$
-p_{2n+1}(x) = p_{2n+2}(x) = x + \frac{x^3}{3!} + \frac{x^5}{5!} + \cdots + \frac{x^{2n+1}}{(2n+1)!} = \sum_{k=0}^{n} \frac{x^{2k+1}}{(2k+1)!}.
-$$
-
----
-
-## Type C: $n$th Taylor/Maclaurin Polynomial in Sigma Notation
-
-### Problem 6. $f(x) = \dfrac{1}{1+x}$, Maclaurin
-
-$$
-f(x) = (1+x)^{-1},\quad f'(x) = -\frac{1}{(1+x)^2},\quad f''(x) = \frac{2}{(1+x)^3},\quad f'''(x) = -\frac{3!}{(1+x)^4},\ \ldots,\quad f^{(k)}(x) = \frac{(-1)^k k!}{(1+x)^{k+1}}.
-$$
-So $f^{(k)}(0) = (-1)^k k!$ and
-$$
-p_n(x) = \sum_{k=0}^{n} \frac{(-1)^k k!}{k!}x^k = \sum_{k=0}^{n} (-1)^k x^k = 1 - x + x^2 - x^3 + \cdots + (-1)^n x^n.
-$$
-
-### Problem 7. $f(x) = \ln x$ about $x = 1$
-
-$$
-f(x) = \ln x,\quad f'(x) = x^{-1},\quad f''(x) = -x^{-2},\quad f'''(x) = 2x^{-3},\quad f^{(4)}(x) = -3!\,x^{-4},\ \ldots
-$$
-so $f^{(k)}(x) = (-1)^{k-1}(k-1)!\,x^{-k}$ for $k \ge 1$. Then $f(1) = \ln 1 = 0$ and $f^{(k)}(1) = (-1)^{k-1}(k-1)!$ for $k \ge 1$. Since $\dfrac{(k-1)!}{k!} = \dfrac1k$,
-$$
-p_n(x) = \sum_{k=1}^{n} \frac{(-1)^{k-1}}{k}(x-1)^k = (x-1) - \frac{(x-1)^2}{2} + \frac{(x-1)^3}{3} - \cdots + (-1)^{n-1}\frac{(x-1)^n}{n}.
-$$
-
----
-
-## Type D: Remainder Estimation Theorem
-
-### Problem 8. $\sin x \approx x - \dfrac{x^3}{3!}$
-
-$p(x)$ is both the 3rd and 4th Maclaurin polynomial for $\sin x$ (the $x^4$ coefficient is $0$), so take $n = 4$. Since $|f^{(5)}(x)| = |\cos x| \le 1$, take $M = 1$:
-$$
-|R_4(x)| \le \frac{1}{5!}|x|^5 = \frac{|x|^5}{120}.
-$$
-Solve $\dfrac{|x|^5}{120} \le 0.0005$: $|x|^5 \le 0.06$, so $|x| \le (0.06)^{1/5} \approx 0.5696$.
-
-> **Answer:** one option is $[-0.5696,\ 0.5696]$
-
-### Problem 9. $\cos x \approx 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!}$
-
-$p(x)$ is both the 4th and 5th Maclaurin polynomial for $\cos x$, so take $n = 5$. Since $|f^{(6)}(x)| = |{-\cos x}| \le 1$, take $M = 1$:
-$$
-|R_5(x)| \le \frac{1}{6!}|x|^6 = \frac{|x|^6}{720}.
-$$
-Solve $\dfrac{|x|^6}{720} \le 0.0005$: $|x|^6 \le 0.36$, so $|x| \le (0.36)^{1/6} \approx 0.8434$.
-
-> **Answer:** one option is $[-0.8434,\ 0.8434]$

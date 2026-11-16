@@ -1,0 +1,125 @@
+---
+title-meta: "Exam 3 Practice 1"
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+    fontsize: 11pt
+    geometry:
+      - top=0.5in
+      - bottom=0.5in
+      - left=0.5in
+      - right=0.5in
+    include-in-header:
+      text: |
+        \pagestyle{empty}
+        \usepackage{sectsty}
+        \sectionfont{\large}
+        \subsectionfont{\large}
+        \usepackage{titlesec}
+        \titlespacing*{\section}{0pt}{0.8em}{0.3em}
+        \titlespacing*{\subsection}{0pt}{0.8em}{0.3em}
+        \usepackage{enumitem}
+        \setlist{nosep}
+        \AtBeginDocument{\setlength{\abovedisplayskip}{4pt}\setlength{\belowdisplayskip}{4pt}}
+---
+
+```{=latex}
+\begin{center}{\Large\bfseries MATH 122 --- Calculus II $\cdot$ Exam 3 Practice 1: Sequences and Series}\end{center}
+\begin{center}
+\begin{tabular}{@{}p{4.4in}p{2.9in}@{}}
+\textbf{Name:} \hrulefill & \textbf{Date:} \hrulefill \\
+\end{tabular}
+\end{center}
+\vspace{0.4em}
+```
+
+**Instructions:**
+
+- Show all work: Full credit requires complete, correct steps and proper math notation.
+- Points: Each question is worth 10 points.
+- Formula Sheet: Permitted (formulas only; no worked examples).
+- Calculators: Basic, non-graphing calculators allowed.
+
+## Part I: Limits of Sequences
+
+**1.** (10 points) Use L'Hôpital's Rule to determine whether the sequence converges. If it converges, find its limit.
+$$\left\{ \frac{n^{2}}{e^{n}} \right\}_{n=1}^{+\infty}$$
+
+```{=latex}
+\vfill
+```
+
+**2.** (10 points) Use the Squeezing Theorem for Sequences to find the limit.
+$$\lim_{n\to+\infty} \frac{3n + \sin n}{n + 2}$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+**3.** (10 points) Use the Squeezing Theorem for Sequences to find the limit.
+$$\lim_{n\to+\infty} \left(3^{n} + 4^{n}\right)^{1/n}$$
+(Hint: compare $3^{n} + 4^{n}$ with $4^{n}$ and with $2 \cdot 4^{n}$.)
+
+```{=latex}
+\vfill
+```
+
+**4.** (10 points) Assume the sequence below converges and all of its terms are positive. Find its limit.
+$$a_1 = 1, \qquad a_{n+1} = \sqrt{6 + a_n}$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+## Part II: Monotone Sequences
+
+**5.** (10 points) Use the difference $a_{n+1} - a_n$ to show that the sequence is strictly increasing or strictly decreasing.
+$$\left\{ \frac{n}{2n + 3} \right\}_{n=1}^{+\infty}$$
+
+```{=latex}
+\vfill
+```
+
+**6.** (10 points) Use the ratio $a_{n+1}/a_n$ to show that the sequence is strictly increasing or strictly decreasing.
+$$\left\{ \frac{2^{n}}{n + 1} \right\}_{n=1}^{+\infty}$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+## Part III: Infinite Series
+
+**7.** (10 points) Determine whether the geometric series converges. If it converges, find its sum.
+$$\sum_{k=0}^{\infty} \frac{(-2)^{k}}{3^{k+1}} = \frac{1}{3} - \frac{2}{9} + \frac{4}{27} - \cdots + \frac{(-2)^{k}}{3^{k+1}} + \cdots$$
+
+```{=latex}
+\vfill
+```
+
+**8.** (10 points) Find a closed form for the $n$th partial sum $s_n$, then determine whether the series converges. If it converges, find its sum.
+$$\sum_{k=1}^{\infty} \frac{2}{k^{2} + 4k + 3} = \frac{1}{4} + \frac{2}{15} + \frac{1}{12} + \cdots + \frac{2}{k^{2}+4k+3} + \cdots$$
+
+```{=latex}
+\vfill
+\newpage
+```
+
+**9.** (10 points) Write each series as a $p$-series $\sum \dfrac{1}{k^{p}}$, identify $p$, and determine whether the series converges or diverges.
+
+(a) $\displaystyle\sum_{k=1}^{\infty} \frac{1}{\sqrt[3]{k^{2}}}$ $\qquad$ (b) $\displaystyle\sum_{k=1}^{\infty} \frac{\sqrt{k}}{k^{2}}$ $\qquad$ (c) $\displaystyle\sum_{k=1}^{\infty} \frac{1}{\sqrt{k}\,\sqrt[3]{k}}$
+
+```{=latex}
+\vfill
+```
+
+## Part IV: Taylor Polynomials
+
+**10.** (10 points) Find the first four Taylor polynomials $p_0, p_1, p_2, p_3$ for $f(x) = \dfrac{1}{x}$ about $x = 2$.
+
+```{=latex}
+\vfill
+```

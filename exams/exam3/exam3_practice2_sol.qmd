@@ -1,0 +1,212 @@
+---
+title: "MATH 122 — Exam 3 Practice 2: Solutions"
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+    fontsize: 11pt
+    geometry:
+      - margin=0.75in
+    include-in-header:
+      text: |
+        \pagestyle{plain}
+        \usepackage{enumitem}
+        \setlist{nosep}
+---
+
+## Problem 1 (Section 9.1: L'Hôpital's Rule)
+
+Determine whether $\left\{ \dfrac{(\ln n)^{2}}{n} \right\}_{n=1}^{+\infty}$ converges. If it converges, find its limit.
+
+### Solution
+
+Let $f(x) = \dfrac{(\ln x)^2}{x}$. As $x \to +\infty$ this has the form $\dfrac{\infty}{\infty}$. Apply L'Hôpital's Rule (the derivative of $(\ln x)^2$ is $\dfrac{2\ln x}{x}$):
+$$
+\lim_{x\to+\infty} \frac{(\ln x)^{2}}{x} = \lim_{x\to+\infty} \frac{2\ln x / x}{1} = \lim_{x\to+\infty} \frac{2\ln x}{x}.
+$$
+This is again $\dfrac{\infty}{\infty}$, so apply L'Hôpital's Rule once more:
+$$
+\lim_{x\to+\infty} \frac{2\ln x}{x} = \lim_{x\to+\infty} \frac{2/x}{1} = 0.
+$$
+
+**Answer:** the sequence converges to $0$.
+
+---
+
+## Problem 2 (Section 9.1: Squeezing Theorem)
+
+Find $\displaystyle\lim_{n\to+\infty} \frac{2n - \cos n}{5n + 1}$.
+
+### Solution
+
+Since $-1 \le \cos n \le 1$, we have $-1 \le -\cos n \le 1$, so
+$$
+\frac{2n - 1}{5n + 1} \le \frac{2n - \cos n}{5n + 1} \le \frac{2n + 1}{5n + 1}.
+$$
+Dividing top and bottom by $n$:
+$$
+\lim_{n\to+\infty} \frac{2n - 1}{5n + 1} = \lim_{n\to+\infty} \frac{2 - \frac1n}{5 + \frac1n} = \frac25, \qquad \lim_{n\to+\infty} \frac{2n + 1}{5n + 1} = \lim_{n\to+\infty} \frac{2 + \frac1n}{5 + \frac1n} = \frac25.
+$$
+Both bounds go to $\frac25$, so by the Squeezing Theorem:
+
+**Answer:** $\displaystyle\lim_{n\to+\infty} \frac{2n - \cos n}{5n + 1} = \frac25$.
+
+---
+
+## Problem 3 (Section 9.1: Squeezing Theorem)
+
+Find $\displaystyle\lim_{n\to+\infty} \left(2^{n} + 5^{n}\right)^{1/n}$.
+
+### Solution
+
+Since $0 < 2^n \le 5^n$,
+$$
+5^{n} \le 2^{n} + 5^{n} \le 5^{n} + 5^{n} = 2 \cdot 5^{n}.
+$$
+Take the $n$th root of each part:
+$$
+5 \le \left(2^{n} + 5^{n}\right)^{1/n} \le 2^{1/n} \cdot 5.
+$$
+Since $2^{1/n} \to 2^{0} = 1$, the right side goes to $5$, and the left side is the constant $5$. By the Squeezing Theorem:
+
+**Answer:** $\displaystyle\lim_{n\to+\infty} \left(2^{n} + 5^{n}\right)^{1/n} = 5$.
+
+---
+
+## Problem 4 (Section 9.1: Recursive Sequences)
+
+Assume the sequence $a_1 = 1$, $a_{n+1} = \frac12\left(a_n + \frac{5}{a_n}\right)$ converges and all of its terms are positive. Find its limit.
+
+### Solution
+
+Let $L = \lim_{n\to+\infty} a_n$. Then also $a_{n+1} \to L$, and $L > 0$ since the terms are positive. Take the limit of both sides of the recursion:
+$$
+L = \frac12\left(L + \frac{5}{L}\right) \;\Longrightarrow\; 2L = L + \frac5L \;\Longrightarrow\; L = \frac5L \;\Longrightarrow\; L^{2} = 5.
+$$
+So $L = \pm\sqrt5$. All terms are positive, so $L \ne -\sqrt5$.
+
+**Answer:** $L = \sqrt5$.
+
+---
+
+## Problem 5 (Section 9.2: Difference Test)
+
+Show that $\left\{ \dfrac{n+1}{3n + 2} \right\}_{n=1}^{+\infty}$ is strictly increasing or strictly decreasing.
+
+### Solution
+
+$a_n = \dfrac{n+1}{3n+2}$ and $a_{n+1} = \dfrac{(n+1)+1}{3(n+1)+2} = \dfrac{n+2}{3n+5}$. Then
+$$
+\begin{aligned}
+a_{n+1} - a_n &= \frac{n+2}{3n+5} - \frac{n+1}{3n+2} = \frac{(n+2)(3n+2) - (n+1)(3n+5)}{(3n+5)(3n+2)}\\
+&= \frac{(3n^{2} + 8n + 4) - (3n^{2} + 8n + 5)}{(3n+5)(3n+2)} = \frac{-1}{(3n+5)(3n+2)}.
+\end{aligned}
+$$
+For $n \ge 1$ the denominator is positive, so $a_{n+1} - a_n < 0$.
+
+**Answer:** the sequence is strictly decreasing.
+
+---
+
+## Problem 6 (Section 9.2: Ratio Test)
+
+Show that $\left\{ \dfrac{10^{n}}{(2n)!} \right\}_{n=1}^{+\infty}$ is strictly increasing or strictly decreasing.
+
+### Solution
+
+All terms are positive, so we may use the ratio. $a_{n+1} = \dfrac{10^{n+1}}{(2n+2)!}$, and $(2n+2)! = (2n+2)(2n+1)\,(2n)!$, so
+$$
+\frac{a_{n+1}}{a_n} = \frac{10^{n+1}}{(2n+2)!} \cdot \frac{(2n)!}{10^{n}} = \frac{10}{(2n+2)(2n+1)}.
+$$
+For $n \ge 1$, $(2n+2)(2n+1) \ge 4 \cdot 3 = 12 > 10$, so $\dfrac{a_{n+1}}{a_n} < 1$.
+
+**Answer:** the sequence is strictly decreasing.
+
+---
+
+## Problem 7 (Section 9.3: Geometric Series)
+
+Determine whether $\displaystyle\sum_{k=1}^{\infty} \frac{(-1)^{k+1}\, 6}{5^{k}} = \frac{6}{5} - \frac{6}{25} + \frac{6}{125} - \cdots$ converges. If it converges, find its sum.
+
+### Solution
+
+The first term ($k = 1$) is $a = \dfrac65$. Each term is the previous one times $r = -\dfrac15$ (check: $\dfrac65 \cdot \left(-\dfrac15\right) = -\dfrac{6}{25}$).
+
+Since $|r| = \dfrac15 < 1$, the series converges:
+$$
+\sum_{k=1}^{\infty} \frac{(-1)^{k+1}\,6}{5^{k}} = \frac{a}{1 - r} = \frac{\frac65}{1 + \frac15} = \frac{\frac65}{\frac65} = 1.
+$$
+
+**Answer:** converges, sum $= 1$.
+
+---
+
+## Problem 8 (Section 9.3: Telescoping Sums)
+
+Find a closed form for $s_n$ for $\displaystyle\sum_{k=1}^{\infty} \frac{4}{k^{2} + 2k}$, then determine whether the series converges. If it converges, find its sum.
+
+### Solution
+
+Factor and use partial fractions: $k^2 + 2k = k(k+2)$, and
+$$
+\frac{4}{k(k+2)} = \frac{A}{k} + \frac{B}{k+2} \;\Longrightarrow\; 4 = A(k+2) + Bk.
+$$
+$k = 0$: $4 = 2A$, so $A = 2$. $\quad k = -2$: $4 = -2B$, so $B = -2$. Then
+$$
+\begin{aligned}
+s_n &= \sum_{k=1}^{n} \left( \frac{2}{k} - \frac{2}{k+2} \right)\\
+&= \left(2 - \frac23\right) + \left(\frac22 - \frac24\right) + \left(\frac23 - \frac25\right) + \cdots + \left(\frac2{n-1} - \frac2{n+1}\right) + \left(\frac2{n} - \frac2{n+2}\right).
+\end{aligned}
+$$
+Everything cancels except the first two positive terms and the last two negative terms:
+$$
+s_n = 2 + 1 - \frac{2}{n+1} - \frac{2}{n+2} = 3 - \frac{2}{n+1} - \frac{2}{n+2}.
+$$
+Then $\displaystyle\lim_{n\to+\infty} s_n = 3 - 0 - 0 = 3$.
+
+**Answer:** $s_n = 3 - \dfrac{2}{n+1} - \dfrac{2}{n+2}$; the series converges, sum $= 3$.
+
+---
+
+## Problem 9 (Section 9.4: $p$-Series)
+
+Identify $p$ and determine whether each series converges:
+$$
+\text{(a)}\ \sum_{k=1}^{\infty} \frac{1}{\sqrt[4]{k^{3}}} \qquad \text{(b)}\ \sum_{k=1}^{\infty} \frac{\sqrt[3]{k}}{k^{2}} \qquad \text{(c)}\ \sum_{k=1}^{\infty} \frac{k^{2}}{k^{3}\sqrt{k}}
+$$
+
+### Solution
+
+Recall: $\sum \dfrac{1}{k^p}$ converges if $p > 1$ and diverges if $0 < p \le 1$.
+
+(a) $\dfrac{1}{\sqrt[4]{k^{3}}} = \dfrac{1}{k^{3/4}}$, so $p = \dfrac34 \le 1$: **diverges**.
+
+(b) $\dfrac{\sqrt[3]{k}}{k^{2}} = \dfrac{k^{1/3}}{k^{2}} = \dfrac{1}{k^{2 - 1/3}} = \dfrac{1}{k^{5/3}}$, so $p = \dfrac53 > 1$: **converges**.
+
+(c) $\dfrac{k^{2}}{k^{3}\cdot k^{1/2}} = \dfrac{k^{2}}{k^{7/2}} = \dfrac{1}{k^{7/2 - 2}} = \dfrac{1}{k^{3/2}}$, so $p = \dfrac32 > 1$: **converges**.
+
+---
+
+## Problem 10 (Section 9.7: Taylor Polynomials)
+
+Find the first four Taylor polynomials for $f(x) = \sin x$ about $x = \pi/6$.
+
+### Solution
+
+| $k$ | $f^{(k)}(x)$ | $f^{(k)}(\pi/6)$ |
+|:-:|:-:|:-:|
+| 0 | $\sin x$ | $\frac12$ |
+| 1 | $\cos x$ | $\frac{\sqrt3}{2}$ |
+| 2 | $-\sin x$ | $-\frac12$ |
+| 3 | $-\cos x$ | $-\frac{\sqrt3}{2}$ |
+
+Substituting into $p_n(x) = \displaystyle\sum_{k=0}^{n} \frac{f^{(k)}(\pi/6)}{k!}\left(x-\tfrac\pi6\right)^k$:
+$$
+\begin{aligned}
+p_0(x) &= \tfrac12\\
+p_1(x) &= \tfrac12 + \tfrac{\sqrt3}{2}\left(x-\tfrac\pi6\right)\\
+p_2(x) &= \tfrac12 + \tfrac{\sqrt3}{2}\left(x-\tfrac\pi6\right) + \frac{-1/2}{2!}\left(x-\tfrac\pi6\right)^2 = \tfrac12 + \tfrac{\sqrt3}{2}\left(x-\tfrac\pi6\right) - \tfrac14\left(x-\tfrac\pi6\right)^2\\
+p_3(x) &= \tfrac12 + \tfrac{\sqrt3}{2}\left(x-\tfrac\pi6\right) - \tfrac14\left(x-\tfrac\pi6\right)^2 + \frac{-\sqrt3/2}{3!}\left(x-\tfrac\pi6\right)^3\\
+&= \tfrac12 + \tfrac{\sqrt3}{2}\left(x-\tfrac\pi6\right) - \tfrac14\left(x-\tfrac\pi6\right)^2 - \tfrac{\sqrt3}{12}\left(x-\tfrac\pi6\right)^3
+\end{aligned}
+$$
