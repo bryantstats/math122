@@ -1,10 +1,12 @@
 ---
 title: "9.7 Maclaurin and Taylor Polynomials Worksheet — Solutions"
 format:
-  html:
-    embed-resources: true
-    toc: false
-    html-math-method: mathjax
+  pdf:
+    documentclass: article
+    papersize: letter
+    fontsize: 11pt
+    geometry:
+      - margin=0.75in
 ---
 
 ## Key Formulas
