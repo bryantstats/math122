@@ -177,7 +177,7 @@ $$
 
 ### Solution
 
-Recall: $\sum \dfrac{1}{k^p}$ converges if $p > 1$ and diverges if $0 < p \le 1$.
+Recall: $\sum \dfrac{1}{k^p}$ converges if $p > 1$ and diverges if $p \le 1$.
 
 (a) $\dfrac{1}{\sqrt[4]{k^{3}}} = \dfrac{1}{k^{3/4}}$, so $p = \dfrac34 \le 1$: **diverges**.
 
