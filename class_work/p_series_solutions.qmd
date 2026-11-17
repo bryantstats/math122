@@ -9,7 +9,7 @@ format:
 
 ## Key Facts
 
-- **$p$-series:** $\displaystyle\sum_{k=1}^{\infty} \frac{1}{k^{p}}$ converges if $p > 1$ and diverges if $0 < p \le 1$.
+- **$p$-series:** $\displaystyle\sum_{k=1}^{\infty} \frac{1}{k^{p}}$ converges if $p > 1$ and diverges if $p \le 1$.
 - **Harmonic series:** $\displaystyle\sum_{k=1}^{\infty} \frac{1}{k}$ is the $p$-series with $p = 1$, so it **diverges**, even though $\frac1k \to 0$.
 - **Fun fact ($p = 2$):** $\displaystyle\sum_{k=1}^{\infty} \frac{1}{k^{2}} = \frac{\pi^{2}}{6}$. Finding this sum is the famous **Basel problem**, solved by Euler in 1734.
 

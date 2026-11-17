@@ -32,7 +32,7 @@ format:
 
 \vspace{8pt}
 
-\typehead{Type A: Identify $p$}{A $p$-series $\displaystyle\sum_{k=1}^{\infty} \frac{1}{k^{p}} = 1 + \frac{1}{2^p} + \frac{1}{3^p} + \cdots$ converges if $p > 1$ and diverges if $0 < p \le 1$. The harmonic series $\displaystyle\sum_{k=1}^{\infty} \frac1k$ is the case $p = 1$, so it diverges. For each $p$-series, identify $p$ and determine whether the series converges.}
+\typehead{Type A: Identify $p$}{A $p$-series $\displaystyle\sum_{k=1}^{\infty} \frac{1}{k^{p}} = 1 + \frac{1}{2^p} + \frac{1}{3^p} + \cdots$ converges if $p > 1$ and diverges if $p \le 1$. The harmonic series $\displaystyle\sum_{k=1}^{\infty} \frac1k$ is the case $p = 1$, so it diverges. For each $p$-series, identify $p$ and determine whether the series converges.}
 
 \textbf{1.}\par\vspace{4pt}
 \begin{tabular}{@{}p{0.235\textwidth}p{0.235\textwidth}p{0.235\textwidth}p{0.235\textwidth}@{}}
