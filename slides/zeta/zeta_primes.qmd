@@ -1,0 +1,759 @@
+---
+title: "From $\\sum \\frac{1}{k^p}$ to the Million-Dollar Question"
+pagetitle: "p-Series, Zeta, and Primes"
+subtitle: "p-series, the Riemann zeta function, and the secret life of prime numbers"
+author: "MATH 122"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    width: 1280
+    height: 760
+    margin: 0.06
+    slide-number: true
+    hash: true
+    transition: fade
+    html-math-method: mathjax
+resources:
+  - zeta.js
+execute:
+  echo: false
+---
+
+```{ojs}
+//| output: false
+import {zeta, eta, li, primesUpTo, hardyZ, zerosZ, psiSteps, explicitPsi, gcd, linspace, MERTENS} from "./zeta.js"
+KNOWN_ZEROS = [14.134725, 21.022040, 25.010858, 30.424876, 32.935062, 37.586178, 40.918719, 43.327073, 48.005151, 49.773832]
+ZEROS = zerosZ(300)              // ~138 zeros on the critical line, computed live
+PRIMES = Int32Array.from(primesUpTo(10000000))
+function piCount(x) {            // number of primes <= x (binary search)
+  let lo = 0, hi = PRIMES.length;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (PRIMES[m] <= x) lo = m + 1; else hi = m; }
+  return lo;
+}
+fmt = (v, d = 4) => (Number.isFinite(v) ? v.toLocaleString(undefined, {maximumFractionDigits: d}) : "∞")
+C = ({blue: "#1d3557", red: "#b4451f", gold: "#d99a1e", green: "#2a9d8f", gray: "#9aa0a6"})
+STYLE = ({fontSize: "17px", background: "transparent"})
+```
+
+## Where we left off
+
+::: {.fact}
+**$p$-series test.** $\displaystyle\sum_{k=1}^{\infty} \frac{1}{k^{p}}$ **converges** if $p > 1$ and **diverges** if $p \le 1$.
+:::
+
+- $p=1$: the harmonic series $1+\frac12+\frac13+\cdots$ diverges, even though its terms go to $0$.
+- $p=2$: $1+\frac14+\frac19+\cdots$ converges. **To what?**
+
+. . .
+
+Today's goal: follow this one simple formula to one of the deepest open problems in mathematics. Along the way we'll discover
+
+1. a famous number hiding in $\sum 1/k^2$,
+2. why the $p$-series knows everything about **prime numbers**,
+3. what the **Riemann Hypothesis** says, and why it's worth \$1,000,000.
+
+## Play with the $p$-series
+
+```{ojs}
+viewof p1 = Inputs.range([-0.5, 3], {value: 2, step: 0.05, label: "p"})
+viewof n1 = Inputs.range([10, 2000], {value: 300, step: 10, label: "number of terms n"})
+```
+
+```{ojs}
+partial1 = {
+  const out = []; let s = 0;
+  for (let k = 1; k <= n1; k++) { s += Math.pow(k, -p1); out.push({k, s}); }
+  return out;
+}
+Plot.plot({
+  width: 1100, height: 400, style: STYLE, marginLeft: 60,
+  x: {label: "n (number of terms)"}, y: {label: "partial sum Sₙ", grid: true},
+  marks: [
+    Plot.line(partial1, {x: "k", y: "s", stroke: C.blue, strokeWidth: 2.5}),
+    p1 > 1 ? Plot.ruleY([zeta(p1)], {stroke: C.red, strokeDasharray: "6,4", strokeWidth: 2}) : null,
+    p1 > 1 ? Plot.text([zeta(p1)], {x: n1, y: d => d, text: d => `limit = ${fmt(d, 6)}`, dy: -12, textAnchor: "end", fill: C.red, fontSize: 18}) : null
+  ]
+})
+```
+
+```{ojs}
+html`<span class="readout">S<sub>${n1}</sub> = ${fmt(partial1[partial1.length-1].s, 6)} &nbsp;&nbsp; ${p1 > 1 ? "converges to " + fmt(zeta(p1), 6) : "diverges (keeps growing)"}</span>`
+```
+
+## A new function is born
+
+For every $p>1$ the series gives a number. Riemann named this function **zeta**:
+$$
+\zeta(p) \;=\; \sum_{k=1}^{\infty}\frac{1}{k^{p}} \;=\; 1+\frac{1}{2^{p}}+\frac{1}{3^{p}}+\frac{1}{4^{p}}+\cdots,\qquad p>1.
+$$
+
+:::: {.columns}
+::: {.column width="58%"}
+```{ojs}
+Plot.plot({
+  width: 680, height: 400, style: STYLE, marginLeft: 50, clip: true,
+  x: {label: "p", domain: [1, 8]}, y: {label: "ζ(p)", domain: [0, 6], grid: true},
+  marks: [
+    Plot.ruleX([1], {stroke: C.gray, strokeDasharray: "4,4"}),
+    Plot.ruleY([1], {stroke: C.gray, strokeDasharray: "4,4"}),
+    Plot.line(linspace(1.17, 8, 400).map(p => ({p, z: zeta(p)})), {x: "p", y: "z", stroke: C.blue, strokeWidth: 3}),
+    Plot.dot([2, 3, 4], {x: d => d, y: d => zeta(d), r: 6, fill: C.red}),
+    Plot.text([2, 3, 4], {x: d => d, y: d => zeta(d), text: d => `ζ(${d})`, dx: 12, dy: -12, fontSize: 18, fill: C.red})
+  ]
+})
+```
+:::
+::: {.column width="42%"}
+| $p$ | $\zeta(p)$ |
+|---|---|
+| $1$ | $\infty$ (harmonic) |
+| $2$ | $\dfrac{\pi^2}{6}\approx 1.6449$ |
+| $3$ | $1.2020569\ldots$ ??? |
+| $4$ | $\dfrac{\pi^4}{90}\approx 1.0823$ |
+| $6$ | $\dfrac{\pi^6}{945}$ |
+
+[No one knows a formula for $\zeta(3)$. It was only proved irrational in 1978 (Apéry).]{.small}
+:::
+::::
+
+## The Basel problem: where does $\pi$ come from?
+
+- 1650: Mengoli asks for the exact value of $1+\frac14+\frac19+\frac1{16}+\cdots$
+- The best mathematicians of Europe (including the Bernoulli brothers in **Basel**) fail.
+- 1734: a 27-year-old **Leonhard Euler** shocks everyone:
+
+$$
+1+\frac{1}{4}+\frac{1}{9}+\frac{1}{16}+\cdots \;=\; \frac{\pi^{2}}{6}.
+$$
+
+. . .
+
+A sum of fractions of **whole numbers** produces $\pi$, the number of **circles**. Turn it around and compute $\pi$ from the $p$-series:
+
+```{ojs}
+viewof nB = Inputs.range([1, 100000], {value: 10, step: 1, label: "terms used", transform: Math.log, invert: Math.exp})
+```
+
+```{ojs}
+{
+  let s = 0; for (let k = 1; k <= nB; k++) s += 1 / (k * k);
+  const est = Math.sqrt(6 * s);
+  return html`<span class="readout">√(6·S<sub>${nB}</sub>) = ${est.toFixed(10)} &nbsp; vs &nbsp; π = ${Math.PI.toFixed(10)}</span>`;
+}
+```
+
+## The key that opens the door to primes
+
+Every whole number $> 1$ is a product of primes in exactly **one** way: $\;360 = 2^3\cdot 3^2 \cdot 5,\;\; 1001 = 7\cdot 11\cdot 13,\;\; 97 = 97.$
+
+Now recall **geometric series** ($|r|<1$): $\;1+r+r^2+r^3+\cdots = \dfrac{1}{1-r}$. Take $r = \frac{1}{2^p}$ and $r=\frac{1}{3^p}$:
+
+$$
+\underbrace{\Big(1+\tfrac{1}{2^p}+\tfrac{1}{4^p}+\tfrac{1}{8^p}+\cdots\Big)}_{=\;1/(1-2^{-p})}
+\underbrace{\Big(1+\tfrac{1}{3^p}+\tfrac{1}{9^p}+\cdots\Big)}_{=\;1/(1-3^{-p})}
+= 1+\tfrac{1}{2^p}+\tfrac{1}{3^p}+\tfrac{1}{4^p}+\tfrac{1}{6^p}+\tfrac{1}{8^p}+\tfrac{1}{9^p}+\tfrac{1}{12^p}+\cdots
+$$
+
+. . .
+
+Multiplying out gives each number built from 2s and 3s **exactly once** (unique factorization). Use **every** prime and you get **every** whole number:
+
+::: {.big-idea}
+**Euler's product formula (1737)**
+$$
+\sum_{k=1}^{\infty}\frac{1}{k^{p}} \;=\; \prod_{\text{primes } q}\frac{1}{1-q^{-p}}
+\;=\;\frac{1}{1-2^{-p}}\cdot\frac{1}{1-3^{-p}}\cdot\frac{1}{1-5^{-p}}\cdot\frac{1}{1-7^{-p}}\cdots
+$$
+:::
+
+## Watch the primes rebuild the $p$-series
+
+```{ojs}
+viewof mE = Inputs.range([1, 25], {value: 3, step: 1, label: "use the first m primes"})
+viewof pE = Inputs.range([1.1, 4], {value: 2, step: 0.05, label: "p"})
+```
+
+:::: {.columns}
+::: {.column width="55%"}
+```{ojs}
+{
+  const ps = primesUpTo(100).slice(0, mE), maxP = ps[ps.length - 1];
+  const reachable = n => { for (const q of ps) while (n % q === 0) n /= q; return n === 1; };
+  const cells = Array.from({length: 100}, (_, i) => ({n: i + 1, r: reachable(i + 1), x: i % 10, y: Math.floor(i / 10)}));
+  return Plot.plot({
+    width: 600, height: 470, style: STYLE, axis: null, margin: 10,
+    x: {domain: d3.range(10)}, y: {domain: d3.range(10)},
+    marks: [
+      Plot.cell(cells, {x: "x", y: "y", fill: d => d.r ? C.blue : "#e8e6e1", inset: 2, rx: 4}),
+      Plot.text(cells, {x: "x", y: "y", text: "n", fill: d => d.r ? "white" : "#999", fontSize: 17})
+    ]
+  });
+}
+```
+:::
+::: {.column width="45%"}
+```{ojs}
+{
+  const ps = primesUpTo(100).slice(0, mE);
+  const prod = ps.reduce((a, q) => a / (1 - Math.pow(q, -pE)), 1);
+  return html`<div style="font-size:0.75em">
+  <p>Primes used: <b>${ps.join(", ")}</b></p>
+  <p>Blue squares = the numbers k whose term 1/k<sup>p</sup> appears when you multiply out the product.</p>
+  <p class="readout">product = ${prod.toFixed(6)}<br>ζ(${pE.toFixed(2)}) = ${zeta(pE).toFixed(6)}</p>
+  <p class="muted">Add primes → more blue → the product closes in on ζ(p).</p></div>`;
+}
+```
+:::
+::::
+
+## Euler's proof that primes never run out
+
+Put $p = 1$ in Euler's formula:
+$$
+\underbrace{1+\frac12+\frac13+\frac14+\cdots}_{\text{harmonic series} \;=\; \infty}
+\;=\; \frac{1}{1-\frac12}\cdot\frac{1}{1-\frac13}\cdot\frac{1}{1-\frac15}\cdot\frac{1}{1-\frac17}\cdots
+$$
+
+If there were only **finitely many** primes, the right side would be a finite product of finite numbers. But the left side is the **harmonic series, which diverges**. Contradiction!
+
+::: {.big-idea}
+The divergence of $\sum \frac1k$ (the $p=1$ case) **proves there are infinitely many primes**.
+:::
+
+```{ojs}
+{
+  const xs = [], ps = primesUpTo(5000);
+  let prod = 1, H = 0, j = 0;
+  for (let x = 1; x <= 5000; x++) {
+    H += 1 / x;
+    while (j < ps.length && ps[j] <= x) { prod /= (1 - 1 / ps[j]); j++; }
+    if (x % 5 === 0 || x < 50) xs.push({x, H, prod});
+  }
+  return Plot.plot({
+    width: 1100, height: 190, style: STYLE, marginLeft: 50,
+    x: {type: "log", label: "x"}, y: {label: null, grid: true},
+    color: {legend: true, domain: ["∏ over primes q ≤ x of 1/(1−1/q)", "1 + 1/2 + … + 1/x"], range: [C.red, C.blue]},
+    marks: [
+      Plot.line(xs, {x: "x", y: "prod", stroke: () => "∏ over primes q ≤ x of 1/(1−1/q)", strokeWidth: 2.5}),
+      Plot.line(xs, {x: "x", y: "H", stroke: () => "1 + 1/2 + … + 1/x", strokeWidth: 2.5})
+    ]
+  });
+}
+```
+
+## How many primes are there? More than squares!
+
+Compare two series with "sparse" denominators:
+$$
+\sum \frac{1}{\text{squares}} = 1+\frac14+\frac19+\frac1{16}+\cdots = \frac{\pi^2}{6} \quad\textbf{converges}
+\qquad
+\sum \frac{1}{\text{primes}} = \frac12+\frac13+\frac15+\frac17+\frac1{11}+\cdots \quad\textbf{diverges!}
+$$
+
+(Euler again.) So, in the sense of series, primes are **more plentiful than perfect squares**, but the prime sum grows *incredibly* slowly, like $\ln(\ln x)$:
+
+```{ojs}
+{
+  const ps = PRIMES, pts = [];
+  let s = 0, next = 2;
+  for (const q of ps) { s += 1 / q; if (q >= next) { pts.push({x: q, s, ll: Math.log(Math.log(q)) + MERTENS}); next = q * 1.05; } }
+  return Plot.plot({
+    width: 1100, height: 260, style: STYLE, marginLeft: 50,
+    x: {type: "log", label: "add up 1/q for all primes q ≤ x"}, y: {label: "sum", grid: true},
+    color: {legend: true, domain: ["sum of 1/q", "ln(ln x) + 0.2615", "sum of 1/k² (squares)"], range: [C.blue, C.red, C.green]},
+    marks: [
+      Plot.line(pts, {x: "x", y: "s", stroke: () => "sum of 1/q", strokeWidth: 3}),
+      Plot.line(pts, {x: "x", y: "ll", stroke: () => "ln(ln x) + 0.2615", strokeDasharray: "6,4", strokeWidth: 2}),
+      Plot.ruleY([Math.PI ** 2 / 6], {stroke: () => "sum of 1/k² (squares)", strokeWidth: 2})
+    ]
+  });
+}
+```
+
+[Using all primes up to ten million, the sum is still under 3. It reaches 4 only near $x\approx 2\times10^{18}$, and reaches 100 only when $x$ has about $10^{43}$ digits.]{.small}
+
+## Bonus: $\pi$ hiding in pairs of random numbers
+
+Pick two random whole numbers. What's the chance they share **no** common factor?
+
+Chance they are **not** both divisible by 2 is $1-\frac{1}{2^2}$; by 3, $1-\frac{1}{3^2}$; by 5, $1-\frac{1}{5^2}$; … Multiply over all primes, and Euler's product **flips upside down**:
+$$
+P(\text{no common factor}) = \prod_{q}\Big(1-\frac{1}{q^{2}}\Big) = \frac{1}{\zeta(2)} = \frac{6}{\pi^{2}} \approx 60.8\%.
+$$
+
+:::: {.columns}
+::: {.column width="45%"}
+```{ojs}
+{
+  const N = 40, cells = [];
+  for (let a = 1; a <= N; a++) for (let b = 1; b <= N; b++) cells.push({a, b, c: gcd(a, b) === 1});
+  return Plot.plot({
+    width: 250, height: 250, style: STYLE, axis: null, margin: 2,
+    marks: [Plot.cell(cells, {x: "a", y: "b", fill: d => d.c ? C.blue : "#e8e6e1", inset: 0.5})]
+  });
+}
+```
+[pairs $(a,b)$ up to 40; blue = no common factor]{.small}
+:::
+::: {.column width="55%"}
+```{ojs}
+viewof nPairs = Inputs.range([100, 1000000], {value: 1000, step: 100, label: "random pairs", transform: Math.log, invert: Math.exp})
+viewof reroll = Inputs.button("Roll again")
+```
+
+```{ojs}
+{
+  reroll;
+  let hit = 0;
+  for (let i = 0; i < nPairs; i++) {
+    const a = 1 + Math.floor(Math.random() * 1e9), b = 1 + Math.floor(Math.random() * 1e9);
+    if (gcd(a, b) === 1) hit++;
+  }
+  const f = hit / nPairs;
+  return html`<p class="readout">fraction coprime = ${f.toFixed(5)}<br>
+  so π ≈ √(6 / fraction) = <b>${Math.sqrt(6 / f).toFixed(5)}</b><br>true π = ${Math.PI.toFixed(5)}</p>`;
+}
+```
+:::
+::::
+
+## Counting primes: Gauss's discovery
+
+Let $\pi(x)$ = **number of primes $\le x$** (just a name, nothing to do with $3.14$).
+
+At age 15 (≈1792), Gauss studied tables of primes and noticed that near $x$, **about 1 in every $\ln x$ numbers is prime**. That suggests
+$$
+\pi(x) \approx \frac{x}{\ln x}
+\qquad\text{or, better,}\qquad
+\pi(x) \approx \operatorname{li}(x) = \int_0^x \frac{dt}{\ln t}\quad(\text{add up the densities}).
+$$
+
+```{ojs}
+viewof logX = Inputs.range([1, 7], {value: 2, step: 0.05, label: "x = 10^"})
+```
+
+```{ojs}
+{
+  const X = Math.pow(10, logX), xs = linspace(2, X, 500);
+  const data = xs.flatMap(x => [
+    {x, y: piCount(x), s: "π(x), actual count"},
+    {x, y: x / Math.log(x), s: "x / ln x"},
+    {x, y: li(x), s: "li(x)"}
+  ]);
+  return Plot.plot({
+    width: 1100, height: 270, style: STYLE, marginLeft: 70,
+    x: {label: "x"}, y: {label: "number of primes", grid: true},
+    color: {legend: true, domain: ["π(x), actual count", "x / ln x", "li(x)"], range: [C.blue, C.gold, C.red]},
+    marks: [Plot.line(data, {x: "x", y: "y", stroke: "s", strokeWidth: 2.5, curve: X < 200 ? "step-after" : "linear"})]
+  });
+}
+```
+
+```{ojs}
+{
+  const X = Math.pow(10, logX);
+  return html`<span class="readout">x = ${fmt(Math.round(X), 0)} : &nbsp; π(x) = ${fmt(piCount(X), 0)}, &nbsp; x/ln x ≈ ${fmt(X / Math.log(X), 0)}, &nbsp; li(x) ≈ ${fmt(li(X), 0)}</span>`;
+}
+```
+
+## The Prime Number Theorem (1896)
+
+::: {.fact}
+$$\lim_{x\to\infty}\frac{\pi(x)}{x/\ln x}=1.$$
+Proved 100 years after Gauss's guess by **Hadamard** and **de la Vallée Poussin**, using Riemann's version of $\zeta$.
+:::
+
+| $x$ | $\pi(x)$ | $\operatorname{li}(x)$ | $\operatorname{li}(x)-\pi(x)$ | $\sqrt{x}$ |
+|---|---:|---:|---:|---:|
+| $10^3$ | 168 | 178 | 10 | 32 |
+| $10^6$ | 78,498 | 78,628 | 130 | 1,000 |
+| $10^9$ | 50,847,534 | 50,849,235 | 1,701 | 31,623 |
+| $10^{18}$ | 24,739,954,287,740,860 | 24,739,954,309,690,415 | 21,949,555 | $10^9$ |
+
+. . .
+
+::: {.big-idea}
+The error is **tiny** next to $\pi(x)$: roughly $\sqrt{x}$ in size. **Is it always?** That question turns out to be the **Riemann Hypothesis**.
+:::
+
+## Are primes as random as coin flips?
+
+A thought experiment (Cramér, 1936): build **fake primes**. Each number $n$ becomes a "prime" by a coin flip that lands heads with probability $1/\ln n$. Then compare the counting error, $\pi(x)-\operatorname{li}(x)$:
+
+```{ojs}
+viewof reroll2 = Inputs.button("New fake primes")
+```
+
+```{ojs}
+{
+  reroll2;
+  const X = 1000000, M = 400, step = X / M, real = [], fake = [];
+  for (let i = 1; i <= M; i++) { const x = i * step; real.push({x, e: piCount(x) - li(x), s: "real primes"}); }
+  for (let r = 0; r < 3; r++) {
+    let c = 0, next = step;
+    for (let n = 3; n <= X; n++) {
+      if (Math.random() < 1 / Math.log(n)) c++;
+      if (n >= next) { fake.push({x: n, e: c - li(n), s: `fake primes #${r + 1}`, r}); next += step; }
+    }
+  }
+  const band = linspace(2700, X, 300).map(x => ({x, hi: Math.sqrt(x) * Math.log(x) / (8 * Math.PI)}));
+  return Plot.plot({
+    width: 1100, height: 400, style: STYLE, marginLeft: 70,
+    x: {label: "x"}, y: {label: "count − li(x)", grid: true},
+    color: {legend: true, domain: ["real primes", "fake primes #1", "fake primes #2", "fake primes #3"], range: [C.red, "#7aa6d6", "#9cc3a9", "#c9a6d6"]},
+    marks: [
+      Plot.areaY(band, {x: "x", y1: d => -d.hi, y2: "hi", fill: C.gold, fillOpacity: 0.15}),
+      Plot.line(fake, {x: "x", y: "e", stroke: "s", z: "r", strokeWidth: 1.5}),
+      Plot.line(real, {x: "x", y: "e", stroke: "s", strokeWidth: 3.5}),
+      Plot.ruleY([0])
+    ]
+  });
+}
+```
+
+[Gold band: $\pm\frac{1}{8\pi}\sqrt{x}\,\ln x$. The real primes stay inside it *if and only if* the Riemann Hypothesis is true.]{.small}
+
+## Part II · Riemann (1859): what if $p \le 1$?
+
+**Bernhard Riemann** wrote just **one** paper on primes: *"On the number of primes less than a given magnitude"* (1859). His idea:
+
+::: {.big-idea}
+Make sense of $\zeta(p)$ for **every** $p$, not just $p>1$, and the primes will reveal their secrets.
+:::
+
+But wait: for $p\le 1$ the series $\sum 1/k^p$ **diverges**. How can $\zeta(p)$ have a value there?
+
+. . .
+
+**Trick: use an alternating series.** Flip every other sign:
+$$
+\eta(p) = 1-\frac{1}{2^p}+\frac{1}{3^p}-\frac{1}{4^p}+\cdots
+$$
+By the **alternating series test**, this converges for **every $p>0$**.
+
+## Rescuing $\zeta$ with algebra
+
+For $p>1$, subtract the two series:
+$$
+\begin{aligned}
+\zeta(p)-\eta(p) &= 2\Big(\frac{1}{2^p}+\frac{1}{4^p}+\frac{1}{6^p}+\cdots\Big)
+= \frac{2}{2^{p}}\Big(1+\frac{1}{2^p}+\frac{1}{3^p}+\cdots\Big) = 2^{1-p}\,\zeta(p)\\[4pt]
+\Longrightarrow\quad \zeta(p) &= \frac{\eta(p)}{1-2^{1-p}}.
+\end{aligned}
+$$
+
+The right side makes sense for **all $p>0$** except $p=1$. So we **use it as the definition** of $\zeta(p)$ for $0<p<1$.
+
+```{ojs}
+viewof pH = Inputs.range([0.05, 0.95], {value: 0.5, step: 0.05, label: "p"})
+```
+
+```{ojs}
+{
+  const pts = []; let s = 0;
+  for (let k = 1; k <= 60; k++) { s += (k % 2 ? 1 : -1) * Math.pow(k, -pH); pts.push({k, s}); }
+  return Plot.plot({
+    width: 1100, height: 155, style: STYLE, marginLeft: 60,
+    x: {label: "terms of η(p)"}, y: {label: "partial sum", grid: true},
+    marks: [
+      Plot.line(pts, {x: "k", y: "s", stroke: C.blue, strokeWidth: 2}),
+      Plot.dot(pts, {x: "k", y: "s", fill: C.blue, r: 3}),
+      Plot.ruleY([eta(pH)], {stroke: C.red, strokeDasharray: "6,4", strokeWidth: 2})
+    ]
+  });
+}
+```
+
+```{ojs}
+html`<span class="readout">η(${pH.toFixed(2)}) = ${eta(pH).toFixed(6)} &nbsp; ⟹ &nbsp; ζ(${pH.toFixed(2)}) = ${zeta(pH).toFixed(6)}</span>`
+```
+
+[Even though $\sum 1/k^{p}$ diverges here, $\zeta(p)$ now has a value, and it's **negative**!]{.small}
+
+## The whole graph of $\zeta(p)$
+
+For $p\le 0$ Riemann found a **mirror formula** relating $\zeta(p)$ to $\zeta(1-p)$:
+$$
+\zeta(p) = 2^{p}\,\pi^{p-1}\,{\color{#b4451f}\sin\!\Big(\frac{\pi p}{2}\Big)}\,\Gamma(1-p)\,\zeta(1-p)
+\qquad(\Gamma = \text{"factorial" for non-integers}).
+$$
+The sine is $0$ at $p=-2,-4,-6,\dots$, so $\zeta$ has **zeros** there (the *trivial zeros*).
+
+:::: {.columns}
+::: {.column width="50%"}
+```{ojs}
+{
+  const left = linspace(-4, 0.999, 400), right = linspace(1.001, 6, 300);
+  const d = [...left, ...right].map(p => ({p, z: zeta(p), side: p < 1 ? "L" : "R"})).filter(d => Math.abs(d.z) < 8);
+  return Plot.plot({
+    width: 560, height: 360, style: STYLE, marginLeft: 50, clip: true,
+    x: {label: "p"}, y: {label: "ζ(p)", domain: [-6, 6], grid: true},
+    marks: [
+      Plot.ruleY([0]), Plot.ruleX([1], {stroke: C.gray, strokeDasharray: "4,4"}),
+      Plot.line(d, {x: "p", y: "z", z: "side", stroke: C.blue, strokeWidth: 3}),
+      Plot.dot([{p: 0, z: -0.5}, {p: -1, z: -1/12}, {p: 0.5, z: zeta(0.5)}], {x: "p", y: "z", r: 6, fill: C.red}),
+      Plot.text([{p: 0, z: -0.5, t: "ζ(0) = −1/2"}, {p: -1, z: -1/12, t: "ζ(−1) = −1/12"}], {x: "p", y: "z", text: "t", dy: 24, fontSize: 16, fill: C.red})
+    ]
+  });
+}
+```
+:::
+::: {.column width="50%"}
+```{ojs}
+{
+  const d = linspace(-15, -0.5, 800).map(p => ({p, z: zeta(p)}));
+  return Plot.plot({
+    width: 560, height: 360, style: STYLE, marginLeft: 60, clip: true,
+    x: {label: "p   (zoomed in on negative p)"}, y: {label: null, domain: [-0.1, 0.1], grid: true},
+    marks: [
+      Plot.ruleY([0]),
+      Plot.line(d.filter(d => Math.abs(d.z) < 0.2), {x: "p", y: "z", stroke: C.blue, strokeWidth: 3}),
+      Plot.dot([-2, -4, -6, -8, -10, -12, -14], {x: d => d, y: 0, r: 6, fill: C.red})
+    ]
+  });
+}
+```
+:::
+::::
+
+[About "$1+2+3+\cdots=-\frac{1}{12}$": that series **diverges** ($p=-1$). What's true is that Riemann's extended function has $\zeta(-1)=-\frac1{12}$.]{.small}
+
+## Going 2D: inputs that are points
+
+Riemann went further: he fed $\zeta$ inputs that are **points $(x,y)$ in the plane**. (The official language is *complex numbers*, but we can do it with arrows.)
+
+::: {.fact}
+For the point $(x,y)$, the term $\dfrac{1}{k^{p}}$ becomes an **arrow** of length $\dfrac{1}{k^{x}}$ turned by angle $y\ln k$.<br>
+$\zeta(x,y)$ = where you land after placing all the arrows **tip to tail**.
+:::
+
+- When $y=0$ the arrows all point the same way: it's our old $p$-series with $p=x$.
+- **Total length of the path** $=\sum 1/k^{x}$, which is a $p$-series! It's finite exactly when $x>1$.
+- For $0<x\le 1$ we use the alternating version $\eta$ (flip every other arrow) and divide by $1-2^{1-p}$ as before.
+
+. . .
+
+::: {.big-idea}
+A **zero** of $\zeta$ is a point $(x,y)$ where the arrow path ends **exactly back at the start**.
+:::
+
+## Hunt for a zero yourself
+
+```{ojs}
+viewof xA = Inputs.range([0.1, 1.5], {value: 0.5, step: 0.01, label: "x"})
+viewof yA = Inputs.range([0, 50], {value: 10, step: 0.001, label: "y"})
+```
+
+```{ojs}
+yUse = yA
+{
+  const N = 3000, pts = [{k: 0, X: 0, Y: 0}];
+  let X = 0, Y = 0;
+  for (let k = 1; k <= N; k++) {
+    const r = (k % 2 ? 1 : -1) * Math.pow(k, -xA), a = -yUse * Math.log(k);
+    X += r * Math.cos(a); Y += r * Math.sin(a);
+    pts.push({k, X, Y});
+  }
+  const end = {X: (pts[N].X + pts[N - 1].X) / 2, Y: (pts[N].Y + pts[N - 1].Y) / 2};
+  const dist = Math.hypot(end.X, end.Y);
+  const plot = Plot.plot({
+    width: 760, height: 470, style: STYLE, aspectRatio: 1, inset: 10, marginLeft: 55,
+    x: {label: null}, y: {label: null},
+    marks: [
+      Plot.line(pts.slice(0, 400), {x: "X", y: "Y", stroke: C.blue, strokeWidth: 1.5}),
+      Plot.line(pts.slice(399), {x: "X", y: "Y", stroke: C.blue, strokeOpacity: 0.35}),
+      Plot.dot([{X: 0, Y: 0}], {x: "X", y: "Y", r: 9, stroke: C.green, strokeWidth: 3}),
+      Plot.dot([end], {x: "X", y: "Y", r: 6, fill: C.red}),
+      Plot.text([{X: 0, Y: 0}], {x: "X", y: "Y", text: () => "start", dy: -18, fill: C.green, fontSize: 16})
+    ]
+  });
+  return html`<div style="display:flex;gap:30px;align-items:center">${plot}
+  <div style="font-size:0.7em">
+  <p>Arrow k: length 1/k<sup>${xA.toFixed(2)}</sup>, turned by ${yUse.toFixed(3)}·ln k</p>
+  <p class="readout">distance from end (red) to start (green):<br><b style="font-size:1.3em">${dist.toFixed(4)}</b></p>
+  <p>${dist < 0.01 ? "🎯 <b>You found a zero!</b>" : "Type x = 0.5 and y = 14.1347 (or 21.0220, or 25.0109) in the boxes"}</p>
+  <p class="muted">Then move x away from 0.5: the path never closes again.</p></div></div>`;
+}
+```
+
+## The Riemann Hypothesis
+
+```{ojs}
+{
+  const trivial = [-2, -4, -6, -8, -10, -12].map(x => ({x, y: 0}));
+  const nontriv = ZEROS.filter(g => g < 60).flatMap(g => [{x: 0.5, y: g}, {x: 0.5, y: -g}]);
+  return Plot.plot({
+    width: 1150, height: 440, style: STYLE, marginLeft: 50,
+    x: {domain: [-13, 4], label: "x"}, y: {domain: [-60, 60], label: "y", grid: true},
+    marks: [
+      Plot.rect([{x1: 0, x2: 1, y1: -60, y2: 60}], {x1: "x1", x2: "x2", y1: "y1", y2: "y2", fill: C.gold, fillOpacity: 0.18}),
+      Plot.rect([{x1: 1, x2: 4, y1: -60, y2: 60}], {x1: "x1", x2: "x2", y1: "y1", y2: "y2", fill: C.green, fillOpacity: 0.12}),
+      Plot.ruleX([0.5], {stroke: C.red, strokeDasharray: "6,4"}),
+      Plot.ruleY([0]), Plot.ruleX([0]),
+      Plot.dot(trivial, {x: "x", y: "y", r: 6, fill: C.blue}),
+      Plot.dot(nontriv, {x: "x", y: "y", r: 5, fill: C.red}),
+      Plot.text([{x: 2.5, y: 50, t: "p-series converges\n(no zeros here)"}], {x: "x", y: "y", text: "t", fontSize: 16, fill: C.green}),
+      Plot.text([{x: -7, y: 8, t: "trivial zeros  −2, −4, −6, …"}], {x: "x", y: "y", text: "t", fontSize: 16, fill: C.blue}),
+      Plot.text([{x: 0.5, y: 63, t: "x = 1/2"}], {x: "x", y: "y", text: "t", fontSize: 16, fill: C.red, dy: 8})
+    ]
+  });
+}
+```
+
+::: {.big-idea}
+**Riemann Hypothesis (1859).** Apart from $-2,-4,-6,\dots$, every zero of $\zeta$ lies on the line $x = \tfrac12$.
+:::
+
+[More than 10 trillion zeros have been checked: all on the line. No proof. Since 2000 it's one of the Clay Institute's **\$1,000,000 Millennium Prize Problems**.]{.small}
+
+## Walking up the line $x=\tfrac12$
+
+On the critical line, the size of $\zeta$ is given by a **real** function built from **cosines and logs** (Riemann–Siegel):
+$$
+Z(y) \approx 2\sum_{k\le\sqrt{y/2\pi}} \frac{\cos\!\big(\theta(y) - y\ln k\big)}{\sqrt{k}},
+\qquad \theta(y)\approx \frac{y}{2}\ln\frac{y}{2\pi}-\frac{y}{2}-\frac{\pi}{8}.
+$$
+Every time $Z$ crosses zero, we've found a zero of $\zeta$ **on the line**.
+
+```{ojs}
+viewof Ymax = Inputs.range([30, 300], {value: 60, step: 5, label: "walk up to y ="})
+```
+
+```{ojs}
+{
+  const d = linspace(9, Ymax, 2500).map(y => ({y, z: hardyZ(y)}));
+  const zs = ZEROS.filter(g => g <= Ymax);
+  return Plot.plot({
+    width: 1150, height: 270, style: STYLE, marginLeft: 50,
+    x: {label: "y (height on the line x = 1/2)"}, y: {label: "Z(y)", grid: true},
+    marks: [
+      Plot.ruleY([0]),
+      Plot.line(d, {x: "y", y: "z", stroke: C.blue, strokeWidth: 2}),
+      Plot.dot(zs, {x: d => d, y: 0, r: 4, fill: C.red})
+    ]
+  });
+}
+```
+
+```{ojs}
+html`<span class="readout">${ZEROS.filter(g => g <= Ymax).length} zeros found up to height ${Ymax}, all on the line</span>`
+```
+
+## The music of the primes
+
+Riemann's **explicit formula**: the zeros build the primes. Take a staircase that steps up by $\ln q$ at each prime $q$ (and prime power):
+$$
+\text{staircase}(x) = x \;-\; \sum_{\text{zeros } y} \frac{2\sqrt{x}\,\big(\tfrac12\cos(y\ln x) + y\sin(y\ln x)\big)}{\tfrac14+y^{2}} \;-\;\ln(2\pi)-\tfrac12\ln\!\big(1-x^{-2}\big)
+$$
+Each zero adds a **wave**: its height $y$ sets the **pitch**, and $\sqrt{x}$ (the $\tfrac12$ in $x=\tfrac12$!) sets the **volume**.
+
+```{ojs}
+viewof K = Inputs.range([0, ZEROS.length], {value: 0, step: 1, label: "number of zeros (waves) used"})
+viewof Xm = Inputs.range([20, 150], {value: 50, step: 5, label: "x up to"})
+```
+
+```{ojs}
+{
+  const steps = psiSteps(Xm), zs = ZEROS.slice(0, K);
+  const wave = linspace(2, Xm, 1500).map(x => ({x, y: explicitPsi(x, zs)}));
+  const pr = primesUpTo(Xm);
+  return Plot.plot({
+    width: 1150, height: 205, style: STYLE, marginLeft: 50,
+    x: {label: "x"}, y: {label: null, grid: true},
+    color: {legend: true, domain: ["prime staircase", `x + ${K} waves`], range: [C.blue, C.red]},
+    marks: [
+      Plot.ruleX(pr, {stroke: C.gray, strokeOpacity: 0.35}),
+      Plot.line(steps, {x: "x", y: "y", stroke: () => "prime staircase", strokeWidth: 3}),
+      Plot.line(wave, {x: "x", y: "y", stroke: () => `x + ${K} waves`, strokeWidth: 1.8})
+    ]
+  });
+}
+```
+
+[Slide the number of zeros up: the smooth line $y=x$ grows sharp steps exactly at the primes (gray lines).]{.small}
+
+## Why the line $x=\tfrac12$ matters
+
+Each zero at $(x_0, y)$ adds a wave of size about $\text{(input)}^{x_0}$ to the prime count.
+
+- All zeros on $x_0=\tfrac12$ $\Rightarrow$ every wave has size $\approx \sqrt{x}$ $\Rightarrow$ the **error in counting primes is as small as it can be**, like coin flips.
+- A single zero at $x_0 = 0.7$ $\Rightarrow$ a wave of size $x^{0.7}$, much louder. The primes would be **less regular** than random.
+
+::: {.big-idea}
+$$\textbf{Riemann Hypothesis}\iff |\pi(x)-\operatorname{li}(x)| < \tfrac{1}{8\pi}\sqrt{x}\,\ln x \ \text{ for all } x\ge 2657.$$
+"The primes are as evenly spread as they possibly could be."
+:::
+
+. . .
+
+Why care? Prime numbers secure every online purchase (RSA encryption), and hundreds of theorems begin with *"Assuming the Riemann Hypothesis…"*.
+
+## Breaking news (Oct 2026): an AI proves "quasi-RH"
+
+Since 1896 we've known the nontrivial zeros sit in the strip $0 < x < 1$. The **quasi-Riemann Hypothesis**: prove they sit in some **narrower** strip.
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {style="font-size:0.8em"}
+- **Oct 6, 2026:** OpenAI released proofs written by an internal AI model:
+  - 199 pages, **checked by computer (Lean)**: zeros have $\tfrac18 < x < \tfrac78$ (the stronger result)
+  - a shorter 49-page proof of a slightly **wider** strip, $\tfrac1{12} < x < \tfrac{11}{12}$, easier for humans to check
+- "the vast majority of consequences of RH already follow from quasi-RH" (M. Radziwiłł, NYU)
+- **Still open:** are the zeros exactly on $x=\tfrac12$? The \$1M is unclaimed.
+:::
+:::
+::: {.column width="45%"}
+```{ojs}
+{
+  const names = ["known (1896)", "AI, 49 pages", "AI, Lean-checked", "RH (open)"];
+  const bands = [
+    {x1: 0, x2: 1, a: "0", b: "1", c: C.gray},
+    {x1: 1/12, x2: 11/12, a: "1/12", b: "11/12", c: C.green},
+    {x1: 1/8, x2: 7/8, a: "1/8", b: "7/8", c: C.gold},
+    {x1: 0.49, x2: 0.51, a: "", b: "½ only", c: C.red}
+  ].map((d, i) => ({...d, y: names[i]}));
+  return Plot.plot({
+    width: 560, height: 300, style: STYLE, marginLeft: 150, marginRight: 30, marginBottom: 45,
+    x: {domain: [0, 1], label: "x (real part of the zeros)", ticks: [0, 0.5, 1], tickFormat: d => ({0: "0", 0.5: "½", 1: "1"})[d]},
+    y: {domain: names, label: null},
+    marks: [
+      Plot.barX(bands, {x1: "x1", x2: "x2", y: "y", fill: "c", fillOpacity: 0.8, insetTop: 10, insetBottom: 10}),
+      Plot.text(bands, {x: "x1", y: "y", text: "a", dy: -22, fontSize: 14}),
+      Plot.text(bands, {x: "x2", y: "y", text: "b", dy: -22, fontSize: 14}),
+      Plot.ruleX([0.5], {stroke: C.red, strokeDasharray: "4,4"})
+    ]
+  });
+}
+```
+[Where the zeros are allowed to be. Narrower strip = tighter control of the primes.]{.small}
+:::
+::::
+
+[Source: Quanta Magazine, "AI Proved the Quasi-Riemann Hypothesis. What Happens Now?" (Oct 19, 2026).]{.small}
+
+## The whole journey
+
+::: {.chain}
+[$\sum \frac{1}{k^p}$: converges iff $p>1$]{.step} →
+[$\zeta(p)$, with $\zeta(2)=\frac{\pi^2}{6}$]{.step} →
+[geometric series + unique factorization]{.step} →
+[Euler product $\prod \frac{1}{1-q^{-p}}$]{.step} →
+[harmonic diverges ⇒ ∞ many primes]{.step} →
+[counting primes: $\pi(x)\approx \operatorname{li}(x)$]{.step} →
+[alternating series: $\zeta$ for $0<p<1$]{.step} →
+[2D inputs: arrows]{.step} →
+[zeros ↔ waves in the primes]{.step} →
+[2026: AI proves quasi-RH, zeros in $\frac18<x<\frac78$]{.step} →
+[**RH: all zeros on $x=\frac12$**]{.step}
+:::
+
+. . .
+
+Everything started with the test you learned this week.
+
+**Want more?**
+
+- 3Blue1Brown, *Visualizing the Riemann zeta function and analytic continuation* (YouTube)
+- John Derbyshire, *Prime Obsession* (alternates chapters of history and math, written for non-mathematicians)
+- Marcus du Sautoy, *The Music of the Primes*
+- Numberphile, *The Riemann Hypothesis* (YouTube)
