@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 | 11 | 11/9 | 9.3. Infinite Series: Geometric Series | [Note](notes/note18_annotated.pdf) <br> [In-Class Problems](class_work/geometric_series_worksheet.pdf), [Solutions](class_work/geometric_series_solutions.html) |
 |  | 11/12 | 9.3. Infinite Series: Telescoping Sums | [Note](notes/note19_annotated.pdf) <br> [In-Class Problems](class_work/telescoping_series_worksheet.pdf), [Solutions](class_work/telescoping_series_solutions.pdf) |
 | 12 | 11/16 | 9.4. Harmonic Series and $p$-Series <br> 9.7. Maclaurin and Taylor Polynomials | [Note](notes/note20_annotated.pdf) <br> [In-Class Problems (9.4)](class_work/p_series_worksheet.pdf), [Solutions](class_work/p_series_solutions.html) <br> [In-Class Problems (9.7)](class_work/taylor_polynomials_worksheet.pdf), [Solutions](class_work/taylor_polynomials_solutions.pdf) |
-|  | 11/19 | Exam 3's Review | [Practice 1](exams/exam3/exam3_practice1.pdf), [Solutions](exams/exam3/exam3_practice1_sol.pdf) <br> [Practice 2](exams/exam3/exam3_practice2.pdf), [Solutions](exams/exam3/exam3_practice2_sol.pdf) <br> [Practice 3](exams/exam3/exam3_practice3.pdf), [Solutions](exams/exam3/exam3_practice3_sol.pdf) |
+|  | 11/19 | Exam 3's Review | [Practice 1](exams/exam3/exam3_practice1.pdf), [Solutions](exams/exam3/exam3_practice1_sol.pdf) <br> [Practice 2](exams/exam3/exam3_practice2.pdf), [Solutions](exams/exam3/exam3_practice2_sol.pdf) <br> [Practice 3](exams/exam3/exam3_practice3.pdf), [Solutions](exams/exam3/exam3_practice3_sol.pdf) <br> [Practice 4](exams/exam3/exam3_practice4.pdf), [Solutions](exams/exam3/exam3_practice4_sol.pdf) |
 | 13 | 11/23 | Exam 3 |  |
 |  | 11/26 | Thanksgiving Recess (no class) |  |
 | 14 | 11/30 |  |  |

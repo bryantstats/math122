@@ -1,0 +1,216 @@
+---
+title: "MATH 122 — Exam 3 Practice 4: Solutions"
+format:
+  pdf:
+    documentclass: article
+    papersize: letter
+    fontsize: 11pt
+    geometry:
+      - margin=0.75in
+    include-in-header:
+      text: |
+        \pagestyle{plain}
+        \usepackage{enumitem}
+        \setlist{nosep}
+---
+
+## Problem 1 (Section 9.1: L'Hôpital's Rule)
+
+Determine whether $\left\{ \dfrac{\ln n}{\sqrt{n}} \right\}_{n=1}^{+\infty}$ converges. If it converges, find its limit.
+
+### Solution
+
+Let $f(x) = \dfrac{\ln x}{\sqrt{x}}$. As $x \to +\infty$ this has the form $\dfrac{\infty}{\infty}$. Apply L'Hôpital's Rule (using $\dfrac{d}{dx}\sqrt{x} = \dfrac{1}{2\sqrt{x}}$):
+$$
+\lim_{x\to+\infty} \frac{\ln x}{\sqrt{x}} = \lim_{x\to+\infty} \frac{1/x}{\frac{1}{2\sqrt{x}}} = \lim_{x\to+\infty} \frac{2\sqrt{x}}{x} = \lim_{x\to+\infty} \frac{2}{\sqrt{x}} = 0.
+$$
+
+**Answer:** the sequence converges to $0$.
+
+---
+
+## Problem 2 (Section 9.1: Squeezing Theorem)
+
+Find $\displaystyle\lim_{n\to+\infty} \frac{n\cos n}{n^{2} + 1}$.
+
+### Solution
+
+Since $-1 \le \cos n \le 1$ and $\dfrac{n}{n^2+1} > 0$,
+$$
+-\frac{n}{n^{2} + 1} \le \frac{n\cos n}{n^{2} + 1} \le \frac{n}{n^{2} + 1}.
+$$
+Dividing top and bottom by $n^2$:
+$$
+\lim_{n\to+\infty} \frac{n}{n^{2} + 1} = \lim_{n\to+\infty} \frac{\frac1n}{1 + \frac{1}{n^{2}}} = \frac{0}{1} = 0,
+$$
+so both bounds go to $0$. By the Squeezing Theorem:
+
+**Answer:** $\displaystyle\lim_{n\to+\infty} \frac{n\cos n}{n^{2} + 1} = 0$.
+
+---
+
+## Problem 3 (Section 9.1: Squeezing Theorem)
+
+Find $\displaystyle\lim_{n\to+\infty} \left(2^{n} + 3^{n} + 4^{n}\right)^{1/n}$.
+
+### Solution
+
+Since $0 < 2^n \le 4^n$ and $0 < 3^n \le 4^n$,
+$$
+4^{n} \le 2^{n} + 3^{n} + 4^{n} \le 4^{n} + 4^{n} + 4^{n} = 3 \cdot 4^{n}.
+$$
+Take the $n$th root of each part:
+$$
+4 \le \left(2^{n} + 3^{n} + 4^{n}\right)^{1/n} \le 3^{1/n} \cdot 4.
+$$
+Since $3^{1/n} \to 3^{0} = 1$, the right side goes to $4$, and the left side is the constant $4$. By the Squeezing Theorem:
+
+**Answer:** $\displaystyle\lim_{n\to+\infty} \left(2^{n} + 3^{n} + 4^{n}\right)^{1/n} = 4$.
+
+---
+
+## Problem 4 (Section 9.1: Recursive Sequences)
+
+Assume the sequence $a_1 = 2$, $a_{n+1} = 2 + \dfrac{8}{a_n}$ converges and all of its terms are positive. Find its limit.
+
+### Solution
+
+Let $L = \lim_{n\to+\infty} a_n$. Then also $a_{n+1} \to L$. Take the limit of both sides of the recursion:
+$$
+L = 2 + \frac{8}{L} \;\Longrightarrow\; L^{2} = 2L + 8 \;\Longrightarrow\; L^{2} - 2L - 8 = 0 \;\Longrightarrow\; (L - 4)(L + 2) = 0.
+$$
+So $L = 4$ or $L = -2$. All terms are positive, so $L \ne -2$.
+
+**Answer:** $L = 4$.
+
+---
+
+## Problem 5 (Section 9.2: Difference Test)
+
+Show that $\left\{ \dfrac{2n + 1}{n + 3} \right\}_{n=1}^{+\infty}$ is strictly increasing or strictly decreasing.
+
+### Solution
+
+$a_n = \dfrac{2n+1}{n+3}$ and $a_{n+1} = \dfrac{2(n+1)+1}{(n+1)+3} = \dfrac{2n+3}{n+4}$. Then
+$$
+\begin{aligned}
+a_{n+1} - a_n &= \frac{2n+3}{n+4} - \frac{2n+1}{n+3} = \frac{(2n+3)(n+3) - (2n+1)(n+4)}{(n+4)(n+3)}\\
+&= \frac{(2n^{2} + 9n + 9) - (2n^{2} + 9n + 4)}{(n+4)(n+3)} = \frac{5}{(n+4)(n+3)}.
+\end{aligned}
+$$
+For $n \ge 1$ the numerator and denominator are both positive, so $a_{n+1} - a_n > 0$.
+
+**Answer:** the sequence is strictly increasing.
+
+---
+
+## Problem 6 (Section 9.2: Ratio Test)
+
+Show that $\left\{ \dfrac{(2n)!}{(n!)^{2}} \right\}_{n=1}^{+\infty}$ is strictly increasing or strictly decreasing.
+
+### Solution
+
+All terms are positive, so we may use the ratio. $a_{n+1} = \dfrac{(2n+2)!}{((n+1)!)^{2}}$, and
+$$
+(2n+2)! = (2n+2)(2n+1)\,(2n)!, \qquad (n+1)! = (n+1)\,n!.
+$$
+So
+$$
+\frac{a_{n+1}}{a_n} = \frac{(2n+2)(2n+1)\,(2n)!}{(n+1)^{2}\,(n!)^{2}} \cdot \frac{(n!)^{2}}{(2n)!} = \frac{2(n+1)(2n+1)}{(n+1)^{2}} = \frac{2(2n+1)}{n+1} = \frac{4n+2}{n+1}.
+$$
+Since $4n + 2 > n + 1$ for $n \ge 1$, we get $\dfrac{a_{n+1}}{a_n} > 1$.
+
+**Answer:** the sequence is strictly increasing.
+
+---
+
+## Problem 7 (Section 9.3: Geometric Series)
+
+Determine whether $\displaystyle\sum_{k=2}^{\infty} \frac{2^{k+1}}{5^{k}} = \frac{8}{25} + \frac{16}{125} + \frac{32}{625} + \cdots$ converges. If it converges, find its sum.
+
+### Solution
+
+The first term ($k = 2$) is $a = \dfrac{2^{3}}{5^{2}} = \dfrac{8}{25}$. Each term is the previous one times $r = \dfrac25$ (check: $\dfrac{8}{25} \cdot \dfrac25 = \dfrac{16}{125}$).
+
+Since $|r| = \dfrac25 < 1$, the series converges, with sum
+$$
+\frac{a}{1 - r} = \frac{8/25}{1 - 2/5} = \frac{8/25}{3/5} = \frac{8}{25} \cdot \frac{5}{3} = \frac{8}{15}.
+$$
+
+**Answer:** converges to $\dfrac{8}{15}$.
+
+---
+
+## Problem 8 (Section 9.3: Telescoping Sums)
+
+Find a closed form for $s_n$ for $\displaystyle\sum_{k=1}^{\infty} \frac{1}{(2k-1)(2k+1)}$, then determine whether the series converges. If it converges, find its sum.
+
+### Solution
+
+Partial fractions: $\dfrac{1}{(2k-1)(2k+1)} = \dfrac{A}{2k-1} + \dfrac{B}{2k+1}$, so $1 = A(2k+1) + B(2k-1)$.
+
+- $k = \tfrac12$: $1 = 2A$, so $A = \tfrac12$.
+- $k = -\tfrac12$: $1 = -2B$, so $B = -\tfrac12$.
+
+So
+$$
+\frac{1}{(2k-1)(2k+1)} = \frac12\left( \frac{1}{2k-1} - \frac{1}{2k+1} \right).
+$$
+Then
+$$
+\begin{aligned}
+s_n &= \frac12 \sum_{k=1}^{n} \left( \frac{1}{2k-1} - \frac{1}{2k+1} \right)\\
+&= \frac12\left[ \left(1 - \frac13\right) + \left(\frac13 - \frac15\right) + \left(\frac15 - \frac17\right) + \cdots + \left(\frac{1}{2n-1} - \frac{1}{2n+1}\right) \right].
+\end{aligned}
+$$
+Everything cancels except the first and last terms:
+$$
+s_n = \frac12\left(1 - \frac{1}{2n+1}\right).
+$$
+Then $\displaystyle\lim_{n\to+\infty} s_n = \frac12(1 - 0) = \frac12$.
+
+**Answer:** $s_n = \dfrac12\left(1 - \dfrac{1}{2n+1}\right)$; the series converges to $\dfrac12$.
+
+---
+
+## Problem 9 (Section 9.4: $p$-Series)
+
+Identify $p$ and determine whether each series converges:
+$$
+\text{(a)}\ \sum_{k=1}^{\infty} \frac{1}{\sqrt[3]{k}} \qquad \text{(b)}\ \sum_{k=1}^{\infty} \frac{k^{2}}{k^{4}\sqrt{k}} \qquad \text{(c)}\ \sum_{k=1}^{\infty} \frac{\sqrt{k}}{k\sqrt{k}}
+$$
+
+### Solution
+
+Recall: $\sum \dfrac{1}{k^p}$ converges if $p > 1$ and diverges if $p \le 1$.
+
+(a) $\dfrac{1}{\sqrt[3]{k}} = \dfrac{1}{k^{1/3}}$, so $p = \dfrac13 \le 1$: **diverges**.
+
+(b) $\dfrac{k^{2}}{k^{4}\cdot k^{1/2}} = \dfrac{1}{k^{4 + 1/2 - 2}} = \dfrac{1}{k^{5/2}}$, so $p = \dfrac52 > 1$: **converges**.
+
+(c) $\dfrac{k^{1/2}}{k\cdot k^{1/2}} = \dfrac{1}{k}$, so $p = 1 \le 1$ (the harmonic series): **diverges**.
+
+---
+
+## Problem 10 (Section 9.7: Taylor Polynomials)
+
+Find the first four Taylor polynomials for $f(x) = \ln x$ about $x = 1$.
+
+### Solution
+
+| $k$ | $f^{(k)}(x)$ | $f^{(k)}(1)$ |
+|:-:|:-:|:-:|
+| 0 | $\ln x$ | $0$ |
+| 1 | $\dfrac{1}{x}$ | $1$ |
+| 2 | $-\dfrac{1}{x^{2}}$ | $-1$ |
+| 3 | $\dfrac{2}{x^{3}}$ | $2$ |
+
+Substituting into $p_n(x) = \displaystyle\sum_{k=0}^{n} \frac{f^{(k)}(1)}{k!}(x-1)^k$:
+$$
+\begin{aligned}
+p_0(x) &= 0\\
+p_1(x) &= (x-1)\\
+p_2(x) &= (x-1) - \frac{1}{2!}(x-1)^2 = (x-1) - \tfrac12(x-1)^2\\
+p_3(x) &= (x-1) - \tfrac12(x-1)^2 + \frac{2}{3!}(x-1)^3 = (x-1) - \tfrac12(x-1)^2 + \tfrac13(x-1)^3
+\end{aligned}
+$$
