@@ -110,15 +110,15 @@ For $n \ge 1$, $n + n^2 \ge 2 > 1$, so the numerator $1 - n - n^2 < 0$, while th
 
 ## Problem 6 (Section 9.2: Ratio Test)
 
-Show that $\left\{ \dfrac{n!}{n^{n}} \right\}_{n=1}^{+\infty}$ is strictly increasing or strictly decreasing.
+Show that $\left\{ \dfrac{n^{2}}{5^{n}} \right\}_{n=1}^{+\infty}$ is strictly increasing or strictly decreasing.
 
 ### Solution
 
-All terms are positive, so we may use the ratio. $a_{n+1} = \dfrac{(n+1)!}{(n+1)^{n+1}}$, and $(n+1)! = (n+1)\,n!$, $(n+1)^{n+1} = (n+1)(n+1)^n$, so
+All terms are positive, so we may use the ratio. $a_{n+1} = \dfrac{(n+1)^{2}}{5^{n+1}}$, and $5^{n+1} = 5 \cdot 5^{n}$, so
 $$
-\frac{a_{n+1}}{a_n} = \frac{(n+1)\,n!}{(n+1)(n+1)^{n}} \cdot \frac{n^{n}}{n!} = \frac{n^{n}}{(n+1)^{n}} = \left(\frac{n}{n+1}\right)^{n}.
+\frac{a_{n+1}}{a_n} = \frac{(n+1)^{2}}{5 \cdot 5^{n}} \cdot \frac{5^{n}}{n^{2}} = \frac{1}{5}\left(\frac{n+1}{n}\right)^{2} = \frac{1}{5}\left(1 + \frac1n\right)^{2}.
 $$
-Since $0 < \dfrac{n}{n+1} < 1$, any positive power of it is also less than $1$, so $\dfrac{a_{n+1}}{a_n} < 1$.
+For $n \ge 1$, $1 + \dfrac1n \le 2$, so $\dfrac{a_{n+1}}{a_n} \le \dfrac{2^{2}}{5} = \dfrac45 < 1$.
 
 **Answer:** the sequence is strictly decreasing.
 

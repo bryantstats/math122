@@ -84,7 +84,7 @@ $$\left\{ \frac{n}{n^{2} + 1} \right\}_{n=1}^{+\infty}$$
 ```
 
 **6.** (10 points) Use the ratio $a_{n+1}/a_n$ to show that the sequence is strictly increasing or strictly decreasing.
-$$\left\{ \frac{n!}{n^{n}} \right\}_{n=1}^{+\infty}$$
+$$\left\{ \frac{n^{2}}{5^{n}} \right\}_{n=1}^{+\infty}$$
 
 ```{=latex}
 \vfill

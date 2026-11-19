@@ -83,7 +83,7 @@ $$\left\{ \frac{2n + 1}{n + 3} \right\}_{n=1}^{+\infty}$$
 ```
 
 **6.** (10 points) Use the ratio $a_{n+1}/a_n$ to show that the sequence is strictly increasing or strictly decreasing.
-$$\left\{ \frac{(2n)!}{(n!)^{2}} \right\}_{n=1}^{+\infty}$$
+$$\left\{ \frac{5^{n}}{n^{2}} \right\}_{n=1}^{+\infty}$$
 
 ```{=latex}
 \vfill
